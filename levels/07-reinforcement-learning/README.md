@@ -1,12 +1,18 @@
-# Level 7: Reinforcement Learning
+# Level 7: Reinforcement Learning Analysis
 
 ## Goal
 
-Train or evaluate an agent through experience using environment rollouts, rewards, and reproducible experiments.
+Analyze whether and how an agent could improve through experience using environment rollouts, rewards, and reproducible experiments.
 
 Level 6 asked: can we create a world where the agent can practice?
 
-Level 7 asks: can experience improve behavior?
+Level 7 asks: can experience improve behavior, and how would we know?
+
+## Scope
+
+Level 7 is currently a reading-and-analysis level until the repo has a working Acme Corp Simulator, rollout infrastructure, compute requirements, and reference training scripts.
+
+Running RL training is an optional advanced implementation path, not a default course completion requirement.
 
 ## Learning Outcomes
 
@@ -17,13 +23,13 @@ By the end of this level, learners can:
 3. Design rewards that are useful without being easily exploited.
 4. Generate and filter rollouts.
 5. Understand RLHF, RLVR, PPO, and GRPO conceptually.
-6. Run a small training experiment or produce a rigorous experiment design.
-7. Evaluate the trained agent against the same benchmark used earlier.
+6. Produce a rigorous training experiment design.
+7. Evaluate any trained agent against the same benchmark used earlier.
 8. Analyze learning curves and failure modes after training.
 
 ## Required Build
 
-Learners use Acme Corp Simulator from Level 6 to generate rollouts and test whether training through experience improves the agent.
+Learners use Acme Corp Simulator from Level 6 to generate or inspect rollouts and design an experiment that could test whether training through experience improves the agent.
 
 ## Training Loop
 
@@ -71,7 +77,7 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 
 ## Project
 
-The Level 7 project is [Train an Agent Through Experience](project/train-agent-through-experience.md).
+The Level 7 project is [Train an Agent Through Experience](project/train-agent-through-experience.md). In the current repo maturity stage, this is an analysis project. A training implementation path should be enabled only after the environment and training scripts exist.
 
 ## Exit Criteria
 
@@ -80,8 +86,7 @@ To complete Level 7, the learner must submit:
 1. An RL framing of the Acme environment.
 2. Rollout data with rewards and termination reasons.
 3. Reward hacking risk analysis.
-4. A training configuration or rigorous experiment design.
-5. Learning curves if training is run.
+4. A rigorous experiment design.
+5. Learning curves and training logs if optional training is run.
 6. Evaluation against the Level 2 benchmark.
 7. Failure analysis comparing pre-training and post-training behavior.
-

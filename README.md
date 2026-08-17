@@ -2,9 +2,15 @@
 
 Applied Agent Engineering is the discipline of building AI systems whose behavior can be measured, diagnosed, improved, and owned.
 
-This repository is an open-source curriculum and lab environment for developing applied AI and ML talent. The goal is not just to teach people how to build agents. The goal is to train engineers who can help organizations use proprietary data responsibly, improve local or open models, evaluate behavior rigorously, and own more of their AI stack.
+This repository is an open-source curriculum and lab environment for developing applied AI systems talent. The goal is not just to teach people how to build agents. The goal is to train engineers who can help organizations evaluate AI behavior rigorously, use proprietary data responsibly, decide when local or open model improvement is justified, and own more of their AI stack.
 
 Agents are the course's practical vehicle because they expose the full applied AI loop: tool use, workflow integration, evals, failure diagnosis, data generation, model adaptation, simulated environments, and reinforcement learning.
+
+## Maturity
+
+This repo is currently a curriculum specification under active construction, not a finished executable course.
+
+The immediate build priority is to make Levels 1-2 runnable with code, fixtures, reference solutions, automated checks, and a 100-task golden benchmark. See [STATUS.md](STATUS.md) and [ROADMAP.md](ROADMAP.md).
 
 The course is organized around a simple progression:
 
@@ -22,10 +28,12 @@ Learners are trained to become engineers who can:
 - evaluate model and agent behavior with reproducible benchmarks
 - diagnose failures from traces instead of guessing
 - convert proprietary workflow data into defensible datasets
-- improve local or open models through post-training
+- decide when local or open model improvement is justified
 - compare local models, frontier APIs, retrieval, prompting, and tooling honestly
 - design simulated environments where agents can practice safely
 - help companies reduce dependency on black-box AI systems where appropriate
+
+The core Levels 1-4 train agentic systems engineering, evaluation, diagnosis, and data curation. Actual model training is an advanced optional track that requires additional prerequisites, compute, and executable training infrastructure.
 
 ## Learning Model
 
@@ -54,15 +62,17 @@ The agent is not the final point. It is the scaffold for learning how proprietar
 | 2 | Evaluate | Create reproducible evals, graders, and benchmark reports. |
 | 3 | Diagnose | Analyze trajectories and classify agent failures with evidence. |
 | 4 | Data and Feedback | Turn traces, failures, and human corrections into defensible datasets. |
-| 5 | Post-training | Compare prompting, frontier models, and fine-tuned open models. |
+| 5A | Model Improvement Decisions | Decide whether prompting, retrieval, tooling, frontier APIs, or local model adaptation is the right intervention. |
+| 5B | Post-training Implementation | Run GPU-backed SFT/LoRA experiments and compare adapted local models. |
 | 6 | Environments | Build simulated domains where agents can practice safely. |
-| 7 | Reinforcement Learning | Train agents through rollouts, rewards, and experience. |
+| 7 | RL Reading and Analysis | Analyze rollouts, rewards, RLHF/RLVR, PPO/GRPO, and reward hacking. Optional training requires real compute and supervision. |
 
 ## Repository Map
 
 ```text
 curriculum/
   framework.md
+  references.md
   syllabus.md
 
 levels/
@@ -96,11 +106,8 @@ After Level 4, learners can choose one or more tracks:
 
 1. Read [curriculum/framework.md](curriculum/framework.md).
 2. Read [curriculum/mental-models.md](curriculum/mental-models.md).
-3. Read [curriculum/syllabus.md](curriculum/syllabus.md).
-4. Start Level 1 in [levels/01-build/README.md](levels/01-build/README.md).
-5. Continue to Level 2 in [levels/02-evaluate/README.md](levels/02-evaluate/README.md).
-6. Continue to Level 3 in [levels/03-diagnose/README.md](levels/03-diagnose/README.md).
-7. Continue to Level 4 in [levels/04-data/README.md](levels/04-data/README.md).
-8. Start the first advanced specialization in [levels/05-post-training/README.md](levels/05-post-training/README.md).
-9. Build simulated practice worlds in [levels/06-environments/README.md](levels/06-environments/README.md).
-10. Finish with reinforcement learning in [levels/07-reinforcement-learning/README.md](levels/07-reinforcement-learning/README.md).
+3. Read [curriculum/references.md](curriculum/references.md).
+4. Read [curriculum/feedback-and-assessment.md](curriculum/feedback-and-assessment.md).
+5. Read [curriculum/syllabus.md](curriculum/syllabus.md).
+6. Check current maturity in [STATUS.md](STATUS.md).
+7. Start Level 1 in [levels/01-build/README.md](levels/01-build/README.md).

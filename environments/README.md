@@ -1,6 +1,6 @@
 # Environments
 
-This folder will contain simulated environments where agents can practice safely.
+This folder is reserved for simulated environments where agents can practice safely.
 
 Level 6 introduces Acme Corp Simulator. Start with [../levels/06-environments/README.md](../levels/06-environments/README.md).
 

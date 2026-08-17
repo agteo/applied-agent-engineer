@@ -6,7 +6,9 @@ Applied Agent Engineering teaches engineers how to build AI systems that can use
 
 The course uses agents as the hands-on vehicle, but the broader goal is applied AI stack ownership: evals, traces, data pipelines, local model adaptation, workflow integration, simulation, and reinforcement learning.
 
-The course has a four-level core and three advanced specializations.
+The course has a four-level core and advanced specialization tracks.
+
+Current maturity note: this repository is still a curriculum specification. The target executable release is Levels 1-2 first, then Levels 3-4, then optional model-training and RL tracks.
 
 The conceptual backbone for the course is documented in [mental-models.md](mental-models.md). Learners should revisit those mental models before each level.
 
@@ -14,9 +16,10 @@ The conceptual backbone for the course is documented in [mental-models.md](menta
 
 | Path | Duration | Audience |
 | --- | --- | --- |
-| Intensive | 4-6 weeks | Experienced engineers studying full-time. |
-| Standard | 10-12 weeks | Working engineers studying part-time. |
-| Extended | 16+ weeks | Teams using the course as an internal training program. |
+| Core intensive | 4-6 weeks | Experienced engineers studying Levels 1-4 full-time. |
+| Core standard | 10-12 weeks | Working engineers studying Levels 1-4 part-time. |
+| Advanced model track | 4-8 additional weeks | Learners with PyTorch, GPU access, and ML training prerequisites. |
+| Environment/RL analysis track | 3-6 additional weeks | Learners studying simulation, rollouts, rewards, and RL evaluation. |
 
 ## Prerequisites
 
@@ -31,9 +34,14 @@ Learners should be comfortable with:
 Helpful but not required at the start:
 
 - statistics
+- information retrieval
+
+Required for the optional model-training implementation track:
+
 - machine learning fundamentals
 - PyTorch
-- information retrieval
+- Hugging Face Transformers or equivalent
+- access to suitable local or cloud compute
 
 ## Level 0: Foundations
 
@@ -173,11 +181,36 @@ Create Agent Training Dataset v1 from traces, failures, human examples, and synt
 
 The learner can convert messy agent behavior into a defensible dataset with provenance, schema, quality metrics, and limitations.
 
-## Level 5: Post-training
+## Level 5A: Model Improvement Decisions
 
 ### Purpose
 
-Teach learners when and how to improve a model directly.
+Teach learners when model adaptation is justified and when prompting, retrieval, tooling, workflow design, or a frontier API is the better intervention.
+
+### Topics
+
+- frontier API vs local model tradeoffs
+- when not to train
+- data sufficiency
+- privacy and governance
+- cost and latency tradeoffs
+- model selection
+- benchmark gates
+- deployment constraints
+
+### Project
+
+Create a model improvement decision memo using Level 2-4 evidence.
+
+### Exit Criteria
+
+The learner can recommend a model strategy and defend it with evals, data quality evidence, cost estimates, and operational tradeoffs.
+
+## Level 5B: Post-training Implementation
+
+### Purpose
+
+Teach qualified learners how to run a small post-training experiment and evaluate it honestly.
 
 ### Topics
 
@@ -199,7 +232,7 @@ Fine-tune an open model using the Level 4 dataset and compare it against the pro
 
 ### Exit Criteria
 
-The learner can explain whether fine-tuning improved the agent, whether the improvement is worth the cost, and what tradeoffs remain.
+The learner runs a post-training experiment, produces an adapter or trained checkpoint, evaluates it on the Level 2 benchmark, and explains whether the improvement is worth the cost.
 
 ## Level 6: Environments
 
@@ -228,11 +261,11 @@ Build Acme Corp Simulator, a simulated company environment with expense policies
 
 The learner can create a reproducible environment with tasks, state transitions, and automatic success checks.
 
-## Level 7: Reinforcement Learning
+## Level 7: Reinforcement Learning Analysis
 
 ### Purpose
 
-Teach learners how agents can improve through experience.
+Teach learners how agents can improve through experience, what modern RL methods are trying to optimize, and why reward design can fail.
 
 ### Topics
 
@@ -253,11 +286,11 @@ Teach learners how agents can improve through experience.
 
 ### Project
 
-Train an agent through experience in the Acme Corp Simulator.
+Analyze rollouts, rewards, and a proposed training setup for Acme Corp Simulator. Running RL training is optional until the repo has a real environment implementation, compute requirements, and reference training scripts.
 
 ### Exit Criteria
 
-The learner can run rollouts, train with verifiable rewards, publish learning curves, and evaluate the trained agent against the original benchmark.
+The learner can frame the problem, analyze rollouts, identify reward hacking risks, and evaluate any trained agent against the original benchmark. If training is run, learning curves and post-training failure analysis are required.
 
 ## Final Portfolio
 

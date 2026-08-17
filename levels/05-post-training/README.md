@@ -1,12 +1,23 @@
-# Level 5: Post-training
+# Level 5: Model Improvement and Post-training
 
 ## Goal
 
-Evaluate whether changing the model improves the agent more than prompting, tooling, retrieval, or harness changes.
+Evaluate whether changing the model is justified, then optionally run a real post-training experiment.
 
 Level 4 asked: what data could help the system improve?
 
-Level 5 asks: should we use that data to adapt a model?
+Level 5 asks: should we use that data to adapt a model, and if yes, can the adapted model beat the alternatives on the same benchmark?
+
+## Track Split
+
+Level 5 has two tracks:
+
+| Track | Required For | Outcome |
+| --- | --- | --- |
+| 5A Model Improvement Decisions | All learners continuing past Level 4 | Decide whether to use prompting, retrieval, tooling, frontier APIs, or local model adaptation. |
+| 5B Post-training Implementation | Optional ML training track | Run SFT/LoRA with real compute and evaluate the adapted model. |
+
+Completing Track 5A does not mean the learner has trained a model. Completing Track 5B requires an actual training run, a produced artifact, and benchmark comparison.
 
 ## Learning Outcomes
 
@@ -14,14 +25,17 @@ By the end of this level, learners can:
 
 1. Explain when fine-tuning is appropriate and when it is not.
 2. Prepare chat-style supervised fine-tuning data.
-3. Run a small LoRA or QLoRA experiment.
-4. Understand learning rate, batch size, checkpoints, and overfitting.
-5. Compare base, prompted, frontier, and adapted models on the same benchmark.
-6. Interpret whether the model improvement is worth the operational tradeoff.
+3. Estimate compute, cost, serving, and governance tradeoffs.
+4. Run a small LoRA or QLoRA experiment if completing Track 5B.
+5. Understand learning rate, batch size, checkpoints, and overfitting.
+6. Compare base, prompted, frontier, and adapted models on the same benchmark.
+7. Interpret whether the model improvement is worth the operational tradeoff.
 
 ## Required Build
 
-Learners run a small post-training experiment using Agent Training Dataset v1 and evaluate the result on the Level 2 benchmark.
+Track 5A learners produce a model improvement decision memo.
+
+Track 5B learners run a small post-training experiment using Agent Training Dataset v1 and evaluate the result on the Level 2 benchmark.
 
 ## Comparison
 
@@ -54,7 +68,7 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 | --- | --- |
 | [Lab 1: Training Decision](labs/lab-01-training-decision.md) | Decide whether model adaptation is justified. |
 | [Lab 2: Prepare SFT Data](labs/lab-02-prepare-sft-data.md) | Convert Level 4 data into chat training format. |
-| [Lab 3: LoRA Experiment](labs/lab-03-lora-experiment.md) | Run or simulate a small adapter experiment. |
+| [Lab 3: LoRA Experiment](labs/lab-03-lora-experiment.md) | Run a small adapter experiment for Track 5B. |
 | [Lab 4: Model Comparison](labs/lab-04-model-comparison.md) | Compare systems on the Level 2 benchmark. |
 
 ## Project
@@ -63,12 +77,19 @@ The Level 5 project is [Base vs Prompted vs Fine-tuned](project/base-vs-prompted
 
 ## Exit Criteria
 
-To complete Level 5, the learner must submit:
+To complete Track 5A, the learner must submit:
 
 1. A training decision memo.
-2. Training data derived from Level 4.
-3. Training configuration or experiment plan.
-4. Evaluation results on the Level 2 benchmark.
-5. A comparison report.
-6. A recommendation explaining whether to adopt the adapted model.
+2. Evidence from Level 2-4.
+3. Data sufficiency assessment.
+4. Cost, latency, privacy, and deployment tradeoffs.
+5. A recommendation explaining whether to train, use a frontier API, improve retrieval, improve tools, or keep a hybrid stack.
 
+To complete Track 5B, the learner must additionally submit:
+
+1. Training data derived from Level 4.
+2. Training configuration.
+3. Completed training run logs.
+4. Adapter or checkpoint artifact.
+5. Evaluation results on the Level 2 benchmark.
+6. A comparison report.

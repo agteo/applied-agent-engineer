@@ -1,6 +1,6 @@
 # Acme Expense Agent
 
-This folder will contain the canonical course agent implementation.
+This folder is reserved for the canonical course agent implementation.
 
 The agent begins as a Level 1 tool-using assistant and evolves throughout the curriculum:
 
@@ -24,4 +24,4 @@ Curriculum specs:
 - [Level 6: Environments](../../levels/06-environments/README.md)
 - [Level 7: Reinforcement Learning](../../levels/07-reinforcement-learning/README.md)
 
-Implementation should begin after the Level 1 docs are stable.
+Implementation is the next major milestone after the Level 1 and Level 2 specifications are stable.
