@@ -111,6 +111,18 @@ Datasets should include source, schema, filtering criteria, limitations, and sep
 
 Fine-tuning and RL are not assumed to be correct. Learners must compare them against prompting, better tooling, better retrieval, and stronger frontier models.
 
+## Mental Models
+
+The curriculum is supported by a shared set of mental models in [mental-models.md](mental-models.md).
+
+These concepts are revisited throughout the course:
+
+- agents are systems, not prompts
+- behavior must be measured, not assumed
+- failures must be diagnosed, not hand-waved
+- improvements must be tested, not trusted
+- data is the bridge between failure and learning
+
 ## Competency Targets
 
 By the end of the core curriculum, a learner can:
@@ -127,4 +139,3 @@ By the end of the advanced curriculum, a learner can:
 2. Compare prompted, frontier, and fine-tuned systems on the same benchmark.
 3. Build a simulated environment with tasks, state transitions, and rewards.
 4. Run rollouts and analyze whether experience improves agent behavior.
-

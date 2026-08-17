@@ -75,6 +75,12 @@ After Level 4, learners can choose one or more tracks:
 ## Start Here
 
 1. Read [curriculum/framework.md](curriculum/framework.md).
-2. Read [curriculum/syllabus.md](curriculum/syllabus.md).
-3. Start Level 1 in [levels/01-build/README.md](levels/01-build/README.md).
-
+2. Read [curriculum/mental-models.md](curriculum/mental-models.md).
+3. Read [curriculum/syllabus.md](curriculum/syllabus.md).
+4. Start Level 1 in [levels/01-build/README.md](levels/01-build/README.md).
+5. Continue to Level 2 in [levels/02-evaluate/README.md](levels/02-evaluate/README.md).
+6. Continue to Level 3 in [levels/03-diagnose/README.md](levels/03-diagnose/README.md).
+7. Continue to Level 4 in [levels/04-data/README.md](levels/04-data/README.md).
+8. Start the first advanced specialization in [levels/05-post-training/README.md](levels/05-post-training/README.md).
+9. Build simulated practice worlds in [levels/06-environments/README.md](levels/06-environments/README.md).
+10. Finish with reinforcement learning in [levels/07-reinforcement-learning/README.md](levels/07-reinforcement-learning/README.md).

@@ -6,6 +6,8 @@ Applied Agent Engineering teaches engineers how to build agents that can use too
 
 The course has a four-level core and three advanced specializations.
 
+The conceptual backbone for the course is documented in [mental-models.md](mental-models.md). Learners should revisit those mental models before each level.
+
 ## Recommended Pace
 
 | Path | Duration | Audience |
@@ -266,4 +268,3 @@ By the end of the curriculum, learners should have a public portfolio containing
 - an optional fine-tuned adapter
 - an optional simulated environment
 - an optional RL training report
-
