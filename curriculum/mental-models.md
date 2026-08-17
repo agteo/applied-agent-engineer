@@ -10,6 +10,8 @@ These concepts should be revisited throughout the curriculum. They are not a sep
 Agents are systems, not prompts.
 Behavior must be measured, not assumed.
 Failures must be diagnosed, not hand-waved.
+Proprietary data must be curated, not dumped into training.
+Local models must be evaluated, not romanticized.
 Improvements must be tested, not trusted.
 Data is the bridge between failure and learning.
 ```
@@ -184,8 +186,27 @@ Learners should understand:
 - model serving constraints
 - benchmarking fine-tuned models
 - knowing when not to train
+- proprietary data as a model improvement asset
+- local model ownership tradeoffs
 
 These concepts become central in Level 5.
+
+## 10a. Local AI Stack Ownership
+
+Learners should understand:
+
+- frontier API vs local model tradeoffs
+- open model selection
+- adapter ownership
+- data governance
+- privacy and compliance constraints
+- inference cost and latency
+- deployment and serving constraints
+- eval gates for local model adoption
+- hybrid architectures
+- organizational dependency risk
+
+These concepts become explicit in Level 5 and should influence project decisions in Levels 6 and 7.
 
 ## 11. Environments and Simulation
 
@@ -257,7 +278,7 @@ These concepts turn course projects into production engineering practice.
 | Safety, security, and permissions | Level 1 | All levels |
 | Product and workflow judgment | Foundations | All projects |
 | Model improvement | Level 5 | Level 2 regression evals |
+| Local AI stack ownership | Level 5 | Level 6, Level 7 |
 | Environments and simulation | Level 6 | Level 7 |
 | Reinforcement learning | Level 7 | Advanced specialization |
 | Production readiness | Level 2 | Level 3, Level 4, track projects |
-

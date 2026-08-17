@@ -1,14 +1,31 @@
 # Applied Agent Engineering
 
-Applied Agent Engineering is the discipline of building AI systems whose behavior can be measured, diagnosed, and improved.
+Applied Agent Engineering is the discipline of building AI systems whose behavior can be measured, diagnosed, improved, and owned.
 
-This repository is an open-source curriculum and lab environment for engineers who want to build reliable agents that interact with real tools, data, and environments. The course is organized around a simple progression:
+This repository is an open-source curriculum and lab environment for developing applied AI and ML talent. The goal is not just to teach people how to build agents. The goal is to train engineers who can help organizations use proprietary data responsibly, improve local or open models, evaluate behavior rigorously, and own more of their AI stack.
+
+Agents are the course's practical vehicle because they expose the full applied AI loop: tool use, workflow integration, evals, failure diagnosis, data generation, model adaptation, simulated environments, and reinforcement learning.
+
+The course is organized around a simple progression:
 
 ```text
 Build -> Evaluate -> Diagnose -> Data -> Post-train -> Environments -> RL
 ```
 
-The core curriculum is Levels 1-4. Levels 5-7 are advanced specialization tracks for model improvement, simulated environments, and reinforcement learning.
+The core curriculum is Levels 1-4. Levels 5-7 are advanced specialization tracks for model improvement, local AI stack ownership, simulated environments, and reinforcement learning.
+
+## What This Curriculum Trains
+
+Learners are trained to become engineers who can:
+
+- build AI systems around real business workflows
+- evaluate model and agent behavior with reproducible benchmarks
+- diagnose failures from traces instead of guessing
+- convert proprietary workflow data into defensible datasets
+- improve local or open models through post-training
+- compare local models, frontier APIs, retrieval, prompting, and tooling honestly
+- design simulated environments where agents can practice safely
+- help companies reduce dependency on black-box AI systems where appropriate
 
 ## Learning Model
 
@@ -18,13 +35,15 @@ Every level follows the same pattern:
 Concepts -> Tools -> Lab -> Project -> Evaluation
 ```
 
-Every level also consumes artifacts produced by earlier levels. Learners do not build seven unrelated demos. They evolve one canonical agent from a basic tool-using assistant into a measurable, diagnosable, improvable system.
+Every level also consumes artifacts produced by earlier levels. Learners do not build seven unrelated demos. They evolve one canonical AI system from a basic tool-using assistant into a measurable, diagnosable, data-producing, locally improvable system.
 
-## Canonical Course Agent
+## Canonical Course System
 
 The default course project is the Acme Expense Agent.
 
-At first, it answers expense-policy questions and uses simple tools. Later, learners evaluate it, diagnose its failures, convert traces into training data, fine-tune a smaller model, place it inside a simulated company environment, and eventually train it through experience.
+At first, it answers expense-policy questions and uses simple tools. Later, learners evaluate it, diagnose its failures, convert traces into training data, fine-tune or adapt a smaller local model, place it inside a simulated company environment, and eventually train it through experience.
+
+The agent is not the final point. It is the scaffold for learning how proprietary data, evals, local models, and workflow ownership fit together.
 
 ## Curriculum
 
@@ -69,7 +88,8 @@ After Level 4, learners can choose one or more tracks:
 | Track | Focus |
 | --- | --- |
 | Agent Quality Engineering | Evals, observability, reliability, red teaming, and production feedback loops. |
-| Model Improvement | Data generation, SFT, LoRA, DPO, and model comparison. |
+| Model Improvement | Proprietary data pipelines, SFT, LoRA, DPO, and model comparison. |
+| Local AI Stack Ownership | Open model selection, deployment tradeoffs, eval gates, data governance, and cost control. |
 | Agent Learning | Simulated environments, rewards, rollouts, and RL. |
 
 ## Start Here

@@ -2,7 +2,9 @@
 
 ## Course Overview
 
-Applied Agent Engineering teaches engineers how to build agents that can use tools, complete realistic tasks, and improve through systematic measurement.
+Applied Agent Engineering teaches engineers how to build AI systems that can use tools, complete realistic tasks, improve through systematic measurement, and make productive use of proprietary data.
+
+The course uses agents as the hands-on vehicle, but the broader goal is applied AI stack ownership: evals, traces, data pipelines, local model adaptation, workflow integration, simulation, and reinforcement learning.
 
 The course has a four-level core and three advanced specializations.
 
@@ -37,7 +39,7 @@ Helpful but not required at the start:
 
 ### Purpose
 
-Give learners the minimum foundation needed to build and evaluate agent systems without turning the beginning of the course into a math or ML bootcamp.
+Give learners the minimum foundation needed to build and evaluate applied AI systems without turning the beginning of the course into a math or ML bootcamp.
 
 ### Topics
 
@@ -48,6 +50,8 @@ Give learners the minimum foundation needed to build and evaluate agent systems 
 - Python project structure
 - basic statistics for evals
 - data formats: JSONL, CSV, Parquet
+- proprietary data, privacy, and governance basics
+- local vs hosted model tradeoffs
 - safety, permissions, and human approval
 
 ### Exit Criteria
