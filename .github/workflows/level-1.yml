@@ -1,0 +1,37 @@
+name: Level 1 checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  level-1:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: examples/acme-expense-agent
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install test dependencies
+        run: python -m pip install pytest
+
+      - name: Run the test suite
+        run: python -m pytest
+
+      # Everything below runs with no API key: the default model adapter is the
+      # deterministic offline planner, so CI never spends money or flakes on a
+      # provider outage.
+      - name: Run every manual task
+        run: python run_agent.py --all --quiet
+
+      - name: Check the trace bundle
+        run: python -m acme_agent.check_traces traces/level-1.jsonl

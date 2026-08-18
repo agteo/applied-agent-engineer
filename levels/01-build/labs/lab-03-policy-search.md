@@ -56,3 +56,13 @@ Submit:
 
 The lab passes if final answers cite retrieved policy source ids and do not invent policy details that were not retrieved.
 
+## Reference Solution
+
+Write your own version first, then compare: [`solutions/lab_03_policy_search.py`](../../../examples/acme-expense-agent/solutions/lab_03_policy_search.py).
+
+```bash
+cd examples/acme-expense-agent
+python solutions/lab_03_policy_search.py
+```
+
+The corpus is `fixtures/policies.json`. Write your own limitations list before reading the one it prints. [How to compare](../../../examples/acme-expense-agent/solutions/README.md).

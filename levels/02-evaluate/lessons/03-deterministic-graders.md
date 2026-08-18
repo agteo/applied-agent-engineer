@@ -46,3 +46,7 @@ Use deterministic graders for:
 
 You are ready to move on when your benchmark has deterministic graders for all fields with objective expected answers.
 
+## Reading
+
+- [SWE-bench](https://github.com/princeton-nlp/SWE-bench) — the cleanest example of a deterministic grader in the wild: a patch either makes the test suite pass or it does not. Note what that design buys (no judge, no drift, no ambiguity) and what it costs (only tasks with executable success criteria can be graded this way).
+- [WebArena-Verified](https://servicenow.github.io/webarena-verified/) — what it took to make an existing benchmark's scoring deterministic and auditable after the fact. Read this before you assume your first grader is correct.

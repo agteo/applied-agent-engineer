@@ -55,3 +55,13 @@ Submit:
 
 The lab passes if invalid tool arguments do not execute the tool and the agent receives a clear validation error.
 
+## Reference Solution
+
+Write your own version first, then compare: [`solutions/lab_02_tool_schemas.py`](../../../examples/acme-expense-agent/solutions/lab_02_tool_schemas.py).
+
+```bash
+cd examples/acme-expense-agent
+python solutions/lab_02_tool_schemas.py
+```
+
+It runs five valid calls and ten invalid ones, and shows a trace where the model recovers from its own bad arguments. [How to compare](../../../examples/acme-expense-agent/solutions/README.md).

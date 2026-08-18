@@ -1,0 +1,10 @@
+{
+  "employees": [
+    {"employee_id": "emp-1001", "name": "Dana Whitfield", "department": "Sales", "manager_id": "emp-2001", "cost_center": "cc-sales-west"},
+    {"employee_id": "emp-1002", "name": "Ravi Menon", "department": "Solutions Engineering", "manager_id": "emp-2001", "cost_center": "cc-se-west"},
+    {"employee_id": "emp-1003", "name": "Ingrid Sollberg", "department": "Support", "manager_id": "emp-2002", "cost_center": "cc-support"},
+    {"employee_id": "emp-2001", "name": "Priya Raman", "department": "Sales", "manager_id": "emp-3001", "cost_center": "cc-sales-west"},
+    {"employee_id": "emp-2002", "name": "Tom Okafor", "department": "Support", "manager_id": "emp-3001", "cost_center": "cc-support"},
+    {"employee_id": "emp-3001", "name": "Alice Chen", "department": "Revenue", "manager_id": null, "cost_center": "cc-revenue"}
+  ]
+}

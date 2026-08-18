@@ -13,7 +13,7 @@ Submit:
 - base model
 - dataset version
 - training configuration
-- checkpoint or adapter artifact if run locally
+- adapter or checkpoint artifact
 - completed training logs
 - training notes
 

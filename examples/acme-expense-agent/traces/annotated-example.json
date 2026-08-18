@@ -1,0 +1,297 @@
+{
+  "annotations": {
+    "why_this_trace": "manual-004 is the canonical Level 1 task: three expenses, one of them missing a receipt, and a question about approvals. It exercises every tool except the approval gate.",
+    "step_1": "search_policy runs first and unconditionally. That is a harness decision, not a model decision: an agent that answers a policy question without retrieving policy has no defensible citation, even when the answer happens to be right.",
+    "step_2": "lookup_receipt fires because the task says 'lost the hotel receipt'. Note it returns several receipts and sets ambiguous=true. The agent does not use them here \u2014 the amounts came from the task text \u2014 which is a real weakness worth flagging in Level 3: the agent never reconciles what the user claims against what is on file.",
+    "step_3": "calculate_reimbursement does all arithmetic and all threshold logic. The model never adds numbers. This is what makes the total auditable: 329.00 is reproducible from the tool arguments alone.",
+    "step_4": "The final answer carries policy_source_ids on every line. Level 2's citation grader reads exactly this field.",
+    "known_failure_modes_visible_here": [
+      "The hotel is counted as reimbursable while also flagged as needing a missing-receipt approval. That is a defensible reading of the policy, but it means total_reimbursable is 'pending approval', not 'payable'. Level 2 has to decide which one it is grading.",
+      "Item descriptions come from shallow text extraction ('Stay'), so they read worse than a human would write them.",
+      "Nothing checks the 60-day submission window against the expense date."
+    ]
+  },
+  "trace": {
+    "task_id": "manual-004",
+    "task": "I flew to Denver for a customer meeting, paid $47 for airport parking, spent $68 on dinner, and lost the hotel receipt for a $214 stay. What can I reimburse, and what needs manager approval?",
+    "agent_version": "acme-expense-agent-v1",
+    "model": "scripted-reference-v1",
+    "prompt_version": "acme-expense-system-prompt-v1",
+    "trace_schema_version": "1.0.0",
+    "run_id": "98b5642594f2",
+    "started_at": 1787039509.474784,
+    "steps": [
+      {
+        "step": 1,
+        "started_at": 1787039509.474785,
+        "model_text": "",
+        "tool_name": "search_policy",
+        "tool_arguments": {
+          "query": "I flew to Denver for a customer meeting, paid $47 for airport parking, spent $68 on dinner, and lost the hotel receipt for a $214 stay. What can I reimburse, and what needs manager approval?",
+          "top_k": 4
+        },
+        "validated_arguments": {
+          "query": "I flew to Denver for a customer meeting, paid $47 for airport parking, spent $68 on dinner, and lost the hotel receipt for a $214 stay. What can I reimburse, and what needs manager approval?",
+          "top_k": 4
+        },
+        "observation": {
+          "query": "I flew to Denver for a customer meeting, paid $47 for airport parking, spent $68 on dinner, and lost the hotel receipt for a $214 stay. What can I reimburse, and what needs manager approval?",
+          "results": [
+            {
+              "source_id": "policy-receipts-001",
+              "title": "Receipts And Missing Receipts",
+              "category": "receipts",
+              "text": "An itemised receipt is required for every expense of USD 25 or more. If a receipt is missing, the employee must submit a missing receipt declaration and obtain manager approval before the expense can be reimbursed. Expenses under USD 25 may be submitted without a receipt.",
+              "score": 1.0
+            },
+            {
+              "source_id": "policy-approval-001",
+              "title": "Manager Approval Thresholds",
+              "category": "approval",
+              "text": "Any single expense of USD 500 or more requires manager approval before reimbursement. Any report totalling USD 2000 or more requires both manager and finance approval. Approval must be recorded in the expense system before payment is scheduled.",
+              "score": 0.88
+            },
+            {
+              "source_id": "policy-lodging-001",
+              "title": "Lodging",
+              "category": "lodging",
+              "text": "Hotel lodging is reimbursable up to USD 250 per night before taxes and mandatory fees. Stays above the nightly limit require manager approval. Room service is treated as a meal expense and counts against the daily meal limit.",
+              "score": 0.81
+            },
+            {
+              "source_id": "policy-travel-002",
+              "title": "Ground Transportation And Parking",
+              "category": "travel",
+              "text": "Ground transportation for business travel is reimbursable in full. This includes airport parking, taxis, rideshare, rail tickets, and mileage at the current published rate. Personal travel legs are not reimbursable.",
+              "score": 0.75
+            }
+          ]
+        },
+        "error": null,
+        "latency_ms": 0,
+        "usage": {}
+      },
+      {
+        "step": 2,
+        "started_at": 1787039509.474844,
+        "model_text": "",
+        "tool_name": "lookup_receipt",
+        "tool_arguments": {
+          "employee_id": "emp-1001",
+          "category": "meals"
+        },
+        "validated_arguments": {
+          "employee_id": "emp-1001",
+          "category": "meals"
+        },
+        "observation": {
+          "matches": [
+            {
+              "receipt_id": "rec-0002",
+              "employee_id": "emp-1001",
+              "merchant": "Guard and Grace Steakhouse",
+              "date": "2026-03-12",
+              "amount": 68.0,
+              "currency": "USD",
+              "category": "meals",
+              "has_image": true,
+              "trip_id": "trip-8801",
+              "notes": "Dinner during customer trip"
+            },
+            {
+              "receipt_id": "rec-0012",
+              "employee_id": "emp-1001",
+              "merchant": "Denver Athletic Club",
+              "date": "2025-11-20",
+              "amount": 55.0,
+              "currency": "USD",
+              "category": "meals",
+              "has_image": true,
+              "trip_id": null,
+              "notes": "Older than the 60 day submission window"
+            }
+          ],
+          "match_count": 2,
+          "ambiguous": true
+        },
+        "error": null,
+        "latency_ms": 0,
+        "usage": {}
+      },
+      {
+        "step": 3,
+        "started_at": 1787039509.47492,
+        "model_text": "",
+        "tool_name": "calculate_reimbursement",
+        "tool_arguments": {
+          "items": [
+            {
+              "description": "Airport parking",
+              "amount": 47.0,
+              "category": "travel",
+              "has_receipt": true
+            },
+            {
+              "description": "Dinner",
+              "amount": 68.0,
+              "category": "meals",
+              "has_receipt": true
+            },
+            {
+              "description": "Stay",
+              "amount": 214.0,
+              "category": "lodging",
+              "has_receipt": false
+            }
+          ]
+        },
+        "validated_arguments": {
+          "items": [
+            {
+              "description": "Airport parking",
+              "amount": 47.0,
+              "category": "travel",
+              "has_receipt": true
+            },
+            {
+              "description": "Dinner",
+              "amount": 68.0,
+              "category": "meals",
+              "has_receipt": true
+            },
+            {
+              "description": "Stay",
+              "amount": 214.0,
+              "category": "lodging",
+              "has_receipt": false
+            }
+          ]
+        },
+        "observation": {
+          "reimbursable_items": [
+            {
+              "description": "Airport parking",
+              "amount": 47.0,
+              "policy_source_ids": [
+                "policy-travel-002"
+              ],
+              "reason": "Within policy."
+            },
+            {
+              "description": "Dinner",
+              "amount": 68.0,
+              "policy_source_ids": [
+                "policy-meals-001"
+              ],
+              "reason": "Within policy."
+            },
+            {
+              "description": "Stay",
+              "amount": 214.0,
+              "policy_source_ids": [
+                "policy-lodging-001",
+                "policy-receipts-001"
+              ],
+              "reason": "Within policy."
+            }
+          ],
+          "non_reimbursable_items": [],
+          "missing_information": [
+            "Receipt or missing receipt declaration for Stay (USD 214.00)."
+          ],
+          "approvals_required": [
+            {
+              "approval_type": "manager",
+              "reason": "Stay has no receipt and is at or above the USD 25 receipt threshold.",
+              "policy_source_ids": [
+                "policy-receipts-001"
+              ]
+            }
+          ],
+          "total_reimbursable": 329.0,
+          "total_submitted": 329.0
+        },
+        "error": null,
+        "latency_ms": 0,
+        "usage": {}
+      },
+      {
+        "step": 4,
+        "started_at": 1787039509.474957,
+        "model_text": "",
+        "tool_name": null,
+        "tool_arguments": null,
+        "validated_arguments": null,
+        "observation": null,
+        "error": null,
+        "latency_ms": 0,
+        "usage": {}
+      }
+    ],
+    "final_answer": {
+      "summary": "USD 329.00 of USD 329.00 is reimbursable under the current policy. 1 approval(s) and 1 open item(s) remain.",
+      "reimbursable_items": [
+        {
+          "description": "Airport parking",
+          "amount": 47.0,
+          "policy_source_ids": [
+            "policy-travel-002"
+          ],
+          "reason": "Within policy."
+        },
+        {
+          "description": "Dinner",
+          "amount": 68.0,
+          "policy_source_ids": [
+            "policy-meals-001"
+          ],
+          "reason": "Within policy."
+        },
+        {
+          "description": "Stay",
+          "amount": 214.0,
+          "policy_source_ids": [
+            "policy-lodging-001",
+            "policy-receipts-001"
+          ],
+          "reason": "Within policy."
+        }
+      ],
+      "non_reimbursable_items": [],
+      "missing_information": [
+        "Receipt or missing receipt declaration for Stay (USD 214.00)."
+      ],
+      "approvals_required": [
+        {
+          "approval_type": "manager",
+          "reason": "Stay has no receipt and is at or above the USD 25 receipt threshold.",
+          "policy_source_ids": [
+            "policy-receipts-001"
+          ]
+        }
+      ],
+      "total_reimbursable": 329.0,
+      "cited_policy_source_ids": [
+        "policy-receipts-001",
+        "policy-approval-001",
+        "policy-lodging-001",
+        "policy-travel-002"
+      ],
+      "confidence": "medium",
+      "next_action": "Resolve the missing information above, then ask your manager to approve the exception."
+    },
+    "error": null,
+    "metadata": {
+      "max_steps": 8,
+      "stop_reason": "final_answer",
+      "step_count": 4,
+      "tool_calls": [
+        "search_policy",
+        "lookup_receipt",
+        "calculate_reimbursement"
+      ],
+      "total_tokens": 0,
+      "latency_ms": 0
+    }
+  }
+}

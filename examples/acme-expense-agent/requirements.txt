@@ -1,0 +1,7 @@
+# Core harness: standard library only. `pip install -r requirements.txt` is
+# needed for the tests and the optional Anthropic adapter.
+pytest>=8.0
+
+# Optional: only needed to run against a real model instead of the offline
+# scripted adapter.
+anthropic>=0.40; python_version >= "3.10"

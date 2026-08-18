@@ -28,3 +28,6 @@ They do not tell an engineer what to fix.
 
 You are ready to move on when two people can label the same failure and mostly agree.
 
+## Reading
+
+- [tau2-bench](https://github.com/sierra-research/tau2-bench) — its per-task failure analysis is a worked example of classifying agent failures by cause rather than by symptom. Compare its categories against the taxonomy you build in Lab 2.

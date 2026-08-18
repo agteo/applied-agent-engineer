@@ -8,9 +8,16 @@ Agents are the course's practical vehicle because they expose the full applied A
 
 ## Maturity
 
-This repo is currently a curriculum specification under active construction, not a finished executable course.
+Level 1 is executable. Levels 2-7 are specification.
 
-The immediate build priority is to make Levels 1-2 runnable with code, fixtures, reference solutions, automated checks, and a 100-task golden benchmark. See [STATUS.md](STATUS.md) and [ROADMAP.md](ROADMAP.md).
+```bash
+cd examples/acme-expense-agent
+python run_agent.py --all --quiet
+```
+
+That runs the Acme Expense Agent over 22 tasks with no API key and no network, writes a trace bundle, and exits non-zero if any task fails to produce a contract-valid answer. Tools, fixtures, tests, reference solutions for all four Level 1 labs, and a CI workflow ship with it: [examples/acme-expense-agent/](examples/acme-expense-agent/).
+
+The next build priority is the 100-task golden benchmark and its graders, which is what makes Level 2 real. See [STATUS.md](STATUS.md) and [ROADMAP.md](ROADMAP.md).
 
 The course is organized around a simple progression:
 
@@ -88,7 +95,12 @@ levels/
     project/
 
 examples/
-  acme-expense-agent/
+  acme-expense-agent/     # the implemented Level 1 system
+    acme_agent/           # harness, tools, schemas, validation, traces
+    fixtures/             # policy, receipt, employee, and task data
+    solutions/            # reference solutions for the Level 1 labs
+    tests/
+    run_agent.py
 
 evals/
 datasets/
@@ -118,4 +130,5 @@ After Level 4, learners can choose one or more tracks:
 5. Read [curriculum/feedback-and-assessment.md](curriculum/feedback-and-assessment.md).
 6. Read [curriculum/syllabus.md](curriculum/syllabus.md).
 7. Check current maturity in [STATUS.md](STATUS.md).
+8. Run the agent: [examples/acme-expense-agent/README.md](examples/acme-expense-agent/README.md).
 8. Start Level 1 in [levels/01-build/README.md](levels/01-build/README.md).

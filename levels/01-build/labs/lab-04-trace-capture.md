@@ -56,3 +56,13 @@ Submit:
 
 The lab passes if another script can load every trace without special casing malformed rows.
 
+## Reference Solution
+
+Write your own version first, then compare: [`solutions/lab_04_trace_capture.py`](../../../examples/acme-expense-agent/solutions/lab_04_trace_capture.py).
+
+```bash
+cd examples/acme-expense-agent
+python solutions/lab_04_trace_capture.py
+```
+
+It writes the 22-task bundle plus one hand-annotated trace, then runs the automated check over its own output. [How to compare](../../../examples/acme-expense-agent/solutions/README.md).

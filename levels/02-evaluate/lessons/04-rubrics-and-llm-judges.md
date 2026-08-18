@@ -42,3 +42,6 @@ Track:
 
 You are ready to move on when your judge has been tested against a human-reviewed sample and its limitations are documented.
 
+## Reading
+
+- [Inspect's scorer documentation](https://inspect.aisi.org.uk/scorers.html) — including its model-graded scorers. Pay attention to how it separates the rubric from the grading model, so the rubric can be reviewed by a human who does not read code.

@@ -62,10 +62,15 @@ The final answer should follow this shape:
     }
   ],
   "total_reimbursable": 47.0,
+  "cited_policy_source_ids": ["policy-travel-002"],
   "confidence": "medium",
   "next_action": "Ask manager to approve exception for missing hotel receipt."
 }
 ```
+
+`cited_policy_source_ids` is optional but strongly recommended: a pure policy answer has no line items, so without it there is nowhere to show grounding.
+
+A working implementation of this contract, with fixtures and tests, is in [examples/acme-expense-agent/](../../../examples/acme-expense-agent/). Build your own first — then read it, and disagree with it in your implementation note.
 
 ## Example Tasks
 
@@ -107,4 +112,10 @@ Level 2 will evaluate this project on:
 - [ ] Human approval is used for risky actions.
 - [ ] At least 20 traces are saved.
 - [ ] Known limitations are documented.
+
+Verify the contract, the citations, and the trace count mechanically:
+
+```bash
+python -m acme_agent.check_traces path/to/your/traces.jsonl
+```
 

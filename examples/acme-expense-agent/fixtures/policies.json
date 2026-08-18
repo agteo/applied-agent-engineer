@@ -1,0 +1,85 @@
+{
+  "policy_version": "acme-expense-policy-2026.1",
+  "sections": [
+    {
+      "source_id": "policy-meals-001",
+      "title": "Meals During Travel",
+      "category": "meals",
+      "text": "Meals purchased while travelling for business are reimbursable up to a daily limit of USD 75 per employee. The daily limit applies to the sum of all meals on a single calendar day. Amounts above the daily limit are the employee's responsibility unless a documented exception is approved by a manager.",
+      "keywords": ["meal", "meals", "dinner", "lunch", "breakfast", "food", "daily limit", "per diem"]
+    },
+    {
+      "source_id": "policy-meals-002",
+      "title": "Alcohol",
+      "category": "meals",
+      "text": "Alcohol is not reimbursable on individual expense reports. Alcohol purchased during an approved client entertainment event must be submitted under the entertainment category and requires pre-approval.",
+      "keywords": ["alcohol", "wine", "beer", "drinks", "bar"]
+    },
+    {
+      "source_id": "policy-travel-001",
+      "title": "Air Travel",
+      "category": "travel",
+      "text": "Economy class airfare is reimbursable for all domestic flights. Premium economy, business, and first class require manager approval before booking. Change fees are reimbursable when the change is made for a business reason.",
+      "keywords": ["flight", "airfare", "plane", "air travel", "economy", "business class"]
+    },
+    {
+      "source_id": "policy-travel-002",
+      "title": "Ground Transportation And Parking",
+      "category": "travel",
+      "text": "Ground transportation for business travel is reimbursable in full. This includes airport parking, taxis, rideshare, rail tickets, and mileage at the current published rate. Personal travel legs are not reimbursable.",
+      "keywords": ["parking", "taxi", "rideshare", "uber", "lyft", "train", "rail", "mileage", "ground transportation"]
+    },
+    {
+      "source_id": "policy-lodging-001",
+      "title": "Lodging",
+      "category": "lodging",
+      "text": "Hotel lodging is reimbursable up to USD 250 per night before taxes and mandatory fees. Stays above the nightly limit require manager approval. Room service is treated as a meal expense and counts against the daily meal limit.",
+      "keywords": ["hotel", "lodging", "room", "stay", "night", "accommodation"]
+    },
+    {
+      "source_id": "policy-receipts-001",
+      "title": "Receipts And Missing Receipts",
+      "category": "receipts",
+      "text": "An itemised receipt is required for every expense of USD 25 or more. If a receipt is missing, the employee must submit a missing receipt declaration and obtain manager approval before the expense can be reimbursed. Expenses under USD 25 may be submitted without a receipt.",
+      "keywords": ["receipt", "receipts", "missing receipt", "lost receipt", "declaration", "itemised", "itemized"]
+    },
+    {
+      "source_id": "policy-approval-001",
+      "title": "Manager Approval Thresholds",
+      "category": "approval",
+      "text": "Any single expense of USD 500 or more requires manager approval before reimbursement. Any report totalling USD 2000 or more requires both manager and finance approval. Approval must be recorded in the expense system before payment is scheduled.",
+      "keywords": ["approval", "manager", "threshold", "finance", "authorise", "authorize"]
+    },
+    {
+      "source_id": "policy-approval-002",
+      "title": "Client Entertainment",
+      "category": "approval",
+      "text": "Client entertainment requires manager pre-approval and an attendee list naming every guest and their organisation. Entertainment submitted without pre-approval is not reimbursable.",
+      "keywords": ["entertainment", "client", "guest", "attendee", "event"]
+    },
+    {
+      "source_id": "policy-submission-001",
+      "title": "Submission And Deadlines",
+      "category": "submission",
+      "text": "Expense reports must be submitted within 60 days of the expense date. Only the employee who incurred the expense may submit the report. Agents, assistants, and automated systems may prepare a draft report but must not submit it on the employee's behalf.",
+      "keywords": ["submit", "submission", "deadline", "60 days", "late", "draft"]
+    }
+  ],
+  "rules": {
+    "meals_daily_limit_usd": 75.0,
+    "meals_daily_limit_source_id": "policy-meals-001",
+    "lodging_nightly_limit_usd": 250.0,
+    "lodging_nightly_limit_source_id": "policy-lodging-001",
+    "receipt_required_threshold_usd": 25.0,
+    "receipt_required_source_id": "policy-receipts-001",
+    "manager_approval_item_threshold_usd": 500.0,
+    "manager_approval_report_threshold_usd": 2000.0,
+    "manager_approval_source_id": "policy-approval-001",
+    "non_reimbursable_categories": ["alcohol"],
+    "non_reimbursable_source_id": "policy-meals-002",
+    "preapproval_categories": ["entertainment"],
+    "preapproval_source_id": "policy-approval-002",
+    "submission_window_days": 60,
+    "submission_source_id": "policy-submission-001"
+  }
+}

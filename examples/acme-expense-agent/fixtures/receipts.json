@@ -1,0 +1,16 @@
+{
+  "receipts": [
+    {"receipt_id": "rec-0001", "employee_id": "emp-1001", "merchant": "Denver Airport Parking", "date": "2026-03-12", "amount": 47.0, "currency": "USD", "category": "travel", "has_image": true, "trip_id": "trip-8801", "notes": "Long term lot, 3 days"},
+    {"receipt_id": "rec-0002", "employee_id": "emp-1001", "merchant": "Guard and Grace Steakhouse", "date": "2026-03-12", "amount": 68.0, "currency": "USD", "category": "meals", "has_image": true, "trip_id": "trip-8801", "notes": "Dinner during customer trip"},
+    {"receipt_id": "rec-0003", "employee_id": "emp-1001", "merchant": "Hotel Teatro Denver", "date": "2026-03-12", "amount": 214.0, "currency": "USD", "category": "lodging", "has_image": false, "trip_id": "trip-8801", "notes": "Receipt image missing"},
+    {"receipt_id": "rec-0004", "employee_id": "emp-1001", "merchant": "United Airlines", "date": "2026-03-10", "amount": 512.4, "currency": "USD", "category": "travel", "has_image": true, "trip_id": "trip-8801", "notes": "Economy fare SFO-DEN return"},
+    {"receipt_id": "rec-0005", "employee_id": "emp-1002", "merchant": "Blue Bottle Coffee", "date": "2026-03-14", "amount": 18.5, "currency": "USD", "category": "meals", "has_image": false, "trip_id": null, "notes": "Client coffee, no receipt kept"},
+    {"receipt_id": "rec-0006", "employee_id": "emp-1002", "merchant": "Hyatt Regency Austin", "date": "2026-03-15", "amount": 289.0, "currency": "USD", "category": "lodging", "has_image": true, "trip_id": "trip-8802", "notes": "One night, above nightly limit"},
+    {"receipt_id": "rec-0007", "employee_id": "emp-1002", "merchant": "Lyft", "date": "2026-03-15", "amount": 32.75, "currency": "USD", "category": "travel", "has_image": true, "trip_id": "trip-8802", "notes": "Airport to hotel"},
+    {"receipt_id": "rec-0008", "employee_id": "emp-1002", "merchant": "The Roosevelt Room", "date": "2026-03-15", "amount": 96.0, "currency": "USD", "category": "alcohol", "has_image": true, "trip_id": "trip-8802", "notes": "Drinks with prospect, no pre-approval on file"},
+    {"receipt_id": "rec-0009", "employee_id": "emp-1003", "merchant": "Amtrak", "date": "2026-02-02", "amount": 121.0, "currency": "USD", "category": "travel", "has_image": true, "trip_id": "trip-8803", "notes": "Rail to onsite"},
+    {"receipt_id": "rec-0010", "employee_id": "emp-1003", "merchant": "Sweetgreen", "date": "2026-02-02", "amount": 21.4, "currency": "USD", "category": "meals", "has_image": false, "trip_id": "trip-8803", "notes": "Under receipt threshold"},
+    {"receipt_id": "rec-0011", "employee_id": "emp-1003", "merchant": "Topgolf", "date": "2026-02-03", "amount": 640.0, "currency": "USD", "category": "entertainment", "has_image": true, "trip_id": "trip-8803", "notes": "Customer event, four guests, pre-approval not recorded"},
+    {"receipt_id": "rec-0012", "employee_id": "emp-1001", "merchant": "Denver Athletic Club", "date": "2025-11-20", "amount": 55.0, "currency": "USD", "category": "meals", "has_image": true, "trip_id": null, "notes": "Older than the 60 day submission window"}
+  ]
+}

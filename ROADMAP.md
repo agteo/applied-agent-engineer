@@ -2,27 +2,35 @@
 
 This roadmap turns the curriculum specification into an executable course.
 
-## Phase 1: Make Level 1 Executable
+A phase is done when its code runs in CI. A phase whose spec reads well and
+whose code does not exist is not started.
+
+## Phase 1: Make Level 1 Executable — SHIPPED
 
 Goal: a learner can build and run the Acme Expense Agent locally.
 
-Deliverables:
+All of it lives in [examples/acme-expense-agent/](examples/acme-expense-agent/).
 
-- Python project scaffold
-- dependency file
-- local model/API adapter interface
-- Acme policy fixtures
-- receipt and employee fixtures
-- calculator, policy search, receipt lookup, and approval tools
-- trace schema
-- trace writer
-- reference solution for Level 1 labs
-- basic tests
-- CI workflow for Level 1 checks
+- [x] Python project scaffold
+- [x] dependency file
+- [x] local model/API adapter interface (`acme_agent/models.py`)
+- [x] Acme policy fixtures (`fixtures/policies.json`)
+- [x] receipt and employee fixtures
+- [x] calculator, policy search, receipt lookup, and approval tools (`acme_agent/tools.py`)
+- [x] trace schema ([`docs/trace-schema.md`](examples/acme-expense-agent/docs/trace-schema.md))
+- [x] trace writer (`acme_agent/trace.py`)
+- [x] reference solution for Level 1 labs (`solutions/`)
+- [x] basic tests (50, in `tests/`)
+- [x] CI workflow for Level 1 checks ([`.github/workflows/level-1.yml`](.github/workflows/level-1.yml))
 
-## Phase 2: Ship The Golden Eval Set
+## Phase 2: Ship The Golden Eval Set — NEXT
 
 Goal: a learner can evaluate agent behavior against a real benchmark.
+
+This is the only thing that matters until it ships. The Level 1 harness gives
+Phase 2 what it needs to build against: a trace format, a final-answer
+contract, fixtures with known-correct answers, and a zero-cost model adapter
+that makes a 100-task run free and deterministic.
 
 Deliverables:
 
