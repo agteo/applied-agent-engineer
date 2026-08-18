@@ -305,3 +305,23 @@ By the end of the curriculum, learners should have a public portfolio containing
 - an optional fine-tuned adapter
 - an optional simulated environment
 - an optional RL training report
+
+## Capstones
+
+The course has two capstones.
+
+### Core Practical Capstone
+
+Required for core completion. No GPU required.
+
+Learners improve a flawed Acme Expense Agent, run evals, diagnose failures, make one targeted intervention, and write a recommendation.
+
+See [../capstones/core-practical/README.md](../capstones/core-practical/README.md).
+
+### Advanced GPU Model Adaptation Capstone
+
+Optional advanced capstone. GPU required.
+
+Learners adapt a local or open model with Level 4 data, produce an adapter or checkpoint, evaluate against the Level 2 benchmark, and decide whether the company should adopt the adapted model.
+
+See [../capstones/advanced-gpu-model-adaptation/README.md](../capstones/advanced-gpu-model-adaptation/README.md).

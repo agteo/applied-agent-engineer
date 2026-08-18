@@ -20,6 +20,11 @@ Build -> Evaluate -> Diagnose -> Data -> Post-train -> Environments -> RL
 
 The core curriculum is Levels 1-4. Levels 5-7 are advanced specialization tracks for model improvement, local AI stack ownership, simulated environments, and reinforcement learning.
 
+The course has two capstones:
+
+- [Core Practical Capstone](capstones/core-practical/README.md): required, no GPU.
+- [Advanced GPU Model Adaptation Capstone](capstones/advanced-gpu-model-adaptation/README.md): optional, GPU required.
+
 ## What This Curriculum Trains
 
 Learners are trained to become engineers who can:
@@ -88,6 +93,8 @@ examples/
 evals/
 datasets/
 environments/
+resources/
+capstones/
 templates/
 ```
 

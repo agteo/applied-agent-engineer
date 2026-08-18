@@ -75,6 +75,7 @@ Deliverables:
 - small-model training script
 - LoRA/QLoRA config
 - model comparison report
+- advanced GPU capstone bundle
 
 ## Phase 6: Environment And RL Prototype
 
