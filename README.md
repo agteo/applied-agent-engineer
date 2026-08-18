@@ -113,8 +113,9 @@ After Level 4, learners can choose one or more tracks:
 
 1. Read [curriculum/framework.md](curriculum/framework.md).
 2. Read [curriculum/mental-models.md](curriculum/mental-models.md).
-3. Read [curriculum/references.md](curriculum/references.md).
-4. Read [curriculum/feedback-and-assessment.md](curriculum/feedback-and-assessment.md).
-5. Read [curriculum/syllabus.md](curriculum/syllabus.md).
-6. Check current maturity in [STATUS.md](STATUS.md).
-7. Start Level 1 in [levels/01-build/README.md](levels/01-build/README.md).
+3. Use [curriculum/glossary.md](curriculum/glossary.md) for key terms and acronyms.
+4. Read [curriculum/references.md](curriculum/references.md).
+5. Read [curriculum/feedback-and-assessment.md](curriculum/feedback-and-assessment.md).
+6. Read [curriculum/syllabus.md](curriculum/syllabus.md).
+7. Check current maturity in [STATUS.md](STATUS.md).
+8. Start Level 1 in [levels/01-build/README.md](levels/01-build/README.md).
