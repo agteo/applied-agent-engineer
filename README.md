@@ -123,12 +123,26 @@ After Level 4, learners can choose one or more tracks:
 
 ## Start Here
 
-1. Read [curriculum/framework.md](curriculum/framework.md).
-2. Read [curriculum/mental-models.md](curriculum/mental-models.md).
-3. Use [curriculum/glossary.md](curriculum/glossary.md) for key terms and acronyms.
-4. Read [curriculum/references.md](curriculum/references.md).
-5. Read [curriculum/feedback-and-assessment.md](curriculum/feedback-and-assessment.md).
-6. Read [curriculum/syllabus.md](curriculum/syllabus.md).
-7. Check current maturity in [STATUS.md](STATUS.md).
-8. Run the agent: [examples/acme-expense-agent/README.md](examples/acme-expense-agent/README.md).
-8. Start Level 1 in [levels/01-build/README.md](levels/01-build/README.md).
+1. Read [curriculum/framework.md](curriculum/framework.md) for what this course is and why it is shaped this way.
+
+2. Run the agent. No signup, no API key, no dependencies:
+
+   ```bash
+   cd examples/acme-expense-agent
+   python run_agent.py --all --quiet
+   python -m acme_agent.check_traces traces/level-1.jsonl
+   ```
+
+   Then read [its README](examples/acme-expense-agent/README.md), particularly the design decisions and the known limitations.
+
+3. Start Level 1 in [levels/01-build/README.md](levels/01-build/README.md), and build your own version before reading the [reference solutions](examples/acme-expense-agent/solutions/README.md).
+
+4. Check what is and is not built yet in [STATUS.md](STATUS.md).
+
+Read these as you need them, not before:
+
+- [curriculum/mental-models.md](curriculum/mental-models.md) — the reasoning patterns the levels assume.
+- [curriculum/syllabus.md](curriculum/syllabus.md) — the full level-by-level sequence.
+- [curriculum/glossary.md](curriculum/glossary.md) — key terms and acronyms.
+- [curriculum/references.md](curriculum/references.md) — prior art, indexed to the lesson where each one matters.
+- [curriculum/feedback-and-assessment.md](curriculum/feedback-and-assessment.md) — how work is assessed.
