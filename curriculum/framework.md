@@ -33,13 +33,13 @@ Agents are used as the practical course vehicle because they expose the whole ap
         Agent Quality          Model Improvement     Agent Learning
         Engineering            and Local AI Stack    L6 Environments
         Production evals       L5 Post-training             |
-        Observability                 |                     v
+        Observability          L5 Local Inference           v
         Red teaming                   +---------------> L7 RL
 ```
 
 Levels 1-4 are the core. They are mandatory because every applied AI engineer needs to know how to build a workflow-connected AI system, evaluate it, diagnose it, and convert behavior into usable data.
 
-Levels 5-7 are specializations. They matter deeply, but not every practitioner needs to become a model training or RL engineer. Learners who continue into these levels learn how to adapt open models, build proprietary improvement loops, and reason about owning more of the AI stack.
+Levels 5-7 are specializations. They matter deeply, but not every practitioner needs to become a model training, inference platform, or RL engineer. Learners who continue into these levels learn how to adapt open models, operate local inference stacks, build proprietary improvement loops, and reason about owning more of the AI stack.
 
 ## Level Pattern
 
@@ -80,6 +80,7 @@ Each level produces artifacts that become inputs to later levels.
 | L3 Diagnose | Failure taxonomy, annotated trajectories, interventions | L4 data generation |
 | L4 Data | Curated proprietary-style dataset, dataset card, quality metrics | L5 post-training |
 | L5 Post-training | Local model adapter, model comparison report | L2 regression benchmark |
+| L5 Local Inference | Gateway configuration, resilience report, serving metrics | L2 regression benchmark and production readiness review |
 | L6 Environments | Simulated domain, tasks, reward functions | L7 rollouts |
 | L7 RL | Training runs, learning curves, trained adapter | L2/L3 final evaluation |
 
@@ -91,7 +92,7 @@ The agent helps employees answer expense-policy questions, search receipts and a
 
 This domain is useful because it is realistic without requiring real private data. It includes policies, structured records, proprietary-style business data, tool use, ambiguity, permissions, compliance, and measurable task outcomes.
 
-The agent is a scaffold, not the ceiling. By the end of the curriculum, the learner has built the surrounding improvement system: evals, traces, datasets, adapted local models, simulator, and training loop.
+The agent is a scaffold, not the ceiling. By the end of the curriculum, the learner has built the surrounding improvement system: evals, traces, datasets, adapted local models, local inference stack, simulator, and training loop.
 
 ## Design Principles
 
@@ -151,6 +152,7 @@ By the end of the advanced curriculum, a learner can:
 
 1. Fine-tune or adapt an open model using a curated dataset.
 2. Compare prompted, frontier, and fine-tuned systems on the same benchmark.
-3. Build a simulated environment with tasks, state transitions, and rewards.
-4. Run rollouts and analyze whether experience improves agent behavior.
-5. Advise when a company should use a frontier API, local model, retrieval system, workflow automation, or hybrid stack.
+3. Deploy a local or open model behind a gateway with observable fallback behavior.
+4. Build a simulated environment with tasks, state transitions, and rewards.
+5. Run rollouts and analyze whether experience improves agent behavior.
+6. Advise when a company should use a frontier API, local model, retrieval system, workflow automation, or hybrid stack.

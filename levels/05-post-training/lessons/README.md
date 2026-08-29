@@ -8,4 +8,4 @@ Read these lessons in order:
 4. [LoRA and QLoRA](04-lora-and-qlora.md)
 5. [Preference Optimization](05-preference-optimization.md)
 6. [Evaluation After Training](06-evaluation-after-training.md)
-
+7. [Local Inference Operations](07-local-inference-operations.md)

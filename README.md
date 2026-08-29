@@ -76,6 +76,7 @@ The agent is not the final point. It is the scaffold for learning how proprietar
 | 4 | Data and Feedback | Turn traces, failures, and human corrections into defensible datasets. |
 | 5A | Model Improvement Decisions | Decide whether prompting, retrieval, tooling, frontier APIs, or local model adaptation is the right intervention. |
 | 5B | Post-training Implementation | Run GPU-backed SFT/LoRA experiments and compare adapted local models. |
+| 5C | Local Inference Operations | Deploy local or open models behind a gateway with routing, fallback, and observability. |
 | 6 | Environments | Build simulated domains where agents can practice safely. |
 | 7 | RL Reading and Analysis | Analyze rollouts, rewards, RLHF/RLVR, PPO/GRPO, and reward hacking. Optional training requires real compute and supervision. |
 
@@ -118,7 +119,7 @@ After Level 4, learners can choose one or more tracks:
 | --- | --- |
 | Agent Quality Engineering | Evals, observability, reliability, red teaming, and production feedback loops. |
 | Model Improvement | Proprietary data pipelines, SFT, LoRA, DPO, and model comparison. |
-| Local AI Stack Ownership | Open model selection, deployment tradeoffs, eval gates, data governance, and cost control. |
+| Local AI Stack Ownership | Open model selection, local serving, gateway routing, fallback, observability, eval gates, data governance, and cost control. |
 | Agent Learning | Simulated environments, rewards, rollouts, and RL. |
 
 ## Start Here

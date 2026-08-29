@@ -19,6 +19,7 @@ The conceptual backbone for the course is documented in [mental-models.md](menta
 | Core intensive | 4-6 weeks | Experienced engineers studying Levels 1-4 full-time. |
 | Core standard | 10-12 weeks | Working engineers studying Levels 1-4 part-time. |
 | Advanced model track | 4-8 additional weeks | Learners with PyTorch, GPU access, and ML training prerequisites. |
+| Advanced serving track | 2-4 additional weeks | Learners who want to operate local or open models behind real applications. |
 | Environment/RL analysis track | 3-6 additional weeks | Learners studying simulation, rollouts, rewards, and RL evaluation. |
 
 ## Prerequisites
@@ -42,6 +43,12 @@ Required for the optional model-training implementation track:
 - PyTorch
 - Hugging Face Transformers or equivalent
 - access to suitable local or cloud compute
+
+Required for the optional local inference operations track:
+
+- Docker basics
+- HTTP APIs and reverse proxy concepts
+- access to a local or cloud inference environment, or a CPU-only edge setup for smaller models
 
 ## Level 0: Foundations
 
@@ -234,6 +241,37 @@ Fine-tune an open model using the Level 4 dataset and compare it against the pro
 
 The learner runs a post-training experiment, produces an adapter or trained checkpoint, evaluates it on the Level 2 benchmark, and explains whether the improvement is worth the cost.
 
+## Level 5C: Local Inference Operations
+
+### Purpose
+
+Teach learners how to deploy, route, observe, and fail over local or open models behind production-like agent systems.
+
+This track is about serving reliability, not model training. It can be completed with a base open model, an adapted model from Level 5B, or a small CPU/edge model if GPU access is unavailable.
+
+### Topics
+
+- OpenAI-compatible local serving
+- local inference engine tradeoffs: vLLM, llama.cpp, Ollama, SGLang, or equivalent
+- gateway and proxy patterns: LiteLLM Proxy, Envoy, OpenResty, or equivalent
+- model aliases and client compatibility
+- routing, retries, fallbacks, and health checks
+- containerized inference runtimes
+- GPU passthrough and runtime isolation
+- private networking for local workers
+- request logging, token accounting, and rate limits
+- observability: time to first token, tokens per second, latency, errors, saturation, and memory use
+- resilience testing through killed workers, unreachable endpoints, and resource exhaustion
+- adoption gates for local vs hosted vs hybrid inference
+
+### Project
+
+Build a resilient local inference stack for the Acme Expense Agent.
+
+### Exit Criteria
+
+The learner can serve a local or open model through a stable API, route agent traffic through a gateway, observe runtime behavior, and prove that fallback behavior works under failure.
+
 ## Level 6: Environments
 
 ### Purpose
@@ -303,6 +341,7 @@ By the end of the curriculum, learners should have a public portfolio containing
 - an agent failure report
 - a curated training dataset
 - an optional fine-tuned adapter
+- an optional local inference stack with gateway, fallback, and observability notes
 - an optional simulated environment
 - an optional RL training report
 
