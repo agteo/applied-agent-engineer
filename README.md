@@ -25,7 +25,7 @@ The course is organized around a simple progression:
 Build -> Evaluate -> Diagnose -> Data -> Post-train -> Environments -> RL
 ```
 
-The core curriculum is Levels 1-4. Levels 5-7 are advanced specialization tracks for model improvement, local AI stack ownership, simulated environments, and reinforcement learning.
+The core curriculum is Levels 1-4. Levels 5-7 are advanced specialization tracks for agent quality engineering, model improvement, local AI stack ownership, environment/verifier engineering, and reinforcement learning.
 
 The course has two capstones:
 
@@ -57,13 +57,17 @@ Concepts -> Tools -> Lab -> Project -> Evaluation
 
 Every level also consumes artifacts produced by earlier levels. Learners do not build seven unrelated demos. They evolve one canonical AI system from a basic tool-using assistant into a measurable, diagnosable, data-producing, locally improvable system.
 
+The current executable seed is the Acme Expense Agent. The final canonical system should remain contingent on where companies are actually deploying agents and need stronger evaluation capability.
+
 ## Canonical Course System
 
-The default course project is the Acme Expense Agent.
+The current executable course project is the Acme Expense Agent.
 
 At first, it answers expense-policy questions and uses simple tools. Later, learners evaluate it, diagnose its failures, convert traces into training data, fine-tune or adapt a smaller local model, place it inside a simulated company environment, and eventually train it through experience.
 
-The agent is not the final point. It is the scaffold for learning how proprietary data, evals, local models, and workflow ownership fit together.
+The agent is not the final point. It is the scaffold for learning how proprietary data, evals, local models, verifiers, environments, and workflow ownership fit together.
+
+The domain may expand from expense reimbursement into a broader finance operations agent if that better reflects deployed enterprise agent work: accounts payable, procure-to-pay, order-to-cash, reconciliation, audit support, approval routing, exception handling, and policy-governed workflow automation. See [curriculum/canonical-system-strategy.md](curriculum/canonical-system-strategy.md).
 
 ## Curriculum
 
@@ -72,13 +76,13 @@ The agent is not the final point. It is the scaffold for learning how proprietar
 | 0 | Foundations | Learn the engineering, LLM, data, and measurement basics needed for the course. |
 | 1 | Build | Build a tool-using agent that completes a multi-step business task. |
 | 2 | Evaluate | Create reproducible evals, graders, and benchmark reports. |
-| 3 | Diagnose | Analyze trajectories and classify agent failures with evidence. |
+| 3 | Production Eval Operations and Diagnose | Turn traces into failure datasets, regression checks, release gates, and evidence-backed failure analysis. |
 | 4 | Data and Feedback | Turn traces, failures, and human corrections into defensible datasets. |
 | 5A | Model Improvement Decisions | Decide whether prompting, retrieval, tooling, frontier APIs, or local model adaptation is the right intervention. |
 | 5B | Post-training Implementation | Run GPU-backed SFT/LoRA experiments and compare adapted local models. |
 | 5C | Local Inference Operations | Deploy local or open models behind a gateway with routing, fallback, and observability. |
-| 6 | Environments | Build simulated domains where agents can practice safely. |
-| 7 | RL Reading and Analysis | Analyze rollouts, rewards, RLHF/RLVR, PPO/GRPO, and reward hacking. Optional training requires real compute and supervision. |
+| 6 | Environments and Verifiers | Build simulated domains, state checks, constraints, and reward functions where agents can practice safely. |
+| 7 | RL for Agent Reliability | Analyze rollouts, rewards, RLHF/RLVR, PPO/GRPO, and reward hacking. Optional training requires real compute and supervision. |
 
 ## Repository Map
 
@@ -109,6 +113,7 @@ environments/
 resources/
 capstones/
 templates/
+tracks/
 ```
 
 ## Tracks
@@ -120,7 +125,8 @@ After Level 4, learners can choose one or more tracks:
 | Agent Quality Engineering | Evals, observability, reliability, red teaming, and production feedback loops. |
 | Model Improvement | Proprietary data pipelines, SFT, LoRA, DPO, and model comparison. |
 | Local AI Stack Ownership | Open model selection, local serving, gateway routing, fallback, observability, eval gates, data governance, and cost control. |
-| Agent Learning | Simulated environments, rewards, rollouts, and RL. |
+| Environment and Verifier Engineering | Simulated workflows, deterministic checks, state verifiers, constraint scoring, sandboxes, and rewards. |
+| RL for Agent Reliability | Rollouts, verifier-derived rewards, hosted training adapters, reward hacking analysis, and post-training regression evaluation. |
 
 ## Start Here
 

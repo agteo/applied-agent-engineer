@@ -6,7 +6,7 @@ Applied Agent Engineering teaches engineers how to build AI systems that can use
 
 The course uses agents as the hands-on vehicle, but the broader goal is applied AI stack ownership: evals, traces, data pipelines, local model adaptation, workflow integration, simulation, and reinforcement learning.
 
-The course has a four-level core and advanced specialization tracks.
+The course has a four-level common core and advanced specialization tracks.
 
 Current maturity note: this repository is still a curriculum specification. The target executable release is Levels 1-2 first, then Levels 3-4, then optional model-training and RL tracks.
 
@@ -20,7 +20,8 @@ The conceptual backbone for the course is documented in [mental-models.md](menta
 | Core standard | 10-12 weeks | Working engineers studying Levels 1-4 part-time. |
 | Advanced model track | 4-8 additional weeks | Learners with PyTorch, GPU access, and ML training prerequisites. |
 | Advanced serving track | 2-4 additional weeks | Learners who want to operate local or open models behind real applications. |
-| Environment/RL analysis track | 3-6 additional weeks | Learners studying simulation, rollouts, rewards, and RL evaluation. |
+| Environment/verifier track | 3-6 additional weeks | Learners studying simulation, stateful workflows, verifiers, rewards, and rollout evaluation. |
+| RL reliability track | 2-6 additional weeks | Learners studying verifier-derived rewards, hosted RL adapters, training experiments, and post-training regression analysis. |
 
 ## Prerequisites
 
@@ -97,6 +98,8 @@ Build a reliable tool-using agent that interacts with realistic systems.
 
 Build the Acme Expense Agent v1.
 
+The Acme Expense Agent is the current executable seed. The canonical system may later expand into a broader Acme Finance Operations Agent if that better matches deployed enterprise agent work.
+
 ### Exit Criteria
 
 The learner can build an agent that completes a multi-step expense task using at least three tools and produces a structured final answer.
@@ -130,15 +133,21 @@ Create a benchmark for Acme Expense Agent v1 with at least 100 tasks, multiple g
 
 The learner can compare two agent versions and explain why they trust the measurement.
 
-## Level 3: Diagnose
+## Level 3: Production Eval Operations and Diagnose
 
 ### Purpose
 
-Teach learners to explain why agents fail using evidence from trajectories.
+Teach learners to operate the production quality loop around agents and explain why agents fail using evidence from trajectories.
 
 ### Topics
 
 - traces and trajectories
+- trace sampling
+- observability
+- production eval datasets
+- regression packs
+- CI release gates
+- monitoring feedback loops
 - failure taxonomies
 - tool selection errors
 - tool argument errors
@@ -152,11 +161,11 @@ Teach learners to explain why agents fail using evidence from trajectories.
 
 ### Project
 
-Create an Agent Failure Report for the Level 1 agent using the Level 2 benchmark.
+Create a production-style eval operations report and Agent Failure Report for the Level 1 agent using the Level 2 benchmark.
 
 ### Exit Criteria
 
-The learner can classify failures, identify dominant failure modes, propose interventions, and test whether those interventions work.
+The learner can turn traces into eval cases, run regression checks, classify failures, identify dominant failure modes, propose interventions, and test whether those interventions work.
 
 ## Level 4: Data and Feedback
 
@@ -266,17 +275,17 @@ This track is about serving reliability, not model training. It can be completed
 
 ### Project
 
-Build a resilient local inference stack for the Acme Expense Agent.
+Build a resilient local inference stack for the current Acme agent. The first implementation uses the Acme Expense Agent; later versions may target the broader Acme Finance Operations Agent.
 
 ### Exit Criteria
 
 The learner can serve a local or open model through a stable API, route agent traffic through a gateway, observe runtime behavior, and prove that fallback behavior works under failure.
 
-## Level 6: Environments
+## Level 6: Environments and Verifiers
 
 ### Purpose
 
-Teach learners to build simulated worlds where agents can practice safely.
+Teach learners to build simulated worlds and verifiers where agents can practice safely and be scored objectively.
 
 ### Topics
 
@@ -287,23 +296,27 @@ Teach learners to build simulated worlds where agents can practice safely.
 - task generation
 - tool simulation
 - state transitions
+- deterministic verifiers
+- state verifiers
+- constraint verifiers
+- model-based verifiers
 - rewards
 - reproducibility
 - sandboxing
 
 ### Project
 
-Build Acme Corp Simulator, a simulated company environment with expense policies, employee records, receipts, approvals, and task outcomes.
+Build the first version of Acme Finance Operations Simulator, starting from expense policies, employee records, receipts, approvals, and task outcomes. The simulator should be able to expand toward invoices, purchase orders, vendors, reconciliation, audit logs, and exception handling.
 
 ### Exit Criteria
 
-The learner can create a reproducible environment with tasks, state transitions, and automatic success checks.
+The learner can create a reproducible environment with tasks, state transitions, automatic success checks, verifier outputs, and reward components.
 
-## Level 7: Reinforcement Learning Analysis
+## Level 7: RL for Agent Reliability
 
 ### Purpose
 
-Teach learners how agents can improve through experience, what modern RL methods are trying to optimize, and why reward design can fail.
+Teach learners how agents can improve through experience, how verifier-derived rewards can support training, what modern RL methods are trying to optimize, and why reward design can fail.
 
 ### Topics
 
@@ -311,6 +324,7 @@ Teach learners how agents can improve through experience, what modern RL methods
 - state and action spaces
 - policies
 - reward functions
+- verifier-derived rewards
 - exploration and exploitation
 - policy gradients
 - reward hacking
@@ -324,7 +338,7 @@ Teach learners how agents can improve through experience, what modern RL methods
 
 ### Project
 
-Analyze rollouts, rewards, and a proposed training setup for Acme Corp Simulator. Running RL training is optional until the repo has a real environment implementation, compute requirements, and reference training scripts.
+Analyze rollouts, rewards, and a proposed training setup for the Acme Finance Operations Simulator. Running RL training is optional until the repo has a real environment implementation, verifier contracts, compute requirements, and reference training scripts.
 
 ### Exit Criteria
 

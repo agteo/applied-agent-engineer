@@ -23,14 +23,16 @@ All of it lives in [examples/acme-expense-agent/](examples/acme-expense-agent/).
 - [x] basic tests (50, in `tests/`)
 - [x] CI workflow for Level 1 checks ([`.github/workflows/level-1.yml`](.github/workflows/level-1.yml))
 
-## Phase 2: Ship The Golden Eval Set — NEXT
+## Phase 2: Ship The Production Eval Foundation — NEXT
 
-Goal: a learner can evaluate agent behavior against a real benchmark.
+Goal: a learner can evaluate agent behavior against a real benchmark and use the result as a production-style release gate.
 
 This is the only thing that matters until it ships. The Level 1 harness gives
 Phase 2 what it needs to build against: a trace format, a final-answer
 contract, fixtures with known-correct answers, and a zero-cost model adapter
 that makes a 100-task run free and deterministic.
+
+The current executable seed remains the Acme Expense Agent. The benchmark should be designed so it can expand into a broader Acme Finance Operations Agent if finance operations proves to be the right canonical domain.
 
 Deliverables:
 
@@ -42,20 +44,26 @@ Deliverables:
 - human-reviewed calibration examples
 - benchmark runner
 - sample benchmark report
+- production eval report format
 - CI checks for Level 1 and Level 2 submissions
+- release-gate thresholds and failure messages
 
-## Phase 3: Add Feedback Mechanisms
+## Phase 3: Add Production Eval Operations And Feedback Mechanisms
 
-Goal: learners get meaningful feedback without needing the course author in the loop.
+Goal: learners can turn traces into failure datasets, regression packs, release decisions, and meaningful feedback without needing the course author in the loop.
 
 Deliverables:
 
 - reference solutions for Levels 1-2 labs
 - bad submission examples
 - annotated failed traces
+- failure analysis bundle
+- trace-to-eval-dataset workflow
+- regression pack generation
 - grading rubrics with worked examples
 - automated checks with clear failure messages
 - instructor review guide
+- optional Langfuse + Inspect AI integration notes
 
 ## Phase 4: Make Levels 3-4 Concrete
 
@@ -85,15 +93,20 @@ Deliverables:
 - model comparison report
 - advanced GPU capstone bundle
 
-## Phase 6: Environment And RL Prototype
+## Phase 6: Environment And Verifier Prototype
 
-Goal: make environment learning honest and bounded.
+Goal: make environment learning honest, bounded, and useful for both evaluation and later training.
 
 Deliverables:
 
-- Acme Corp Simulator minimal implementation
+- Acme Finance Operations Simulator minimal implementation
 - deterministic success checks
+- state verifiers
+- constraint verifiers
+- model-based verifier examples
 - rollout logger
+- reward functions derived from verifier components
 - reward hacking examples
-- Level 7 reading-and-analysis path
-- optional training path only after environment and compute requirements are real
+- Level 7 RL reliability analysis path
+- optional Prime Intellect adapter only after local environment and verifier contracts are real
+- optional training path only after environment, verifier, and compute requirements are real

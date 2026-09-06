@@ -2,7 +2,7 @@
 
 ## Objective
 
-Define the Acme Corp Simulator state schema.
+Define the Acme Finance Operations Simulator state schema.
 
 ## Deliverable
 
@@ -15,5 +15,4 @@ Submit:
 
 ## Checks
 
-The lab passes if the state contains enough information to grade expense tasks automatically.
-
+The lab passes if the state contains enough information to grade the first expense tasks automatically and can plausibly expand into invoice, purchase order, approval, reconciliation, and audit workflows.

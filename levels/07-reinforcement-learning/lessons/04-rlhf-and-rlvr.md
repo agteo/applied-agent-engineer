@@ -14,9 +14,8 @@ Reinforcement Learning from Verifiable Rewards uses automatically checkable outc
 
 ## Acme Fit
 
-Acme Corp Simulator is closer to RLVR when success checks are deterministic. Human review can supplement it when answer quality, clarity, or judgment is subjective.
+Acme Finance Operations Simulator is closer to RLVR when success checks are deterministic. Human review can supplement it when answer quality, clarity, or judgment is subjective.
 
 ## Checkpoint
 
 You are ready to move on when you can decide which Acme outcomes are verifiable and which need human or rubric judgment.
-

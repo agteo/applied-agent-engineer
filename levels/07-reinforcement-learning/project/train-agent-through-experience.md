@@ -2,14 +2,14 @@
 
 ## Objective
 
-Use Acme Corp Simulator to test whether environment experience improves Acme Expense Agent behavior.
+Use Acme Finance Operations Simulator to test whether environment experience improves Acme agent reliability.
 
 Current maturity note: until the simulator, rollout runner, and training scripts exist, this project should be treated as an analysis and experiment-design project. A completed RL training claim requires actual training logs, learning curves, and benchmark comparison.
 
 ## Required Inputs
 
-- Acme Corp Simulator v1
-- reward function
+- Acme Finance Operations Simulator v1
+- verifier-derived reward function
 - rollout dataset
 - baseline agent
 - Level 2 benchmark
@@ -19,7 +19,7 @@ Current maturity note: until the simulator, rollout runner, and training scripts
 
 - RL framing
 - rollout dataset
-- reward hacking review
+- verifier and reward hacking review
 - experiment plan
 - learning curves if training is run
 - benchmark comparison
@@ -28,6 +28,7 @@ Current maturity note: until the simulator, rollout runner, and training scripts
 ## Submission Checklist
 
 - [ ] Environment version documented.
+- [ ] Verifier version documented.
 - [ ] Reward version documented.
 - [ ] Rollout data collected and filtered.
 - [ ] Training method documented.

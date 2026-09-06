@@ -22,7 +22,8 @@ Agents are used as the practical course vehicle because they expose the whole ap
                                 L2 Evaluate
                                      |
                                      v
-                                L3 Diagnose
+                       L3 Production Eval Ops
+                          and Failure Analysis
                                      |
                                      v
                               L4 Data and Feedback
@@ -30,16 +31,18 @@ Agents are used as the practical course vehicle because they expose the whole ap
                 +--------------------+--------------------+
                 |                    |                    |
                 v                    v                    v
-        Agent Quality          Model Improvement     Agent Learning
-        Engineering            and Local AI Stack    L6 Environments
-        Production evals       L5 Post-training             |
-        Observability          L5 Local Inference           v
-        Red teaming                   +---------------> L7 RL
+        Agent Quality          Model Improvement     Environment and
+        Engineering            and Local AI Stack    Verifier Engineering
+        Production evals       L5 Post-training      L6 Environments
+        Observability          L5 Local Inference           |
+        Release gates                 +--------------+      v
+        Red teaming                   |              |    L7 RL
+                                      |              |  for Reliability
 ```
 
 Levels 1-4 are the core. They are mandatory because every applied AI engineer needs to know how to build a workflow-connected AI system, evaluate it, diagnose it, and convert behavior into usable data.
 
-Levels 5-7 are specializations. They matter deeply, but not every practitioner needs to become a model training, inference platform, or RL engineer. Learners who continue into these levels learn how to adapt open models, operate local inference stacks, build proprietary improvement loops, and reason about owning more of the AI stack.
+Levels 5-7 are specializations. They matter deeply, but not every practitioner needs to become a model training, inference platform, environment, or RL engineer. Learners who continue into these levels learn how to adapt open models, operate local inference stacks, build proprietary improvement loops, design verifiers, create simulated environments, and reason about owning more of the AI stack.
 
 ## Level Pattern
 
@@ -77,22 +80,26 @@ Each level produces artifacts that become inputs to later levels.
 | --- | --- | --- |
 | L1 Build | Agent harness, tool schemas, traces | L2 eval cases and graders |
 | L2 Evaluate | Benchmark dataset, grader outputs, eval report | L3 failure analysis |
-| L3 Diagnose | Failure taxonomy, annotated trajectories, interventions | L4 data generation |
+| L3 Production Eval Operations and Diagnose | Failure taxonomy, annotated trajectories, regression packs, release gates, interventions | L4 data generation |
 | L4 Data | Curated proprietary-style dataset, dataset card, quality metrics | L5 post-training |
 | L5 Post-training | Local model adapter, model comparison report | L2 regression benchmark |
 | L5 Local Inference | Gateway configuration, resilience report, serving metrics | L2 regression benchmark and production readiness review |
-| L6 Environments | Simulated domain, tasks, reward functions | L7 rollouts |
-| L7 RL | Training runs, learning curves, trained adapter | L2/L3 final evaluation |
+| L6 Environments and Verifiers | Simulated domain, tasks, deterministic/state/constraint verifiers, reward functions | L7 rollouts |
+| L7 RL for Agent Reliability | Training runs, learning curves, trained adapter, reward-hacking analysis | L2/L3 final evaluation |
 
-## Canonical Agent
+## Canonical System
 
-The default project is the Acme Expense Agent.
+The current executable seed is the Acme Expense Agent.
 
 The agent helps employees answer expense-policy questions, search receipts and approvals, prepare reimbursement drafts, and route edge cases to a human reviewer.
 
 This domain is useful because it is realistic without requiring real private data. It includes policies, structured records, proprietary-style business data, tool use, ambiguity, permissions, compliance, and measurable task outcomes.
 
-The agent is a scaffold, not the ceiling. By the end of the curriculum, the learner has built the surrounding improvement system: evals, traces, datasets, adapted local models, local inference stack, simulator, and training loop.
+The agent is a scaffold, not the ceiling. The canonical system may expand into an Acme Finance Operations Agent if that better reflects deployed enterprise agent work: invoices, approvals, purchase orders, reconciliation, audit support, and exception handling.
+
+The final domain should remain contingent on where companies are actually deploying agents and where reliability can be evaluated with hard verifiers. See [canonical-system-strategy.md](canonical-system-strategy.md).
+
+By the end of the curriculum, the learner has built the surrounding improvement system: evals, traces, datasets, adapted local models, local inference stack, simulator, verifiers, rewards, and training loop.
 
 ## Design Principles
 
@@ -103,6 +110,14 @@ Learners should experience improvement over time. The same agent should become m
 ### Evaluation Is Not Optional
 
 Every project must include a reproducible way to decide whether the system improved.
+
+### Production Evaluation Is An Operating Loop
+
+Learners should know how production traces become eval datasets, regression packs, release gates, monitoring signals, and new failure cases.
+
+### Verifiers Beat Vibes
+
+Whenever possible, task success should be checked by deterministic, state, or constraint verifiers instead of only by model-based judgment.
 
 ### Diagnosis Comes Before Optimization
 
@@ -137,6 +152,7 @@ These concepts are revisited throughout the course:
 - local models must be evaluated, not romanticized
 - improvements must be tested, not trusted
 - data is the bridge between failure and learning
+- verifiers are the bridge between evaluation and reward
 
 ## Competency Targets
 
@@ -144,15 +160,16 @@ By the end of the core curriculum, a learner can:
 
 1. Build a tool-using agent that performs a multi-step task.
 2. Create a benchmark that measures task success, quality, cost, and latency.
-3. Diagnose failures from traces using a structured taxonomy.
-4. Convert failures and human feedback into a clean dataset.
-5. Explain which intervention is most likely to improve the system and why.
+3. Turn traces into production-style eval datasets, regression checks, and release gates.
+4. Diagnose failures from traces using a structured taxonomy.
+5. Convert failures and human feedback into a clean dataset.
+6. Explain which intervention is most likely to improve the system and why.
 
 By the end of the advanced curriculum, a learner can:
 
 1. Fine-tune or adapt an open model using a curated dataset.
 2. Compare prompted, frontier, and fine-tuned systems on the same benchmark.
 3. Deploy a local or open model behind a gateway with observable fallback behavior.
-4. Build a simulated environment with tasks, state transitions, and rewards.
+4. Build a simulated environment with tasks, state transitions, verifiers, and rewards.
 5. Run rollouts and analyze whether experience improves agent behavior.
 6. Advise when a company should use a frontier API, local model, retrieval system, workflow automation, or hybrid stack.

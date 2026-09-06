@@ -33,17 +33,20 @@ What exists as specification only:
 
 What does not exist yet:
 
-- 100-task golden benchmark and graders (Phase 2)
+- 100-task golden benchmark and deterministic graders (Phase 2)
+- production eval report format and release gate (Phase 2)
 - annotated failure bundle and failure taxonomy examples (Phase 4)
 - trace-to-dataset converter and a reference dataset card (Phase 4)
-- Acme Corp Simulator implementation (Phase 6)
+- Acme Finance Operations Simulator implementation (Phase 6)
+- verifier/reward design for deterministic, state, constraint, and model-based checks (Phase 6)
+- Prime Intellect adapter and RL reliability experiment (Phase 6/7)
 - training scripts and LoRA configs (Phase 5)
 
 ## Honest Claim
 
 A learner can now build Level 1 against a working reference: run the agent, run the labs, diff their harness against a solution that executes, and get an automated pass/fail on their own trace bundle.
 
-They cannot yet evaluate their agent against a real benchmark, which is the difference between "I built an agent" and "I know whether it works". That is Phase 2, and until it ships, Levels 2-7 remain instructor-readable specification rather than a course a solo learner can complete.
+They cannot yet evaluate their agent against a real benchmark, which is the difference between "I built an agent" and "I know whether it works". They also cannot yet operate the production eval loop from traces to regression packs to release gates. That is Phase 2, and until it ships, Levels 2-7 remain instructor-readable specification rather than a course a solo learner can complete.
 
 ## Near-Term Definition of Done
 
@@ -55,6 +58,16 @@ The first usable release supports Levels 1-2 end to end:
 4. Learner can see automated pass/fail checks on Level 1 output. **Done.**
 5. Learner can run a 100-task benchmark. **Not started.**
 6. Learner can produce an eval report from real benchmark output. **Not started.**
+7. Learner can use the eval report as a CI release gate. **Not started.**
+8. Learner can turn failed traces into new eval cases. **Not started.**
+
+## Canonical System Direction
+
+The current executable seed is the Acme Expense Agent. The final canonical system should remain contingent on where companies are actually deploying agents and need evaluation capability.
+
+The current working hypothesis is to expand from expense reimbursement into an Acme Finance Operations Agent because finance operations supports realistic workflows, approvals, compliance, structured records, deterministic/state verification, and later RL environments.
+
+See [curriculum/canonical-system-strategy.md](curriculum/canonical-system-strategy.md).
 
 ## Rule Of Construction
 

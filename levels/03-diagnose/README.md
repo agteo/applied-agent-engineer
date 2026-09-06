@@ -1,28 +1,58 @@
-# Level 3: Diagnose
+# Level 3: Production Eval Operations and Diagnose
 
 ## Goal
 
-Explain why an agent failed using evidence from traces, benchmark results, and grader outputs.
+Operate the production quality loop around an agent, then explain why it failed using evidence from traces, benchmark results, and grader outputs.
 
 Level 2 asked: how good is the agent?
 
-Level 3 asks: why did it fail, and what should we try next?
+Level 3 asks: how do failures become regression tests, release decisions, and targeted interventions?
 
 ## Learning Outcomes
 
 By the end of this level, learners can:
 
 1. Read agent trajectories step by step.
-2. Classify failures using a structured taxonomy.
-3. Separate model, harness, tool, retrieval, memory, environment, and grader failures.
-4. Identify dominant failure modes across a benchmark run.
-5. Form evidence-backed hypotheses.
-6. Design targeted interventions.
-7. Run experiments that confirm or reject those interventions.
+2. Convert traces and failures into eval datasets and regression packs.
+3. Set release-gate thresholds for agent changes.
+4. Classify failures using a structured taxonomy.
+5. Separate model, harness, tool, retrieval, memory, environment, and grader failures.
+6. Identify dominant failure modes across a benchmark run.
+7. Form evidence-backed hypotheses.
+8. Design targeted interventions.
+9. Run experiments that confirm or reject those interventions.
 
 ## Required Build
 
-Learners create an Agent Failure Report for Acme Expense Agent v1 using the Level 2 benchmark.
+Learners create a production-style eval operations report and Agent Failure Report for Acme Expense Agent v1 using the Level 2 benchmark.
+
+## Production Eval Operations Flow
+
+```text
+Production traces
+    |
+    v
+Failure review
+    |
+    v
+Eval dataset
+    |
+    v
+Regression pack
+    |
+    v
+Release gate
+    |
+    +------ PASS -> deploy
+    |
+    +------ FAIL
+             |
+             v
+        Diagnose
+             |
+             v
+        New test case
+```
 
 ## Diagnostic Flow
 
@@ -109,7 +139,8 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 | 3 | Root cause analysis | Failure labels |
 | 4 | Hypotheses and interventions | Intervention plan |
 | 5 | Experiment design | Experiment record |
-| 6 | Reporting diagnosis | Failure report |
+| 6 | Production eval operations | Regression pack and release gate |
+| 7 | Reporting diagnosis | Failure report |
 
 ## Labs
 
@@ -129,9 +160,10 @@ The Level 3 project is [Acme Expense Agent Failure Report v1](project/acme-expen
 To complete Level 3, the learner must submit:
 
 1. At least 30 annotated failed traces.
-2. A failure taxonomy with examples.
-3. Aggregate failure counts by category.
-4. At least three evidence-backed hypotheses.
-5. At least one tested intervention.
-6. A failure report with recommendations for Level 4 data work.
-
+2. A regression pack generated from failures.
+3. A release-gate recommendation.
+4. A failure taxonomy with examples.
+5. Aggregate failure counts by category.
+6. At least three evidence-backed hypotheses.
+7. At least one tested intervention.
+8. A failure report with recommendations for Level 4 data work.
