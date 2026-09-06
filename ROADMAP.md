@@ -219,7 +219,7 @@ All of it lives in [examples/acme-expense-agent/](examples/acme-expense-agent/).
 - [x] basic tests (50, in `tests/`)
 - [x] CI workflow for Level 1 checks ([`.github/workflows/level-1.yml`](.github/workflows/level-1.yml))
 
-## Phase 2: Ship The Production Eval Foundation — NEXT
+## Phase 2: Ship The Production Eval Foundation — SHIPPED
 
 Goal: a learner can evaluate agent behavior against a real benchmark and use the result as a production-style release gate.
 
@@ -243,6 +243,10 @@ Deliverables:
 - production eval report format
 - CI checks for Level 1 and Level 2 submissions
 - release-gate thresholds and failure messages
+
+Implemented in [evals/](evals/). The scripted baseline currently passes 89/100
+tasks; the remaining failures are preserved as concrete Level 3 diagnosis
+material rather than hidden.
 
 Target layout:
 

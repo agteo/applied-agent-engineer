@@ -8,16 +8,25 @@ Agents are the course's practical vehicle because they expose the full applied A
 
 ## Maturity
 
-Level 1 is executable. Levels 2-7 are specification.
+Levels 1-2 are executable. Levels 3-7 are specification.
 
 ```bash
 cd examples/acme-expense-agent
-python run_agent.py --all --quiet
+python3 run_agent.py --all --quiet
 ```
 
 That runs the Acme Expense Agent over 22 tasks with no API key and no network, writes a trace bundle, and exits non-zero if any task fails to produce a contract-valid answer. Tools, fixtures, tests, reference solutions for all four Level 1 labs, and a CI workflow ship with it: [examples/acme-expense-agent/](examples/acme-expense-agent/).
 
-The next build priority is the 100-task golden benchmark and its graders, which is what makes Level 2 real. See [STATUS.md](STATUS.md) and [ROADMAP.md](ROADMAP.md).
+Level 2 adds a deterministic 100-task benchmark, graders, a Markdown eval
+report, and a CI release gate:
+
+```bash
+python3 -m evals.runner --model scripted
+```
+
+The next build priority is turning benchmark failures into failure datasets,
+regression packs, and reference artifacts for solo assessment. See
+[STATUS.md](STATUS.md) and [ROADMAP.md](ROADMAP.md).
 
 The course is organized around a simple progression:
 
@@ -108,6 +117,9 @@ examples/
     run_agent.py
 
 evals/
+  acme_benchmark/          # Level 2 tasks, schema, graders, calibration, threshold
+  runner.py                # benchmark runner
+  report.py                # deterministic Markdown report writer
 datasets/
 environments/
 resources/
@@ -136,15 +148,21 @@ After Level 4, learners can choose one or more tracks:
 
    ```bash
    cd examples/acme-expense-agent
-   python run_agent.py --all --quiet
-   python -m acme_agent.check_traces traces/level-1.jsonl
+   python3 run_agent.py --all --quiet
+   python3 -m acme_agent.check_traces traces/level-1.jsonl
    ```
 
    Then read [its README](examples/acme-expense-agent/README.md), particularly the design decisions and the known limitations.
 
 3. Start Level 1 in [levels/01-build/README.md](levels/01-build/README.md), and build your own version before reading the [reference solutions](examples/acme-expense-agent/solutions/README.md).
 
-4. Check what is and is not built yet in [STATUS.md](STATUS.md).
+4. Run the Level 2 benchmark from the repository root:
+
+   ```bash
+   python3 -m evals.runner --model scripted
+   ```
+
+5. Check what is and is not built yet in [STATUS.md](STATUS.md).
 
 Read these as you need them, not before:
 

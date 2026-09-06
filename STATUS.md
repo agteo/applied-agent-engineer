@@ -1,6 +1,6 @@
 # Project Status
 
-Level 1 is executable. Levels 2-7 are still specification.
+Levels 1-2 are executable. Levels 3-7 are still specification.
 
 ## Current State
 
@@ -11,6 +11,8 @@ cd examples/acme-expense-agent
 python run_agent.py --all --quiet
 python -m acme_agent.check_traces traces/level-1.jsonl
 python -m pytest
+cd ../..
+python3 -m evals.runner --model scripted
 ```
 
 What exists as code:
@@ -24,17 +26,16 @@ What exists as code:
 - reference solutions for all four Level 1 labs
 - 50 tests
 - CI workflow running the tests, the full task set, and the trace check
+- 100-task Acme benchmark with deterministic graders, a report writer, and a CI release gate
 
 What exists as specification only:
 
 - course framework, syllabus, mental models, glossary
 - module outlines, lesson, lab, and project specs for Levels 1-7
-- structure for evals, datasets, and environments
+- structure for datasets and environments
 
 What does not exist yet:
 
-- 100-task golden benchmark and deterministic graders (Phase 2)
-- production eval report format and release gate (Phase 2)
 - annotated failure bundle and failure taxonomy examples (Phase 4)
 - trace-to-dataset converter and a reference dataset card (Phase 4)
 - Acme Finance Operations Simulator implementation (Phase 6)
@@ -46,7 +47,7 @@ What does not exist yet:
 
 A learner can now build Level 1 against a working reference: run the agent, run the labs, diff their harness against a solution that executes, and get an automated pass/fail on their own trace bundle.
 
-They cannot yet evaluate their agent against a real benchmark, which is the difference between "I built an agent" and "I know whether it works". They also cannot yet operate the production eval loop from traces to regression packs to release gates. That is Phase 2, and until it ships, Levels 2-7 remain instructor-readable specification rather than a course a solo learner can complete.
+They can now evaluate the Acme Expense Agent against a 100-task benchmark and get a deterministic release-gate report. They cannot yet turn failed traces into regression packs, failure datasets, and evidence-backed diagnosis reports. That is the next gap before Levels 3-4 become solo-learner executable.
 
 ## Near-Term Definition of Done
 
@@ -56,9 +57,9 @@ The first usable release supports Levels 1-2 end to end:
 2. Learner can run the Level 1 labs. **Done.**
 3. Learner can compare their work against reference solutions. **Done.**
 4. Learner can see automated pass/fail checks on Level 1 output. **Done.**
-5. Learner can run a 100-task benchmark. **Not started.**
-6. Learner can produce an eval report from real benchmark output. **Not started.**
-7. Learner can use the eval report as a CI release gate. **Not started.**
+5. Learner can run a 100-task benchmark. **Done.**
+6. Learner can produce an eval report from real benchmark output. **Done.**
+7. Learner can use the eval report as a CI release gate. **Done.**
 8. Learner can turn failed traces into new eval cases. **Not started.**
 
 ## Canonical System Direction

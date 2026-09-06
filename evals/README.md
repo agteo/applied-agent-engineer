@@ -1,8 +1,17 @@
 # Evals
 
-This folder is reserved for benchmark tasks, graders, reports, and regression scripts.
+This folder contains the Level 2 benchmark, graders, reports, and release gate.
 
-Level 2 defines the first formal benchmark for Acme Expense Agent v1. Start with [../levels/02-evaluate/README.md](../levels/02-evaluate/README.md).
+Run the Acme benchmark with no API key:
+
+```bash
+python3 -m evals.runner --model scripted
+```
+
+The command runs 100 tasks, grades each final answer, writes
+[`reports/sample-report.md`](reports/sample-report.md), and exits non-zero when
+the committed threshold in
+[`acme_benchmark/thresholds.json`](acme_benchmark/thresholds.json) is not met.
 
 What Phase 2 builds against, which already exists:
 
@@ -12,12 +21,22 @@ What Phase 2 builds against, which already exists:
 - fixtures with known-correct answers: `fixtures/policies.json`, `fixtures/receipts.json`
 - a deterministic, zero-cost model adapter, so a 100-task benchmark run is free and reproducible in CI
 
-Expected contents:
+Contents:
 
 ```text
 evals/
-  tasks/
-  graders/
-  reports/
-  fixtures/
+  acme_benchmark/
+    tasks.jsonl
+    schema.json
+    thresholds.json
+    graders/
+    calibration/
+  runner.py
+  report.py
+  reports/sample-report.md
+  tests/
 ```
+
+The scripted baseline intentionally does not pass every task. Its failures are
+teaching material for Level 3: receipt disambiguation, room-service category
+parsing, missing-receipt handling, and preparation/submission boundaries.
