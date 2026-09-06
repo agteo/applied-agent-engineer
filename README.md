@@ -186,9 +186,13 @@ After Level 4, learners can choose one or more tracks:
 
 ## Start Here
 
+> **On Windows?** The commands below use `python3`, which does not exist on a
+> standard Windows install. Read [docs/windows.md](docs/windows.md) first — it is
+> three commands and a substitution rule, then everything here works.
+
 1. Read [curriculum/framework.md](curriculum/framework.md) for what this course is and why it is shaped this way.
 
-2. Run the agent. No signup, no API key, no dependencies:
+2. Run the agent. No signup, no API key, and nothing to install:
 
    ```bash
    cd examples/acme-expense-agent
@@ -197,6 +201,14 @@ After Level 4, learners can choose one or more tracks:
    ```
 
    Then read [its README](examples/acme-expense-agent/README.md), particularly the design decisions and the known limitations.
+
+   The agent and every builder in this repo run on the standard library alone.
+   Only the test suites need a dependency:
+
+   ```bash
+   python3 -m pip install -r examples/acme-expense-agent/requirements.txt
+   python3 -m pytest
+   ```
 
 3. Start Level 1 in [levels/01-build/README.md](levels/01-build/README.md), and build your own version before reading the [reference solutions](examples/acme-expense-agent/solutions/README.md).
 

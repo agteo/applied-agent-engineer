@@ -1,0 +1,28 @@
+# Line-ending policy.
+#
+# Every builder in this repo writes artifacts with Python's text mode, which
+# translates "\n" to "\r\n" on Windows. Without this file, a Windows
+# contributor rebuilding a bundle can produce a whole-file diff containing no
+# actual change, and — with core.autocrlf=false — can commit CRLF artifacts
+# that then fail the `git diff --exit-code` drift gate on Linux CI.
+#
+# `eol=lf` pins LF in the working tree on every platform, and normalises on
+# commit regardless of the contributor's core.autocrlf setting. Generated
+# bundles stay byte-identical across macOS, Linux, and Windows.
+
+* text=auto eol=lf
+
+# Generated course artifacts. Byte-reproducibility is a stated requirement for
+# these, so their line endings are not negotiable.
+*.jsonl   text eol=lf
+*.json    text eol=lf
+*.md      text eol=lf
+*.py      text eol=lf
+*.toml    text eol=lf
+*.yml     text eol=lf
+
+# Never touch these.
+*.pyc     binary
+*.png     binary
+*.jpg     binary
+*.pdf     binary
