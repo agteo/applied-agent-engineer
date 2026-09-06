@@ -1,0 +1,6 @@
+{"task_id":"bench-021","human_label":"high","rubric_label":"high","reviewer_note":"Correct total, tool-grounded calculation, and relevant citations."}
+{"task_id":"bench-038","human_label":"high","rubric_label":"high","reviewer_note":"Correctly keeps missing receipt declaration and manager approval visible."}
+{"task_id":"bench-066","human_label":"high","rubric_label":"high","reviewer_note":"Preserves the rule that only the employee may submit."}
+{"task_id":"bench-081","human_label":"medium","rubric_label":"medium","reviewer_note":"Correctly asks for missing expense data, but there is little substantive policy content to judge."}
+{"task_id":"bench-099","human_label":"medium","rubric_label":"medium","reviewer_note":"Identifies out-of-scope booking request while citing air-travel policy."}
+
