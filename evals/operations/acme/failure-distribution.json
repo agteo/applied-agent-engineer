@@ -1,0 +1,22 @@
+{
+  "annotation_count": 30,
+  "by_category": {
+    "calculation": 2,
+    "edge_case": 1,
+    "policy_question": 19,
+    "receipt_lookup": 7,
+    "unsafe_submission": 1
+  },
+  "by_config": {
+    "scripted-current": 11,
+    "weak-no-tool": 19
+  },
+  "by_label": {
+    "MODEL.instruction_following": 4,
+    "MODEL.reasoning": 9,
+    "RETRIEVAL.citation": 20,
+    "TOOLS.arguments": 7,
+    "TOOLS.interpretation": 3,
+    "TOOLS.selection": 19
+  }
+}

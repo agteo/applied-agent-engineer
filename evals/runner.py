@@ -76,7 +76,11 @@ def load_tasks(path: str | Path) -> list[dict[str, Any]]:
     return tasks
 
 
-def run_benchmark(tasks: list[dict[str, Any]], model_name: str) -> list[dict[str, Any]]:
+def run_benchmark(
+    tasks: list[dict[str, Any]],
+    model_name: str,
+    include_traces: bool = False,
+) -> list[dict[str, Any]]:
     results = []
     for task in tasks:
         model = get_model(model_name, employee_id=task["employee_id"])
@@ -94,6 +98,7 @@ def run_benchmark(tasks: list[dict[str, Any]], model_name: str) -> list[dict[str
                 "latency_ms": int(trace.get("metadata", {}).get("latency_ms", 0)),
                 "cost_usd": _cost_usd(trace),
                 "quality": grade_quality(task, trace),
+                **({"trace": trace} if include_traces else {}),
             }
         )
     return results
@@ -109,4 +114,3 @@ def _cost_usd(trace: dict[str, Any]) -> float:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

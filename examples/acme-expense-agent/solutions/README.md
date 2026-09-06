@@ -2,6 +2,11 @@
 
 Four runnable solutions, one per Level 1 lab. Each is self-contained and prints what it did, so you can diff behaviour, not just code.
 
+Level 2 reference artifacts are indexed in
+[`level-2/README.md`](level-2/README.md). They live mostly under `evals/`
+because the executable benchmark and graders are shared course infrastructure,
+not one-off lab files.
+
 | Lab | Solution | Run it |
 | --- | --- | --- |
 | [Lab 1: Minimal Agent Loop](../../../levels/01-build/labs/lab-01-minimal-agent-loop.md) | [`lab_01_minimal_agent_loop.py`](lab_01_minimal_agent_loop.py) | `python solutions/lab_01_minimal_agent_loop.py` |

@@ -14,12 +14,12 @@ Analyze Level 2 benchmark failures and produce a diagnostic report that explains
 
 ## Required Outputs
 
-- annotated failed traces
-- taxonomy file
-- failure distribution
-- hypotheses
-- intervention experiment
-- report
+- annotated failed traces: [`evals/operations/acme/annotated-failures.jsonl`](../../../evals/operations/acme/annotated-failures.jsonl)
+- taxonomy file: [`evals/operations/acme/taxonomy.md`](../../../evals/operations/acme/taxonomy.md)
+- failure distribution: [`evals/operations/acme/failure-distribution.json`](../../../evals/operations/acme/failure-distribution.json)
+- hypotheses: [`evals/operations/acme/failure-report.md`](../../../evals/operations/acme/failure-report.md)
+- intervention experiment: [`evals/operations/acme/intervention-experiment.md`](../../../evals/operations/acme/intervention-experiment.md)
+- report: [`evals/operations/acme/failure-report.md`](../../../evals/operations/acme/failure-report.md)
 
 ## Submission Checklist
 
@@ -29,4 +29,3 @@ Analyze Level 2 benchmark failures and produce a diagnostic report that explains
 - [ ] At least three hypotheses documented.
 - [ ] At least one intervention tested.
 - [ ] Report recommends data work for Level 4.
-

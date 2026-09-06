@@ -8,7 +8,7 @@ Agents are the course's practical vehicle because they expose the full applied A
 
 ## Maturity
 
-Levels 1-2 are executable. Levels 3-7 are specification.
+Levels 1-3 are executable. Levels 4-7 are specification.
 
 ```bash
 cd examples/acme-expense-agent
@@ -25,8 +25,8 @@ python3 -m evals.runner --model scripted
 ```
 
 The next build priority is turning benchmark failures into failure datasets,
-regression packs, and reference artifacts for solo assessment. See
-[STATUS.md](STATUS.md) and [ROADMAP.md](ROADMAP.md).
+cleaned datasets, and dataset cards for Level 4. See [STATUS.md](STATUS.md)
+and [ROADMAP.md](ROADMAP.md).
 
 The course is organized around a simple progression:
 
@@ -118,6 +118,7 @@ examples/
 
 evals/
   acme_benchmark/          # Level 2 tasks, schema, graders, calibration, threshold
+  operations/              # Level 3 failure bundle and regression pack
   runner.py                # benchmark runner
   report.py                # deterministic Markdown report writer
 datasets/
@@ -162,7 +163,13 @@ After Level 4, learners can choose one or more tracks:
    python3 -m evals.runner --model scripted
    ```
 
-5. Check what is and is not built yet in [STATUS.md](STATUS.md).
+5. Build the Level 3 eval-ops bundle:
+
+   ```bash
+   python3 -m evals.operations
+   ```
+
+6. Check what is and is not built yet in [STATUS.md](STATUS.md).
 
 Read these as you need them, not before:
 

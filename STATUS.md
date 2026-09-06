@@ -1,6 +1,6 @@
 # Project Status
 
-Levels 1-2 are executable. Levels 3-7 are still specification.
+Levels 1-3 are executable. Levels 4-7 are still specification.
 
 ## Current State
 
@@ -8,11 +8,12 @@ What runs today, offline, with no API key:
 
 ```bash
 cd examples/acme-expense-agent
-python run_agent.py --all --quiet
-python -m acme_agent.check_traces traces/level-1.jsonl
-python -m pytest
+python3 run_agent.py --all --quiet
+python3 -m acme_agent.check_traces traces/level-1.jsonl
+python3 -m pytest
 cd ../..
 python3 -m evals.runner --model scripted
+python3 -m evals.operations
 ```
 
 What exists as code:
@@ -27,6 +28,7 @@ What exists as code:
 - 50 tests
 - CI workflow running the tests, the full task set, and the trace check
 - 100-task Acme benchmark with deterministic graders, a report writer, and a CI release gate
+- Phase 3 eval-ops bundle: annotated failures, regression pack, taxonomy, release recommendation, instructor guide, and failure report
 
 What exists as specification only:
 
@@ -36,7 +38,6 @@ What exists as specification only:
 
 What does not exist yet:
 
-- annotated failure bundle and failure taxonomy examples (Phase 4)
 - trace-to-dataset converter and a reference dataset card (Phase 4)
 - Acme Finance Operations Simulator implementation (Phase 6)
 - verifier/reward design for deterministic, state, constraint, and model-based checks (Phase 6)
@@ -47,7 +48,7 @@ What does not exist yet:
 
 A learner can now build Level 1 against a working reference: run the agent, run the labs, diff their harness against a solution that executes, and get an automated pass/fail on their own trace bundle.
 
-They can now evaluate the Acme Expense Agent against a 100-task benchmark and get a deterministic release-gate report. They cannot yet turn failed traces into regression packs, failure datasets, and evidence-backed diagnosis reports. That is the next gap before Levels 3-4 become solo-learner executable.
+They can now evaluate the Acme Expense Agent against a 100-task benchmark, get a deterministic release-gate report, and turn failures into annotated diagnosis and regression artifacts. They cannot yet convert traces into cleaned training/evaluation datasets with a reference dataset card. That is the next gap before Level 4 becomes solo-learner executable.
 
 ## Near-Term Definition of Done
 
@@ -60,7 +61,7 @@ The first usable release supports Levels 1-2 end to end:
 5. Learner can run a 100-task benchmark. **Done.**
 6. Learner can produce an eval report from real benchmark output. **Done.**
 7. Learner can use the eval report as a CI release gate. **Done.**
-8. Learner can turn failed traces into new eval cases. **Not started.**
+8. Learner can turn failed traces into new eval cases. **Done.**
 
 ## Canonical System Direction
 

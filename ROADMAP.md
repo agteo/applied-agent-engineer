@@ -12,7 +12,7 @@ If you are picking up this work, read in this order:
 1. [STATUS.md](STATUS.md) — what runs today and what does not.
 2. **The Promise** and **Gap Ledger** below — what the repo owes a learner, and
    what is missing.
-3. **Phase 2** — the only thing to build right now, with acceptance criteria.
+3. **Phase 4** — the next executable work now that Phase 3 ships.
 4. **Release Milestones** — how phases and workstreams combine into something
    worth announcing.
 
@@ -36,8 +36,9 @@ The claim this repo makes to a learner is:
 > why it fails, turn that into data, decide which intervention is justified,
 > and defend the decision with evidence.
 
-Level 1 is executable, which delivers *build*. Everything after *build* is
-specification. The promise is currently one-sixth kept.
+Levels 1-3 are executable, which delivers *build*, *prove whether it works*,
+and *explain why it fails*. Everything after diagnosis is still specification.
+The promise is currently three-sixths kept.
 
 This section exists because the phase list can be fully checked off while the
 promise stays unkept. Some of what the promise needs is not a phase. It is
@@ -50,15 +51,15 @@ by level number.
 
 | # | Gap | Why it blocks the promise | Lands in |
 | --- | --- | --- | --- |
-| 1 | No runnable benchmark or graders | Without Level 2 a learner can only claim "I built an agent", which is the commodity claim this course exists to beat. Every downstream artifact — failure taxonomy, regression pack, training comparison, reward design — is unfalsifiable until a benchmark can disagree with it. | Phase 2 |
-| 2 | No finished example artifacts | A solo learner cannot tell a good eval report from a plausible one. A rubric with no anchored examples grades nothing. | Phase 3, Workstream B |
+| 1 | No trace-to-dataset workflow | Level 3 can now diagnose failures, but learners cannot yet convert traces and corrections into a cleaned dataset with a defensible dataset card. | Phase 4 |
+| 2 | Finished example artifacts are still thin | The eval report has anchored examples, but failure analysis, dataset cards, model decisions, and reward design still need good/weak/rubric examples. | Workstream B |
 | 3 | Teaching depth inverts with difficulty | Level 1 lessons teach: loop diagrams, named failure modes, exercises. Levels 5-7 lessons list nouns and link out. Support is thinnest exactly where the learner is weakest. | Workstream A |
 | 4 | No portfolio surface | Tracks list "portfolio evidence" but nothing in the repo shows what a hiring-legible deliverable looks like, and every graduate would ship an identical Acme repo. | Workstream C |
 | 5 | One domain, and the easy end of it | Text-only finance operations is the gentle end of environment engineering. Hiring demand is code repair, browser and computer use, and multi-turn support. Verifier skill has to survive one transfer to prove it generalises. | Workstream D |
 | 6 | The RL track terminates in prose | Phase 7 assumes hosted training. Without a funded run there is no honest completion bar, and the track name promises more than analysis delivers. | Phase 7 |
 
-Gaps 1 and 2 are the release blockers. Gaps 3 through 6 are what separate a
-course a learner can finish from a course that changes what they can be hired
+Gaps 1 and 2 are the next release blockers. Gaps 3 through 6 are what separate
+a course a learner can finish from a course that changes what they can be hired
 to do.
 
 ## Build Architecture
@@ -223,7 +224,7 @@ All of it lives in [examples/acme-expense-agent/](examples/acme-expense-agent/).
 
 Goal: a learner can evaluate agent behavior against a real benchmark and use the result as a production-style release gate.
 
-This is the only thing that matters until it ships. The Level 1 harness gives
+This was the only thing that mattered until it shipped. The Level 1 harness gives
 Phase 2 what it needs to build against: a trace format, a final-answer
 contract, fixtures with known-correct answers, and a zero-cost model adapter
 that makes a 100-task run free and deterministic.
@@ -286,7 +287,7 @@ Acceptance criteria, in order:
 Deliberate non-goals for Phase 2: real-model benchmark runs as a CI
 requirement, a hosted dashboard, and any Level 3+ artifact.
 
-## Phase 3: Add Production Eval Operations And Feedback Mechanisms
+## Phase 3: Add Production Eval Operations And Feedback Mechanisms — SHIPPED
 
 Goal: learners can turn traces into failure datasets, regression packs, release decisions, and meaningful feedback without needing the course author in the loop.
 
@@ -303,7 +304,12 @@ Deliverables:
 - instructor review guide
 - optional Langfuse + Inspect AI integration notes
 
-## Phase 4: Make Levels 3-4 Concrete
+Implemented in [evals/operations/](evals/operations/). The generated Acme
+bundle includes 30 annotated failed traces, a regression pack, taxonomy, failure
+distribution, release recommendation, intervention experiment, instructor guide,
+and failure report.
+
+## Phase 4: Make Levels 3-4 Concrete — NEXT
 
 Goal: diagnosis and data work operate on real traces and failures.
 
@@ -598,8 +604,9 @@ announcing.
 | R3 | Workstream A depth pass + Phase 5 + the Phase 7 decision | Trust that a track's title matches what it delivers. |
 | R4 | Phase 6 + Workstream D + Phase 7 | Show transferable environment and verifier work. |
 
-R1 is the first release worth telling anyone about. Until it ships, the honest
-description of this repo is "a well-built Level 1 and a detailed plan".
+R1 is shipped. The honest description of this repo is now "a runnable Levels
+1-3 core with benchmark, release gate, failure diagnosis, and eval-report
+assessment anchors".
 
 ## Small Debts
 

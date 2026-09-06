@@ -34,9 +34,16 @@ evals/
   runner.py
   report.py
   reports/sample-report.md
+  operations/
   tests/
 ```
 
 The scripted baseline intentionally does not pass every task. Its failures are
 teaching material for Level 3: receipt disambiguation, room-service category
 parsing, missing-receipt handling, and preparation/submission boundaries.
+
+Build the Level 3 failure bundle:
+
+```bash
+python3 -m evals.operations
+```
