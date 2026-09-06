@@ -1,5 +1,10 @@
 # RL for Agent Reliability
 
+This track now has an executable local analysis path:
+[`rl_reliability/acme/`](../rl_reliability/acme/). Hosted RL training remains
+optional and must be backed by real logs and benchmark comparison before any
+improvement claim is made.
+
 ## Focus
 
 RL for Agent Reliability is the advanced path that turns verifier-derived rewards into rollout analysis and optional training experiments.
@@ -43,4 +48,3 @@ A learner completing this track should have:
 - held-out eval results
 - regression eval results
 - a recommendation about whether the trained agent is more reliable
-

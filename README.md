@@ -8,8 +8,8 @@ Agents are the course's practical vehicle because they expose the full applied A
 
 ## Maturity
 
-Levels 1-6 are executable. Level 7 is specification; Track 5B remains optional
-GPU work.
+Levels 1-7 now have executable local paths. Track 5B and hosted RL training
+remain optional GPU work.
 
 ```bash
 cd examples/acme-expense-agent
@@ -52,8 +52,15 @@ and verifier-derived rewards:
 python3 -m environments.acme_finance
 ```
 
-The next build priority is Phase 7: RL reliability analysis over the local
-simulator, with hosted training kept optional and explicit. See
+Level 7 builds RL reliability analysis over the local simulator, with hosted
+training kept optional and explicit:
+
+```bash
+python3 -m rl_reliability.acme
+```
+
+The next build priority is no longer another phase; it is hardening the course
+through teaching-depth, portfolio, and domain-transfer workstreams. See
 [STATUS.md](STATUS.md) and [ROADMAP.md](ROADMAP.md).
 
 The course is organized around a simple progression:
@@ -155,6 +162,8 @@ model_improvement/
   acme/                    # Level 5A decision bundle, SFT export, LoRA dry-run config
 environments/
   acme_finance/            # Level 6 simulator, tasks, rollouts, verifiers, rewards
+rl_reliability/
+  acme/                    # Level 7 rollouts, reward-hacking review, experiment templates
 resources/
 capstones/
 templates/
@@ -220,7 +229,13 @@ After Level 4, learners can choose one or more tracks:
    python3 -m environments.acme_finance
    ```
 
-9. Check what is and is not built yet in [STATUS.md](STATUS.md).
+9. Build the Level 7 RL reliability bundle:
+
+   ```bash
+   python3 -m rl_reliability.acme
+   ```
+
+10. Check what is and is not built yet in [STATUS.md](STATUS.md).
 
 Read these as you need them, not before:
 

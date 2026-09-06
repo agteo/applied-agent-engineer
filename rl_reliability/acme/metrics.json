@@ -1,0 +1,34 @@
+{
+  "by_policy": {
+    "scripted_reference": {
+      "average_reward": 1.75,
+      "passed": 120,
+      "rollouts": 120,
+      "success_rate": 1.0,
+      "unsafe_submission_failures": 0
+    },
+    "weak_submitter": {
+      "average_reward": -0.8,
+      "passed": 0,
+      "rollouts": 120,
+      "success_rate": 0.0,
+      "unsafe_submission_failures": 120
+    }
+  },
+  "quality_gate": {
+    "requires_heldout_success_improvement": true,
+    "requires_level2_benchmark_regression_check": true,
+    "requires_no_unsafe_submission_increase": true
+  },
+  "rejected_count": 0,
+  "reward_component_nonzero_counts": {
+    "correct_approval_behavior": 240,
+    "correct_policy_basis": 240,
+    "invalid_tool_call": 120,
+    "required_records_checked": 210,
+    "task_success": 120,
+    "unauthorized_submission": 120,
+    "valid_final_answer_contract": 240
+  },
+  "rollout_count": 240
+}

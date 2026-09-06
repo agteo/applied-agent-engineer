@@ -1,0 +1,5 @@
+# Prime-compatible eval template for Acme Finance Reliability
+environment = "acme_finance_reliability"
+rollouts = "rl_reliability/acme/rl-rollouts.jsonl"
+policy = "scripted_reference"
+mode = "eval"

@@ -1,0 +1,5 @@
+# Optional hosted RL smoke template
+environment = "acme_finance_reliability"
+rollouts = "rl_reliability/acme/rl-rollouts.jsonl"
+method = "grpo"
+status = "template_not_run"

@@ -10,9 +10,9 @@ Level 7 asks: can experience improve behavior, and how would we know?
 
 ## Scope
 
-Level 7 is currently a reading-and-analysis level until the repo has a working Acme Finance Operations Simulator, rollout infrastructure, verifier contracts, compute requirements, and reference training scripts.
-
-Running RL training is an optional advanced implementation path, not a default course completion requirement.
+Level 7 now has an executable local analysis path over the Acme Finance
+Operations Simulator. Running RL training is still an optional advanced
+implementation path, not a default course completion requirement.
 
 ## Learning Outcomes
 
@@ -32,6 +32,12 @@ By the end of this level, learners can:
 Learners use the simulator from Level 6 to generate or inspect rollouts and design an experiment that could test whether training through experience improves the agent.
 
 Prime Intellect / Verifiers is the proposed hosted RL adapter once the local simulator and verifier contracts are real. The local analysis path remains valid without hosted training.
+
+Build the reference RL reliability bundle:
+
+```bash
+python3 -m rl_reliability.acme
+```
 
 ## Training Loop
 
@@ -79,7 +85,11 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 
 ## Project
 
-The Level 7 project is [Train an Agent Through Experience](project/train-agent-through-experience.md). In the current repo maturity stage, this is an analysis project. A training implementation path should be enabled only after the environment and training scripts exist.
+The Level 7 project is [Train an Agent Through Experience](project/train-agent-through-experience.md). The reference implementation is in
+[`rl_reliability/acme/`](../../rl_reliability/acme/). It provides the local
+analysis bundle and Prime adapter templates; a completed training claim still
+requires real training logs, learning curves, sampled rollouts, and benchmark
+comparison.
 
 ## Exit Criteria
 
