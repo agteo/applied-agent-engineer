@@ -12,7 +12,7 @@ If you are picking up this work, read in this order:
 1. [STATUS.md](STATUS.md) — what runs today and what does not.
 2. **The Promise** and **Gap Ledger** below — what the repo owes a learner, and
    what is missing.
-3. **Phase 4** — the next executable work now that Phase 3 ships.
+3. **Phase 5** — the next executable work now that Phase 4 ships.
 4. **Release Milestones** — how phases and workstreams combine into something
    worth announcing.
 
@@ -36,9 +36,9 @@ The claim this repo makes to a learner is:
 > why it fails, turn that into data, decide which intervention is justified,
 > and defend the decision with evidence.
 
-Levels 1-3 are executable, which delivers *build*, *prove whether it works*,
-and *explain why it fails*. Everything after diagnosis is still specification.
-The promise is currently three-sixths kept.
+Levels 1-4 are executable, which delivers *build*, *prove whether it works*,
+*explain why it fails*, and *turn that into data*. Everything after data work
+is still specification. The promise is currently four-sixths kept.
 
 This section exists because the phase list can be fully checked off while the
 promise stays unkept. Some of what the promise needs is not a phase. It is
@@ -51,15 +51,14 @@ by level number.
 
 | # | Gap | Why it blocks the promise | Lands in |
 | --- | --- | --- | --- |
-| 1 | No trace-to-dataset workflow | Level 3 can now diagnose failures, but learners cannot yet convert traces and corrections into a cleaned dataset with a defensible dataset card. | Phase 4 |
-| 2 | Finished example artifacts are still thin | The eval report has anchored examples, but failure analysis, dataset cards, model decisions, and reward design still need good/weak/rubric examples. | Workstream B |
-| 3 | Teaching depth inverts with difficulty | Level 1 lessons teach: loop diagrams, named failure modes, exercises. Levels 5-7 lessons list nouns and link out. Support is thinnest exactly where the learner is weakest. | Workstream A |
-| 4 | No portfolio surface | Tracks list "portfolio evidence" but nothing in the repo shows what a hiring-legible deliverable looks like, and every graduate would ship an identical Acme repo. | Workstream C |
-| 5 | One domain, and the easy end of it | Text-only finance operations is the gentle end of environment engineering. Hiring demand is code repair, browser and computer use, and multi-turn support. Verifier skill has to survive one transfer to prove it generalises. | Workstream D |
-| 6 | The RL track terminates in prose | Phase 7 assumes hosted training. Without a funded run there is no honest completion bar, and the track name promises more than analysis delivers. | Phase 7 |
+| 1 | Model-improvement path is not executable | Level 4 now creates training data, but learners cannot yet decide or prove whether prompting, retrieval, local serving, or fine-tuning is justified. | Phase 5 |
+| 2 | Teaching depth inverts with difficulty | Level 1 lessons teach: loop diagrams, named failure modes, exercises. Levels 5-7 lessons list nouns and link out. Support is thinnest exactly where the learner is weakest. | Workstream A |
+| 3 | No portfolio surface | Tracks list "portfolio evidence" but nothing in the repo shows what a hiring-legible deliverable looks like, and every graduate would ship an identical Acme repo. | Workstream C |
+| 4 | One domain, and the easy end of it | Text-only finance operations is the gentle end of environment engineering. Hiring demand is code repair, browser and computer use, and multi-turn support. Verifier skill has to survive one transfer to prove it generalises. | Workstream D |
+| 5 | The RL track terminates in prose | Phase 7 assumes hosted training. Without a funded run there is no honest completion bar, and the track name promises more than analysis delivers. | Phase 7 |
 
-Gaps 1 and 2 are the next release blockers. Gaps 3 through 6 are what separate
-a course a learner can finish from a course that changes what they can be hired
+The next release blocker is Phase 5. The remaining gaps are what separate a
+course a learner can finish from a course that changes what they can be hired
 to do.
 
 ## Build Architecture
@@ -309,18 +308,22 @@ bundle includes 30 annotated failed traces, a regression pack, taxonomy, failure
 distribution, release recommendation, intervention experiment, instructor guide,
 and failure report.
 
-## Phase 4: Make Levels 3-4 Concrete — NEXT
+## Phase 4: Make Levels 3-4 Concrete — SHIPPED
 
 Goal: diagnosis and data work operate on real traces and failures.
 
 Deliverables:
 
-- failed trace bundle
-- failure taxonomy examples
-- annotated diagnosis examples
-- trace-to-dataset converter
-- cleaned dataset sample
-- dataset card template and reference dataset card
+- [x] failed trace bundle
+- [x] failure taxonomy examples
+- [x] annotated diagnosis examples
+- [x] trace-to-dataset converter
+- [x] cleaned dataset sample
+- [x] dataset card template and reference dataset card
+
+Implemented in [datasets/acme/](datasets/acme/). The builder emits 155 raw
+rows, 152 cleaned rows, 3 rejected rows, train/dev/heldout splits, schema,
+metrics, synthetic-generation notes, and a dataset card.
 
 ## Phase 5: Split Model Training Into A Real Optional Track
 
@@ -534,8 +537,9 @@ listed in `feedback-and-assessment.md`: brittle string matching, missing trace
 data, vague failure labels, contaminated datasets, uncalibrated judges, and
 training claims with no benchmark evidence.
 
-Start with the eval report, because Phase 2 produces the data for it and
-nothing downstream is gradeable without it.
+All five deliverable families now have anchors in
+[`examples/reference-artifacts/`](examples/reference-artifacts/): eval report,
+failure analysis, dataset card, model-improvement decision, and reward design.
 
 Done when: every project spec in `levels/*/project/` links a rubric with
 anchored examples, and no rubric cites an example file that does not exist.
@@ -604,9 +608,9 @@ announcing.
 | R3 | Workstream A depth pass + Phase 5 + the Phase 7 decision | Trust that a track's title matches what it delivers. |
 | R4 | Phase 6 + Workstream D + Phase 7 | Show transferable environment and verifier work. |
 
-R1 is shipped. The honest description of this repo is now "a runnable Levels
-1-3 core with benchmark, release gate, failure diagnosis, and eval-report
-assessment anchors".
+R1 and R2 are shipped. The honest description of this repo is now "a runnable
+Levels 1-4 core with benchmark, release gate, failure diagnosis, trace-to-data
+workflow, dataset card, and anchored assessment examples".
 
 ## Small Debts
 

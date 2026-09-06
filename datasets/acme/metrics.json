@@ -1,0 +1,36 @@
+{
+  "by_label": {
+    "MODEL.instruction_following": 4,
+    "MODEL.reasoning": 9,
+    "RETRIEVAL.citation": 20,
+    "TOOLS.arguments": 7,
+    "TOOLS.interpretation": 3,
+    "TOOLS.selection": 19,
+    "correction": 30,
+    "demonstration": 22,
+    "lodging_limit": 25,
+    "meal_limit": 25,
+    "receipt_threshold": 25,
+    "submission_gate": 25,
+    "synthetic": 100
+  },
+  "by_source_type": {
+    "failure_correction": 30,
+    "level1_trace": 22,
+    "synthetic_gap_target": 100
+  },
+  "by_split": {
+    "dev": 47,
+    "heldout": 27,
+    "train": 78
+  },
+  "cleaned_count": 152,
+  "heldout_protection": "Benchmark-derived failure corrections are assigned only to dev or heldout splits.",
+  "raw_count": 155,
+  "rejected_count": 3,
+  "rejection_reasons": {
+    "duplicate_prompt_target": 1,
+    "invalid_target_contract": 1,
+    "missing_provenance": 1
+  }
+}

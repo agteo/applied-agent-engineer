@@ -25,6 +25,12 @@ Current maturity note: until the simulator, rollout runner, and training scripts
 - benchmark comparison
 - post-training failure analysis
 
+## Assessment Anchor
+
+Compare your reward and reward-hacking review against the reward-design
+examples and rubric in
+[`examples/reference-artifacts/reward-design/`](../../../examples/reference-artifacts/reward-design/).
+
 ## Submission Checklist
 
 - [ ] Environment version documented.

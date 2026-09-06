@@ -16,6 +16,12 @@ The first implementation may focus on expense reimbursement because that is the 
 - rollout logger
 - environment manifest
 
+## Assessment Anchor
+
+Compare your verifier-derived reward design against the reward-design examples
+and rubric in
+[`examples/reference-artifacts/reward-design/`](../../../examples/reference-artifacts/reward-design/).
+
 ## Required Tasks
 
 Create at least 100 tasks. The first slice should cover:

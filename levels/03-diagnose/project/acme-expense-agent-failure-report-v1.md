@@ -21,6 +21,11 @@ Analyze Level 2 benchmark failures and produce a diagnostic report that explains
 - intervention experiment: [`evals/operations/acme/intervention-experiment.md`](../../../evals/operations/acme/intervention-experiment.md)
 - report: [`evals/operations/acme/failure-report.md`](../../../evals/operations/acme/failure-report.md)
 
+## Assessment Anchor
+
+Compare your report against the failure-analysis examples and rubric in
+[`examples/reference-artifacts/failure-analysis/`](../../../examples/reference-artifacts/failure-analysis/).
+
 ## Submission Checklist
 
 - [ ] 30+ failed traces annotated.

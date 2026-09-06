@@ -1,0 +1,3 @@
+{"example_id": "cleaning-fixture-duplicate", "reason": "duplicate_prompt_target", "source_type": "level1_trace"}
+{"example_id": "cleaning-fixture-missing-provenance", "reason": "missing_provenance", "source_type": "cleaning_fixture"}
+{"example_id": "cleaning-fixture-invalid-target", "reason": "invalid_target_contract", "source_type": "cleaning_fixture"}

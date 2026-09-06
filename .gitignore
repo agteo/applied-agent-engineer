@@ -1,0 +1,5 @@
+# Local planning/status notes. These files are tracked today; this only applies
+# after they are removed from the index with `git rm --cached`.
+ROADMAP.md
+STATUS.md
+

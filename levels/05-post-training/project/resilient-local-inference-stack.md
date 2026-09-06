@@ -43,6 +43,12 @@ Report:
 - local resource saturation if available
 - cost estimate for fallback traffic if available
 
+## Assessment Anchor
+
+Compare your adoption decision against the model-improvement examples and
+rubric in
+[`examples/reference-artifacts/model-improvement-decision/`](../../../examples/reference-artifacts/model-improvement-decision/).
+
 ## Submission Checklist
 
 - [ ] Gateway configuration documented.

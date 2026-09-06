@@ -80,6 +80,11 @@ Include:
 - p50 and p95 latency if available
 - judge and human agreement
 
+## Assessment Anchor
+
+Compare your report against the eval-report examples and rubric in
+[`examples/reference-artifacts/eval-report/`](../../../examples/reference-artifacts/eval-report/).
+
 ## Submission Checklist
 
 - [ ] 100+ benchmark tasks.
@@ -94,4 +99,3 @@ Include:
 ## Exit Standard
 
 The project is complete when another engineer can run the benchmark, inspect the report, and understand whether the newer agent version should be adopted.
-

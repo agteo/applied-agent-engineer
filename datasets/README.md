@@ -1,17 +1,36 @@
 # Datasets
 
-This folder is reserved for course datasets and dataset documentation.
+This folder contains the Level 4 Acme Agent Training Dataset v1 builder and
+generated artifacts.
 
-Level 4 introduces the first curated training dataset created from traces, failures, human examples, and synthetic examples. Start with [../levels/04-data/README.md](../levels/04-data/README.md).
+Build the dataset with no API key:
 
-The raw material already exists: `examples/acme-expense-agent/traces/level-1.jsonl` is a valid 22-trace bundle in the format Level 4's converter will read. See [`docs/trace-schema.md`](../examples/acme-expense-agent/docs/trace-schema.md).
+```bash
+python3 -m datasets.acme
+```
 
-Expected contents:
+The command reads Level 1 traces and Level 3 failure annotations, adds
+synthetic gap-targeted examples, filters low-quality rows, and writes:
 
 ```text
 datasets/
-  raw/
-  curated/
-  cards/
-  schemas/
+  acme/
+    raw.jsonl
+    cleaned.jsonl
+    rejected.jsonl
+    train.jsonl
+    dev.jsonl
+    heldout.jsonl
+    metrics.json
+    schema.json
+    dataset-card.md
+    synthetic-generation.md
 ```
+
+Current output: 155 raw rows, 152 cleaned rows, 3 rejected rows, and separate
+train/dev/heldout splits. Benchmark-derived failure corrections are kept out of
+the train split to reduce contamination risk.
+
+Start with [../levels/04-data/README.md](../levels/04-data/README.md). The
+dataset-card assessment anchor is in
+[`examples/reference-artifacts/dataset-card/`](../examples/reference-artifacts/dataset-card/).

@@ -9,5 +9,8 @@ eventually have:
 
 Current artifacts:
 
+- [`dataset-card/`](dataset-card/)
 - [`eval-report/`](eval-report/)
-
+- [`failure-analysis/`](failure-analysis/)
+- [`model-improvement-decision/`](model-improvement-decision/)
+- [`reward-design/`](reward-design/)

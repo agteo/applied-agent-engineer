@@ -102,6 +102,10 @@ Level 2 will evaluate this project on:
 - latency
 - failure rate
 
+Use the eval-report examples and rubric in
+[`examples/reference-artifacts/eval-report/`](../../../examples/reference-artifacts/eval-report/)
+to understand what downstream evidence about this agent should look like.
+
 ## Submission Checklist
 
 - [ ] Agent runs locally.
@@ -118,4 +122,3 @@ Verify the contract, the citations, and the trace count mechanically:
 ```bash
 python -m acme_agent.check_traces path/to/your/traces.jsonl
 ```
-

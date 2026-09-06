@@ -1,0 +1,62 @@
+{
+  "properties": {
+    "example_id": {
+      "type": "string"
+    },
+    "labels": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "messages": {
+      "type": "array"
+    },
+    "prompt": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "quality": {
+      "type": "object"
+    },
+    "rejected_final_answer": {
+      "type": "object"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "source_type": {
+      "type": "string"
+    },
+    "split": {
+      "enum": [
+        "train",
+        "dev",
+        "heldout"
+      ],
+      "type": "string"
+    },
+    "target_final_answer": {
+      "type": "object"
+    },
+    "task_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "example_id",
+    "source_type",
+    "task_id",
+    "prompt",
+    "messages",
+    "target_final_answer",
+    "labels",
+    "provenance",
+    "quality",
+    "split"
+  ],
+  "type": "object"
+}

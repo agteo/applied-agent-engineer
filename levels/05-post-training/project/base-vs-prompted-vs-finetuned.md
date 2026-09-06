@@ -28,6 +28,12 @@ Use the Level 2 benchmark and report:
 - latency if available
 - failure distribution
 
+## Assessment Anchor
+
+Compare your adoption decision against the model-improvement examples and
+rubric in
+[`examples/reference-artifacts/model-improvement-decision/`](../../../examples/reference-artifacts/model-improvement-decision/).
+
 ## Submission Checklist
 
 - [ ] Training decision memo complete.

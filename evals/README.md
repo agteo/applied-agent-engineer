@@ -1,6 +1,7 @@
 # Evals
 
-This folder contains the Level 2 benchmark, graders, reports, and release gate.
+This folder contains the Level 2 benchmark, graders, reports, release gate, and
+Level 3 failure operations bundle.
 
 Run the Acme benchmark with no API key:
 
@@ -46,4 +47,10 @@ Build the Level 3 failure bundle:
 
 ```bash
 python3 -m evals.operations
+```
+
+Use its failure annotations as the input to the Level 4 dataset builder:
+
+```bash
+python3 -m datasets.acme
 ```
