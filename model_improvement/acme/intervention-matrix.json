@@ -1,0 +1,26 @@
+[
+  {
+    "evidence": "Most annotated failure labels are TOOLS.* or RETRIEVAL.*.",
+    "intervention": "tool_and_retrieval_fix",
+    "status": "recommended_next",
+    "success_measure": "Receipt_lookup and citation slices improve on the Level 2 benchmark."
+  },
+  {
+    "evidence": "Current scripted baseline success_rate is 0.890.",
+    "intervention": "prompt_revision",
+    "status": "use_as_low_cost_control",
+    "success_measure": "No regression below release threshold and fewer approval-boundary failures."
+  },
+  {
+    "evidence": "Model labels: 13.",
+    "intervention": "small_lora_sft",
+    "status": "defer_until_tool_plateau",
+    "success_measure": "Heldout benchmark improvement plus unchanged or better unsafe_submission rate."
+  },
+  {
+    "evidence": "No paid or network-backed model run is required for the core course path.",
+    "intervention": "frontier_api_or_hybrid",
+    "status": "compare_if_quality_gap_remains",
+    "success_measure": "Quality lift justifies cost, latency, privacy, and vendor tradeoffs."
+  }
+]

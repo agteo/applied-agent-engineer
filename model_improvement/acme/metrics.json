@@ -1,0 +1,17 @@
+{
+  "accepted_count": 125,
+  "by_source_type": {
+    "failure_correction": 15,
+    "level1_trace": 22,
+    "synthetic_gap_target": 88
+  },
+  "by_split": {
+    "dev": 47,
+    "train": 78
+  },
+  "heldout_policy": "Heldout dataset rows are rejected from SFT export and remain evaluation-only.",
+  "rejected_count": 27,
+  "rejection_reasons": {
+    "heldout_reserved_for_evaluation": 27
+  }
+}

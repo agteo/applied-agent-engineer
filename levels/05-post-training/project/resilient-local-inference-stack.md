@@ -21,6 +21,10 @@ The gateway must provide:
 - request logging
 - basic latency and error visibility
 
+Use the reference gateway drill plan in
+[`model_improvement/acme/gateway-plan.json`](../../../model_improvement/acme/gateway-plan.json)
+as the minimum Track 5C contract.
+
 ## Required Tests
 
 Run the same small benchmark slice under at least three conditions:

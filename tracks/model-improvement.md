@@ -44,3 +44,8 @@ A learner completing this track should have:
 - a model comparison report
 - benchmark evidence showing whether the intervention helped
 
+Reference artifacts:
+
+- Phase 5A bundle: [`model_improvement/acme/`](../model_improvement/acme/)
+- assessment anchor:
+  [`examples/reference-artifacts/model-improvement-decision/`](../examples/reference-artifacts/model-improvement-decision/)

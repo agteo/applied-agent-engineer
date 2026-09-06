@@ -44,6 +44,13 @@ Track 5B learners run a small post-training experiment using Agent Training Data
 
 Track 5C learners run the Acme Expense Agent through a local inference gateway and demonstrate reliable fallback when the local worker fails.
 
+Build the reference Track 5A bundle and optional Track 5B/5C preparation files:
+
+```bash
+python3 -m model_improvement.acme
+python3 -m model_improvement.acme.train_lora --dry-run
+```
+
 ## Comparison
 
 ```text
@@ -81,6 +88,9 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 | [Lab 5: Gateway Failover Drill](labs/lab-05-gateway-failover-drill.md) | Route the agent through a gateway and verify fallback behavior. |
 
 ## Projects
+
+The Track 5A reference bundle is in
+[`model_improvement/acme/`](../../model_improvement/acme/).
 
 The Track 5B project is [Base vs Prompted vs Fine-tuned](project/base-vs-prompted-vs-finetuned.md).
 

@@ -1,0 +1,15 @@
+{
+  "adoption_gate": "Adopt a trained or local model only if heldout benchmark success improves without increasing unsafe submission failures.",
+  "benchmark_passed": true,
+  "benchmark_success_rate": 0.89,
+  "dataset_cleaned_count": 152,
+  "decision": "fix_tools_and_retrieval_before_training",
+  "model_failure_labels": 13,
+  "next_experiment": "Improve receipt lookup arguments and rerun the Level 2 benchmark before any LoRA run.",
+  "rationale": "The benchmark clears the release gate, and the dominant annotated failures are tool or retrieval related. Use the SFT export for Track 5B rehearsal, but do not claim model improvement until tool behavior is fixed and a heldout benchmark comparison improves.",
+  "release_threshold": 0.72,
+  "sft_dev_count": 47,
+  "sft_rejected_count": 27,
+  "sft_train_count": 78,
+  "tool_or_retrieval_failure_labels": 49
+}

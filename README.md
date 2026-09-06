@@ -8,7 +8,7 @@ Agents are the course's practical vehicle because they expose the full applied A
 
 ## Maturity
 
-Levels 1-4 are executable. Levels 5-7 are specification.
+Levels 1-5A are executable. Levels 5B-7 are optional or specification.
 
 ```bash
 cd examples/acme-expense-agent
@@ -36,9 +36,17 @@ Level 4 builds the cleaned Acme training dataset and dataset card:
 python3 -m datasets.acme
 ```
 
-The next build priority is Phase 5: model-improvement decisions and optional
-post-training implementation. See [STATUS.md](STATUS.md) and
-[ROADMAP.md](ROADMAP.md).
+Level 5A builds the model-improvement decision bundle and SFT export, then
+validates the optional LoRA config in dry-run mode:
+
+```bash
+python3 -m model_improvement.acme
+python3 -m model_improvement.acme.train_lora --dry-run
+```
+
+The next build priority is Phase 6: the Acme Finance Operations Simulator,
+verifiers, rollout logs, and verifier-derived rewards. See [STATUS.md](STATUS.md)
+and [ROADMAP.md](ROADMAP.md).
 
 The course is organized around a simple progression:
 
@@ -135,6 +143,8 @@ evals/
   report.py                # deterministic Markdown report writer
 datasets/
   acme/                    # Level 4 dataset builder and generated dataset card
+model_improvement/
+  acme/                    # Level 5A decision bundle, SFT export, LoRA dry-run config
 environments/
 resources/
 capstones/
@@ -188,7 +198,14 @@ After Level 4, learners can choose one or more tracks:
    python3 -m datasets.acme
    ```
 
-7. Check what is and is not built yet in [STATUS.md](STATUS.md).
+7. Build the Level 5A model-improvement bundle:
+
+   ```bash
+   python3 -m model_improvement.acme
+   python3 -m model_improvement.acme.train_lora --dry-run
+   ```
+
+8. Check what is and is not built yet in [STATUS.md](STATUS.md).
 
 Read these as you need them, not before:
 

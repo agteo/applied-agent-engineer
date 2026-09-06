@@ -1,0 +1,44 @@
+{
+  "properties": {
+    "example_id": {
+      "type": "string"
+    },
+    "labels": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "messages": {
+      "type": "array"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "source_example_id": {
+      "type": "string"
+    },
+    "source_type": {
+      "type": "string"
+    },
+    "split": {
+      "enum": [
+        "train",
+        "dev"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "example_id",
+    "split",
+    "messages",
+    "source_example_id",
+    "labels"
+  ],
+  "type": "object"
+}

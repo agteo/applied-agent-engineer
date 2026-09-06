@@ -15,6 +15,15 @@ Compare at least three:
 - frontier API model
 - fine-tuned or LoRA-adapted model
 
+Reference Phase 5A artifacts:
+
+- decision memo: [`model_improvement/acme/decision-memo.md`](../../../model_improvement/acme/decision-memo.md)
+- comparison report: [`model_improvement/acme/comparison-report.md`](../../../model_improvement/acme/comparison-report.md)
+- SFT train data: [`model_improvement/acme/sft-train.jsonl`](../../../model_improvement/acme/sft-train.jsonl)
+- SFT dev data: [`model_improvement/acme/sft-dev.jsonl`](../../../model_improvement/acme/sft-dev.jsonl)
+- optional LoRA config: [`model_improvement/acme/lora-config.template.json`](../../../model_improvement/acme/lora-config.template.json)
+- dry-run validator: `python3 -m model_improvement.acme.train_lora --dry-run`
+
 ## Required Metrics
 
 Use the Level 2 benchmark and report:
@@ -39,6 +48,7 @@ rubric in
 - [ ] Training decision memo complete.
 - [ ] Training data documented.
 - [ ] Training config documented.
+- [ ] Optional LoRA config dry-run passes.
 - [ ] Adapter or checkpoint artifact produced.
 - [ ] Training logs included.
 - [ ] Model comparison run on same benchmark.
