@@ -29,3 +29,9 @@ jobs:
 
       - name: Build Acme RL reliability bundle
         run: python3 -m rl_reliability.acme
+
+      - name: Smoke-check the Prime Intellect adapter
+        run: python3 integrations/prime-intellect/environments/acme_finance_reliability/acme_finance_reliability.py
+
+      - name: Fail if committed artifacts drifted from a fresh build
+        run: git diff --exit-code -- environments rl_reliability integrations

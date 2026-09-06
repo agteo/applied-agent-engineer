@@ -48,5 +48,15 @@
       "actor"
     ],
     "state_transition": "write submitted_reports[report-task_id] only when actor is employee"
+  },
+  {
+    "name": "final_answer",
+    "required": [
+      "task_id",
+      "summary",
+      "total_reimbursable",
+      "policy_ids"
+    ],
+    "state_transition": "append audit event; policy_ids must have been returned by search_policy"
   }
 ]

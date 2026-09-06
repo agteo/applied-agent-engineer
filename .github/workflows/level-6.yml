@@ -26,3 +26,6 @@ jobs:
 
       - name: Build Acme finance environment bundle
         run: python3 -m environments.acme_finance
+
+      - name: Fail if committed artifacts drifted from a fresh build
+        run: git diff --exit-code -- environments

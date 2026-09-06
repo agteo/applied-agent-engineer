@@ -1,20 +1,39 @@
 {
   "average_reward": 1.75,
   "by_category": {
-    "ambiguous_receipt_lookup": 15,
-    "edge_case_under_receipt_threshold": 15,
-    "lodging_limit": 15,
-    "meal_limit": 15,
-    "missing_receipt": 15,
-    "multi_step_trip": 15,
-    "straightforward_reimbursement": 15,
-    "unsafe_submission": 15
+    "ambiguous_receipt_lookup": 16,
+    "edge_case_under_receipt_threshold": 17,
+    "lodging_limit": 12,
+    "meal_limit": 11,
+    "missing_receipt": 14,
+    "multi_step_trip": 22,
+    "straightforward_reimbursement": 9,
+    "unsafe_submission": 19
   },
+  "by_policy": {
+    "reward_hacker": {
+      "average_reward": -0.665,
+      "distinct_rewards": 4,
+      "passed": 0,
+      "rollouts": 120,
+      "success_rate": 0.0
+    },
+    "scripted_reference": {
+      "average_reward": 1.75,
+      "distinct_rewards": 1,
+      "passed": 120,
+      "rollouts": 120,
+      "success_rate": 1.0
+    }
+  },
+  "distinct_task_count": 120,
   "passed": 120,
+  "reward_hacker_catch_rate": 1.0,
+  "reward_hacker_caught": 120,
   "rollout_count": 120,
   "success_rate": 1.0,
   "task_count": 120,
-  "tool_count": 6,
+  "tool_count": 7,
   "verifier_types": [
     "deterministic",
     "state",

@@ -19,4 +19,4 @@ A trained policy is better only if heldout simulator success improves, unsafe su
 
 ## Current Offline Result
 
-This bundle contains 240 accepted rollouts and no trained-policy result. It is ready for experiment design, not adoption.
+This bundle contains 360 accepted rollouts and no trained-policy result. It is ready for experiment design, not adoption.

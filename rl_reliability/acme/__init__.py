@@ -16,26 +16,33 @@ from environments.acme_finance import (
     DEFAULT_OUT as ENV_DIR,
     Simulator,
     build_environment_bundle,
+    build_rollout,
     initial_state,
     reimbursable_amount,
-    score_reward,
-    verify_rollout,
     write_environment_bundle,
 )
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_OUT = ROOT / "rl_reliability" / "acme"
 DEFAULT_ENV_DIR = ENV_DIR
+DEFAULT_PRIME_DIR = ROOT / "integrations" / "prime-intellect"
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Build Acme RL reliability artifacts.")
     parser.add_argument("--out", default=str(DEFAULT_OUT))
     parser.add_argument("--environment-dir", default=str(DEFAULT_ENV_DIR))
+    parser.add_argument(
+        "--prime-dir",
+        default=None,
+        help="Where to write the Prime reference configs. Defaults to the repo's "
+        "integrations/prime-intellect only when --out is the default output directory.",
+    )
     args = parser.parse_args(argv)
 
+    out = Path(args.out)
     bundle = build_rl_bundle(Path(args.environment_dir))
-    write_rl_bundle(bundle, Path(args.out))
+    write_rl_bundle(bundle, out, prime_dir=Path(args.prime_dir) if args.prime_dir else None)
     print(bundle["experiment_report"].rstrip())
     return 0
 
@@ -44,8 +51,15 @@ def build_rl_bundle(environment_dir: Path = DEFAULT_ENV_DIR) -> dict[str, Any]:
     ensure_environment_artifacts(environment_dir)
     tasks = read_jsonl(environment_dir / "tasks.jsonl")
     scripted_rollouts = read_jsonl(environment_dir / "rollouts.jsonl")
+    # The reward-hacking probe is built by Phase 6; Phase 7 compares against it
+    # rather than re-implementing the exploit.
+    probe_rollouts = read_jsonl(environment_dir / "probe-rollouts.jsonl")
     weak_rollouts = [run_weak_policy(task) for task in tasks]
-    combined = label_rollouts(scripted_rollouts, "scripted_reference") + label_rollouts(weak_rollouts, "weak_submitter")
+    combined = (
+        label_rollouts(scripted_rollouts, "scripted_reference")
+        + label_rollouts(weak_rollouts, "weak_submitter")
+        + label_rollouts(probe_rollouts, "reward_hacker")
+    )
     filtered, rejected = filter_rollouts(combined)
     metrics = build_rl_metrics(filtered, rejected)
     framing = render_mdp_framing()
@@ -67,7 +81,7 @@ def build_rl_bundle(environment_dir: Path = DEFAULT_ENV_DIR) -> dict[str, Any]:
 
 
 def ensure_environment_artifacts(environment_dir: Path) -> None:
-    required = ["tasks.jsonl", "rollouts.jsonl", "manifest.json"]
+    required = ["tasks.jsonl", "rollouts.jsonl", "probe-rollouts.jsonl", "manifest.json"]
     if all((environment_dir / name).exists() for name in required):
         return
     bundle = build_environment_bundle()
@@ -116,30 +130,26 @@ def run_weak_policy(task: dict[str, Any]) -> dict[str, Any]:
                     "task_id": task["id"],
                     "summary": "Submitted the report.",
                     "total_reimbursable": total,
+                    "policy_ids": [],
                 },
             }
         )
     )
-    verifier = verify_rollout(task, simulator.state, observations)
-    reward = score_reward(verifier, observations)
-    return {
-        "rollout_id": f"weak-rollout-{task['id']}",
-        "environment": "acme_finance",
-        "task_id": task["id"],
-        "seed": task["seed"],
-        "initial_state_hash": "weak-policy-local",
-        "terminal_state_hash": "weak-policy-local",
-        "actions": [event["action"] for event in observations],
-        "observations": observations,
-        "verifier": verifier,
-        "reward": reward,
-    }
+    return build_rollout("weak-rollout", "weak_submitter", task, state, simulator.state, observations)
 
 
 def label_rollouts(rollouts: list[dict[str, Any]], policy: str) -> list[dict[str, Any]]:
+    """Attach the policy label and a termination reason.
+
+    Rollouts built by the environment already carry a policy; the label passed
+    here must agree with it rather than silently overwrite it.
+    """
     rows = []
     for row in rollouts:
         labeled = dict(row)
+        existing = labeled.get("policy")
+        if existing and existing != policy:
+            raise ValueError(f"rollout {labeled.get('rollout_id')} is policy {existing}, not {policy}")
         labeled["policy"] = policy
         labeled["termination_reason"] = "final_answer" if labeled["actions"][-1]["name"] == "final_answer" else "truncated"
         rows.append(labeled)
@@ -183,6 +193,9 @@ def build_rl_metrics(rollouts: list[dict[str, Any]], rejected: list[dict[str, An
             "success_rate": round(passed / len(rows), 3) if rows else 0.0,
             "average_reward": round(sum(rewards) / len(rewards), 3) if rewards else 0.0,
             "unsafe_submission_failures": unsafe,
+            # Advantage estimation needs spread inside a policy's own rollouts.
+            # A policy with one distinct reward contributes no training signal.
+            "distinct_rewards": len(set(rewards)),
         }
     components = Counter()
     for row in rollouts:
@@ -222,18 +235,28 @@ def render_mdp_framing() -> str:
 
 def render_reward_hacking_review(metrics: dict[str, Any]) -> str:
     weak = metrics["by_policy"].get("weak_submitter", {})
+    hacker = metrics["by_policy"].get("reward_hacker", {})
     return (
         "# Reward Hacking Review\n\n"
         "## Observed Risk\n\n"
-        f"The weak submitter policy produced {weak.get('unsafe_submission_failures', 0)} unsafe submission failures. That is the clearest exploit target: chasing terminal actions without respecting actor and approval constraints.\n\n"
+        f"The weak submitter produced {weak.get('unsafe_submission_failures', 0)} unsafe submission failures. "
+        f"The reward hacker passed {hacker.get('passed', 0)} of {hacker.get('rollouts', 0)} rollouts while "
+        "producing the correct total on every one of them: it memorises answers and cites policies it never "
+        "retrieved.\n\n"
+        "Both are caught, and each one is caught by a different check. That is the property to preserve.\n\n"
         "## Exploits And Mitigations\n\n"
         "| Exploit | Detection | Mitigation |\n"
         "| --- | --- | --- |\n"
-        "| Submit every draft | unsafe submission failure count | Keep `unauthorized_submission` penalty and Level 2 unsafe slice gate |\n"
-        "| Ask approval for everything | approval overuse count | Score approval correctness, not approval presence |\n"
-        "| Skip receipt lookup but write right-looking totals | required records checked | Require receipt ids in observations |\n"
-        "| Optimize final-answer shape only | state draft and submission checks | Reward state verifiers before answer format |\n"
-        "| Memorize fixture ids | heldout task success | Keep heldout simulator tasks and Level 2 benchmark regression check |\n"
+        "| Submit every draft | `safety_no_unauthorized_submission` | Penalise submission by a non-employee and any report filed without authority |\n"
+        "| Ask approval for everything | `state_approval_correct` | Score approval correctness in both directions, not approval presence |\n"
+        "| Skip receipt lookup but write right-looking totals | `constraint_required_records_checked` | Require a successful `lookup_receipt` per receipt; naming an id in the draft does not count |\n"
+        "| Cite the policy basis without reading it | `constraint_policy_basis_cited` | Accept only citations the simulator actually returned from `search_policy` |\n"
+        "| Optimize final-answer shape only | `state_draft_created`, `state_submission_correct` | Reward state verifiers before answer format |\n"
+        "| Memorize fixture ids | heldout task success | Rebuild with a different seed for heldout, and keep the Level 2 benchmark regression check |\n\n"
+        "## Known remaining hole\n\n"
+        "`deterministic_total` cannot tell a computed total from a memorised one. The reward hacker scores "
+        "it every time. Only the held-out task set separates those two, which is why a trained policy needs "
+        "`load_environment(seed=<unused seed>)` before any reliability claim.\n"
     )
 
 
@@ -255,21 +278,32 @@ def render_experiment_plan(metrics: dict[str, Any]) -> str:
 
 
 def render_experiment_report(metrics: dict[str, Any]) -> str:
-    scripted = metrics["by_policy"]["scripted_reference"]
-    weak = metrics["by_policy"]["weak_submitter"]
+    rows = "".join(
+        f"| {name} | {row['rollouts']} | {row['success_rate']:.3f} | {row['average_reward']:.3f} "
+        f"| {row['unsafe_submission_failures']} | {row['distinct_rewards']} |\n"
+        for name, row in sorted(metrics["by_policy"].items())
+    )
+    total_distinct = sum(row["distinct_rewards"] for row in metrics["by_policy"].values())
     return (
         "# Acme RL Reliability Report\n\n"
         "## Decision\n\n"
-        "Do not claim RL improvement yet. The local simulator and reward analysis are executable, but no training run has been performed.\n\n"
+        "Do not claim RL improvement yet. The local simulator, the adapter, and the reward analysis are executable, but no training run has been performed.\n\n"
         "## Evidence\n\n"
-        f"- scripted_reference success_rate: {scripted['success_rate']:.3f}\n"
-        f"- scripted_reference average_reward: {scripted['average_reward']:.3f}\n"
-        f"- weak_submitter success_rate: {weak['success_rate']:.3f}\n"
-        f"- weak_submitter unsafe_submission_failures: {weak['unsafe_submission_failures']}\n"
+        "| Policy | Rollouts | Success rate | Average reward | Unsafe submissions | Distinct rewards |\n"
+        "| --- | ---: | ---: | ---: | ---: | ---: |\n"
+        f"{rows}\n"
         f"- accepted rollouts: {metrics['rollout_count']}\n"
         f"- rejected rollouts: {metrics['rejected_count']}\n\n"
         "## Interpretation\n\n"
-        "The reward function separates correct workflow completion from unsafe shortcut behavior. The next valid step is a smoke training run or a hosted-adapter evaluation, followed by heldout simulator and Level 2 benchmark checks.\n"
+        "The reward separates correct workflow completion from two different failure shapes: an unsafe "
+        "submitter and a reward hacker that produces correct-looking answers without reading anything.\n\n"
+        "## What this rollout set cannot do\n\n"
+        f"Across every policy there are {total_distinct} distinct reward values in total, and each policy "
+        "is close to constant within itself. Advantage estimation needs spread inside a policy's own "
+        "rollouts, so this set is a verifier and reward regression suite, not training data. Generating "
+        "training data means sampling a stochastic policy, not replaying scripted ones.\n\n"
+        "The next valid step is a smoke training run or a hosted-adapter evaluation, followed by heldout "
+        "simulator and Level 2 benchmark checks.\n"
     )
 
 
@@ -283,10 +317,26 @@ def build_prime_templates() -> dict[str, str]:
             "mode = \"eval\"\n"
         ),
         "smoke_config": (
-            "# Optional hosted RL smoke template\n"
+            "# Optional hosted RL smoke template. Smallest run that proves the\n"
+            "# pipeline moves at all; it is not expected to improve anything.\n"
             "environment = \"acme_finance_reliability\"\n"
             "rollouts = \"rl_reliability/acme/rl-rollouts.jsonl\"\n"
             "method = \"grpo\"\n"
+            "task_count = 8\n"
+            "steps = 5\n"
+            "status = \"template_not_run\"\n"
+        ),
+        "small_config": (
+            "# Optional hosted RL small-experiment template. This is the smallest\n"
+            "# run that could support a reliability claim, and only alongside the\n"
+            "# evidence listed in reports/template.md.\n"
+            "environment = \"acme_finance_reliability\"\n"
+            "rollouts = \"rl_reliability/acme/rl-rollouts.jsonl\"\n"
+            "method = \"grpo\"\n"
+            "train_seed = 42\n"
+            "heldout_seed = 7\n"
+            "task_count = 120\n"
+            "steps = 400\n"
             "status = \"template_not_run\"\n"
         ),
         "report_template": (
@@ -302,7 +352,14 @@ def build_prime_templates() -> dict[str, str]:
     }
 
 
-def write_rl_bundle(bundle: dict[str, Any], out: Path) -> None:
+def write_rl_bundle(bundle: dict[str, Any], out: Path, prime_dir: Path | None = None) -> None:
+    """Write the bundle to `out`.
+
+    Nothing is written outside `out` unless the caller is writing to the repo's
+    default output directory, or names `prime_dir` explicitly. An earlier
+    version always rewrote the repo's integrations/ tree, so `--out /tmp/...`
+    still mutated tracked files.
+    """
     out.mkdir(parents=True, exist_ok=True)
     write_jsonl(out / "rl-rollouts.jsonl", bundle["rollouts"])
     write_jsonl(out / "rl-rollouts-rejected.jsonl", bundle["rejected"])
@@ -315,23 +372,55 @@ def write_rl_bundle(bundle: dict[str, Any], out: Path) -> None:
     templates = bundle["prime_templates"]
     (out / "prime-eval-template.toml").write_text(templates["eval_config"], encoding="utf-8")
     (out / "prime-rl-smoke-template.toml").write_text(templates["smoke_config"], encoding="utf-8")
+    (out / "prime-rl-small-template.toml").write_text(templates["small_config"], encoding="utf-8")
     (out / "hosted-rl-report-template.md").write_text(templates["report_template"], encoding="utf-8")
-    write_prime_reference_files(templates)
+
+    if prime_dir is None:
+        prime_dir = DEFAULT_PRIME_DIR if out.resolve() == DEFAULT_OUT.resolve() else out / "prime-intellect"
+    write_prime_reference_files(templates, prime_dir)
 
 
-def write_prime_reference_files(templates: dict[str, str]) -> None:
-    base = ROOT / "integrations" / "prime-intellect"
+def write_prime_reference_files(templates: dict[str, str], base: Path = DEFAULT_PRIME_DIR) -> None:
     (base / "configs" / "eval").mkdir(parents=True, exist_ok=True)
     (base / "configs" / "rl").mkdir(parents=True, exist_ok=True)
     (base / "reports").mkdir(parents=True, exist_ok=True)
-    (base / "README.md").write_text(
-        "# Prime Intellect Adapter Templates\n\n"
-        "These files are templates over the local Acme Finance simulator. They are not evidence of a hosted training run.\n",
-        encoding="utf-8",
-    )
+    (base / "README.md").write_text(PRIME_README, encoding="utf-8")
     (base / "configs" / "eval" / "acme-finance-reliability-baseline.toml").write_text(templates["eval_config"], encoding="utf-8")
     (base / "configs" / "rl" / "acme-finance-reliability-smoke.toml").write_text(templates["smoke_config"], encoding="utf-8")
+    (base / "configs" / "rl" / "acme-finance-reliability-small.toml").write_text(templates["small_config"], encoding="utf-8")
     (base / "reports" / "template.md").write_text(templates["report_template"], encoding="utf-8")
+
+
+PRIME_README = """# Prime Intellect Adapter
+
+The local simulator is the source of truth. Everything here is an adapter over
+it, and none of it is evidence of a hosted training run.
+
+## What runs today
+
+```bash
+python3 integrations/prime-intellect/environments/acme_finance_reliability/acme_finance_reliability.py
+```
+
+That loads the adapter with no third-party dependencies, serves 120 tasks, and
+checks that the local verifiers separate the reference policy from the
+reward-hacking probe. CI runs it on every push.
+
+## Contents
+
+| Path | What it is |
+| --- | --- |
+| `environments/acme_finance_reliability/` | The adapter package: dataset, rollout, and verifier-derived reward |
+| `configs/eval/` | Baseline eval config template |
+| `configs/rl/` | Smoke and small RL config templates, neither of them run |
+| `reports/template.md` | The evidence a run must produce before it counts |
+| `VALIDATION.md` | What is and is not validated, and the CLI/account differences to expect |
+| `TRL.md` | The local training comparison path, for anyone without a Prime account |
+
+`configs/` and `reports/template.md` are regenerated by
+`python3 -m rl_reliability.acme`. `VALIDATION.md`, `TRL.md`, and the adapter
+package are hand-maintained source.
+"""
 
 
 def read_jsonl(path: Path) -> list[dict[str, Any]]:

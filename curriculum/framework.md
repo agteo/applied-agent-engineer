@@ -85,7 +85,7 @@ Each level produces artifacts that become inputs to later levels.
 | L5 Post-training | Local model adapter, model comparison report | L2 regression benchmark |
 | L5 Local Inference | Gateway configuration, resilience report, serving metrics | L2 regression benchmark and production readiness review |
 | L6 Environments and Verifiers | Simulated domain, tasks, deterministic/state/constraint verifiers, reward functions | L7 rollouts |
-| L7 RL for Agent Reliability | Training runs, learning curves, trained adapter, reward-hacking analysis | L2/L3 final evaluation |
+| L7 RL Literacy for Agent Engineers | Rollout comparison, reward decomposition, reward-hacking analysis, experiment design and critique | L2/L3 final evaluation |
 
 ## Canonical System
 

@@ -8,8 +8,9 @@ Agents are the course's practical vehicle because they expose the full applied A
 
 ## Maturity
 
-Levels 1-7 now have executable local paths. Track 5B and hosted RL training
-remain optional GPU work.
+Levels 1-6 are executable. Level 7 is an analysis-only literacy track: it runs
+locally, but it does not train anything. Track 5B and hosted RL training remain
+optional GPU work.
 
 ```bash
 cd examples/acme-expense-agent
@@ -52,16 +53,17 @@ and verifier-derived rewards:
 python3 -m environments.acme_finance
 ```
 
-Level 7 builds RL reliability analysis over the local simulator, with hosted
-training kept optional and explicit:
+Level 7 builds RL literacy over the local simulator: rollout comparison, reward
+decomposition, and reward-hacking review. No training run happens, and hosted
+training is kept optional and explicit:
 
 ```bash
 python3 -m rl_reliability.acme
 ```
 
-The next build priority is no longer another phase; it is hardening the course
-through teaching-depth, portfolio, and domain-transfer workstreams. See
-[STATUS.md](STATUS.md) and [ROADMAP.md](ROADMAP.md).
+The next build priority is hardening the course through the teaching-depth,
+portfolio, and domain-transfer workstreams. Levels 5-7 lessons are still
+outlines, so the code currently runs ahead of the teaching.
 
 The course is organized around a simple progression:
 
@@ -126,7 +128,7 @@ The domain may expand from expense reimbursement into a broader finance operatio
 | 5B | Post-training Implementation | Run GPU-backed SFT/LoRA experiments and compare adapted local models. |
 | 5C | Local Inference Operations | Deploy local or open models behind a gateway with routing, fallback, and observability. |
 | 6 | Environments and Verifiers | Build simulated domains, state checks, constraints, and reward functions where agents can practice safely. |
-| 7 | RL for Agent Reliability | Analyze rollouts, rewards, RLHF/RLVR, PPO/GRPO, and reward hacking. Optional training requires real compute and supervision. |
+| 7 | RL Literacy for Agent Engineers | Analyze rollouts, rewards, RLHF/RLVR, PPO/GRPO, and reward hacking. Analysis only; it does not prepare you for an RL engineering role. Optional training requires real compute and supervision. |
 
 ## Repository Map
 
@@ -180,7 +182,7 @@ After Level 4, learners can choose one or more tracks:
 | Model Improvement | Proprietary data pipelines, SFT, LoRA, DPO, and model comparison. |
 | Local AI Stack Ownership | Open model selection, local serving, gateway routing, fallback, observability, eval gates, data governance, and cost control. |
 | Environment and Verifier Engineering | Simulated workflows, deterministic checks, state verifiers, constraint scoring, sandboxes, and rewards. |
-| RL for Agent Reliability | Rollouts, verifier-derived rewards, hosted training adapters, reward hacking analysis, and post-training regression evaluation. |
+| RL Literacy for Agent Engineers | Rollouts, verifier-derived rewards, hosted training adapters, reward hacking analysis, and post-training regression evaluation. Analysis only — no training run. |
 
 ## Start Here
 
@@ -229,13 +231,12 @@ After Level 4, learners can choose one or more tracks:
    python3 -m environments.acme_finance
    ```
 
-9. Build the Level 7 RL reliability bundle:
+9. Build the Level 7 RL literacy bundle, and check the adapter loads:
 
    ```bash
    python3 -m rl_reliability.acme
+   python3 integrations/prime-intellect/environments/acme_finance_reliability/acme_finance_reliability.py
    ```
-
-10. Check what is and is not built yet in [STATUS.md](STATUS.md).
 
 Read these as you need them, not before:
 

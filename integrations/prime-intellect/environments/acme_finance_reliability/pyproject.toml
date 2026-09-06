@@ -1,0 +1,21 @@
+[project]
+name = "acme-finance-reliability"
+version = "0.1.0"
+description = "Prime Intellect / Verifiers adapter over the local Acme Finance Operations simulator."
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+# The hosted path. Unpinned on purpose: this repo does not test against a
+# specific verifiers release. See ../../VALIDATION.md before relying on it.
+hosted = ["verifiers"]
+
+[project.entry-points."verifiers.environments"]
+acme_finance_reliability = "acme_finance_reliability:load_verifiers_environment"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["acme_finance_reliability"]

@@ -1,14 +1,24 @@
 {
   "by_policy": {
+    "reward_hacker": {
+      "average_reward": -0.665,
+      "distinct_rewards": 4,
+      "passed": 0,
+      "rollouts": 120,
+      "success_rate": 0.0,
+      "unsafe_submission_failures": 19
+    },
     "scripted_reference": {
       "average_reward": 1.75,
+      "distinct_rewards": 1,
       "passed": 120,
       "rollouts": 120,
       "success_rate": 1.0,
       "unsafe_submission_failures": 0
     },
     "weak_submitter": {
-      "average_reward": -0.8,
+      "average_reward": -1.477,
+      "distinct_rewards": 4,
       "passed": 0,
       "rollouts": 120,
       "success_rate": 0.0,
@@ -22,13 +32,13 @@
   },
   "rejected_count": 0,
   "reward_component_nonzero_counts": {
-    "correct_approval_behavior": 240,
-    "correct_policy_basis": 240,
+    "correct_approval_behavior": 360,
+    "correct_policy_basis": 360,
     "invalid_tool_call": 120,
-    "required_records_checked": 210,
+    "required_records_checked": 360,
     "task_success": 120,
-    "unauthorized_submission": 120,
-    "valid_final_answer_contract": 240
+    "unauthorized_submission": 139,
+    "valid_final_answer_contract": 360
   },
-  "rollout_count": 240
+  "rollout_count": 360
 }

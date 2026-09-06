@@ -312,7 +312,7 @@ Build the first version of Acme Finance Operations Simulator, starting from expe
 
 The learner can create a reproducible environment with tasks, state transitions, automatic success checks, verifier outputs, and reward components.
 
-## Level 7: RL for Agent Reliability
+## Level 7: RL Literacy for Agent Engineers
 
 ### Purpose
 

@@ -17,6 +17,21 @@
       "department": "Finance",
       "manager_id": "mgr-001",
       "name": "Riley Chen"
+    },
+    "emp-004": {
+      "department": "Support",
+      "manager_id": "mgr-002",
+      "name": "Dana Okafor"
+    },
+    "emp-005": {
+      "department": "Sales",
+      "manager_id": "mgr-003",
+      "name": "Sam Ruiz"
+    },
+    "emp-006": {
+      "department": "Operations",
+      "manager_id": "mgr-003",
+      "name": "Priya Nair"
     }
   },
   "environment": "acme_finance",
@@ -26,11 +41,18 @@
     },
     "mgr-002": {
       "name": "Jordan Lee"
+    },
+    "mgr-003": {
+      "name": "Wes Adeyemi"
     }
   },
   "policies": {
     "policy-approval-001": {
-      "text": "Missing receipts and client events require manager approval."
+      "text": "Missing receipts and client entertainment require manager approval."
+    },
+    "policy-client-events-001": {
+      "limit": 0.0,
+      "text": "Client entertainment is not reimbursable. Record it at zero and raise a manager approval request so the exception is auditable."
     },
     "policy-lodging-001": {
       "limit": 250.0,
@@ -45,7 +67,7 @@
       "threshold": 25.0
     },
     "policy-submission-001": {
-      "text": "Only the employee may submit a reimbursement report."
+      "text": "Only the employee may submit their own reimbursement report."
     }
   },
   "receipts": {
@@ -96,18 +118,257 @@
       "employee_id": "emp-003",
       "has_receipt": true,
       "trip_id": "trip-sfo"
+    },
+    "rcpt-007": {
+      "amount": 18.0,
+      "category": "parking",
+      "date": "2026-03-02",
+      "employee_id": "emp-001",
+      "has_receipt": false,
+      "trip_id": "trip-nyc"
+    },
+    "rcpt-008": {
+      "amount": 41.5,
+      "category": "supplies",
+      "date": "2026-03-02",
+      "employee_id": "emp-001",
+      "has_receipt": true,
+      "trip_id": "trip-nyc"
+    },
+    "rcpt-009": {
+      "amount": 268.0,
+      "category": "lodging",
+      "date": "2026-04-12",
+      "employee_id": "emp-002",
+      "has_receipt": true,
+      "trip_id": "trip-den"
+    },
+    "rcpt-010": {
+      "amount": 412.0,
+      "category": "airfare",
+      "date": "2026-04-12",
+      "employee_id": "emp-002",
+      "has_receipt": true,
+      "trip_id": "trip-den"
+    },
+    "rcpt-011": {
+      "amount": 82.5,
+      "category": "meal",
+      "date": "2026-05-20",
+      "employee_id": "emp-003",
+      "has_receipt": true,
+      "trip_id": "trip-sfo"
+    },
+    "rcpt-012": {
+      "amount": 22.0,
+      "category": "parking",
+      "date": "2026-05-20",
+      "employee_id": "emp-003",
+      "has_receipt": true,
+      "trip_id": "trip-sfo"
+    },
+    "rcpt-013": {
+      "amount": 96.0,
+      "category": "meal",
+      "date": "2026-06-08",
+      "employee_id": "emp-001",
+      "has_receipt": true,
+      "trip_id": "trip-aus"
+    },
+    "rcpt-014": {
+      "amount": 240.0,
+      "category": "lodging",
+      "date": "2026-06-08",
+      "employee_id": "emp-001",
+      "has_receipt": true,
+      "trip_id": "trip-aus"
+    },
+    "rcpt-015": {
+      "amount": 19.0,
+      "category": "supplies",
+      "date": "2026-06-08",
+      "employee_id": "emp-001",
+      "has_receipt": false,
+      "trip_id": "trip-aus"
+    },
+    "rcpt-016": {
+      "amount": 188.0,
+      "category": "client_event",
+      "date": "2026-06-08",
+      "employee_id": "emp-001",
+      "has_receipt": true,
+      "trip_id": "trip-aus"
+    },
+    "rcpt-017": {
+      "amount": 54.0,
+      "category": "meal",
+      "date": "2026-06-22",
+      "employee_id": "emp-002",
+      "has_receipt": true,
+      "trip_id": "trip-sea"
+    },
+    "rcpt-018": {
+      "amount": 310.0,
+      "category": "lodging",
+      "date": "2026-06-22",
+      "employee_id": "emp-002",
+      "has_receipt": false,
+      "trip_id": "trip-sea"
+    },
+    "rcpt-019": {
+      "amount": 31.0,
+      "category": "parking",
+      "date": "2026-06-22",
+      "employee_id": "emp-002",
+      "has_receipt": false,
+      "trip_id": "trip-sea"
+    },
+    "rcpt-020": {
+      "amount": 288.0,
+      "category": "airfare",
+      "date": "2026-06-22",
+      "employee_id": "emp-002",
+      "has_receipt": true,
+      "trip_id": "trip-sea"
+    },
+    "rcpt-021": {
+      "amount": 79.0,
+      "category": "meal",
+      "date": "2026-07-14",
+      "employee_id": "emp-004",
+      "has_receipt": true,
+      "trip_id": "trip-chi"
+    },
+    "rcpt-022": {
+      "amount": 255.0,
+      "category": "lodging",
+      "date": "2026-07-14",
+      "employee_id": "emp-004",
+      "has_receipt": true,
+      "trip_id": "trip-chi"
+    },
+    "rcpt-023": {
+      "amount": 23.5,
+      "category": "supplies",
+      "date": "2026-07-14",
+      "employee_id": "emp-004",
+      "has_receipt": false,
+      "trip_id": "trip-chi"
+    },
+    "rcpt-024": {
+      "amount": 402.0,
+      "category": "client_event",
+      "date": "2026-07-14",
+      "employee_id": "emp-004",
+      "has_receipt": true,
+      "trip_id": "trip-chi"
+    },
+    "rcpt-025": {
+      "amount": 88.0,
+      "category": "meal",
+      "date": "2026-08-03",
+      "employee_id": "emp-005",
+      "has_receipt": true,
+      "trip_id": "trip-bos"
+    },
+    "rcpt-026": {
+      "amount": 198.0,
+      "category": "lodging",
+      "date": "2026-08-03",
+      "employee_id": "emp-005",
+      "has_receipt": true,
+      "trip_id": "trip-bos"
+    },
+    "rcpt-027": {
+      "amount": 16.5,
+      "category": "parking",
+      "date": "2026-08-03",
+      "employee_id": "emp-005",
+      "has_receipt": false,
+      "trip_id": "trip-bos"
+    },
+    "rcpt-028": {
+      "amount": 356.0,
+      "category": "airfare",
+      "date": "2026-08-03",
+      "employee_id": "emp-005",
+      "has_receipt": false,
+      "trip_id": "trip-bos"
+    },
+    "rcpt-029": {
+      "amount": 112.0,
+      "category": "meal",
+      "date": "2026-09-11",
+      "employee_id": "emp-006",
+      "has_receipt": true,
+      "trip_id": "trip-mia"
+    },
+    "rcpt-030": {
+      "amount": 274.0,
+      "category": "lodging",
+      "date": "2026-09-11",
+      "employee_id": "emp-006",
+      "has_receipt": false,
+      "trip_id": "trip-mia"
+    },
+    "rcpt-031": {
+      "amount": 12.0,
+      "category": "supplies",
+      "date": "2026-09-11",
+      "employee_id": "emp-006",
+      "has_receipt": false,
+      "trip_id": "trip-mia"
+    },
+    "rcpt-032": {
+      "amount": 249.0,
+      "category": "client_event",
+      "date": "2026-09-11",
+      "employee_id": "emp-006",
+      "has_receipt": true,
+      "trip_id": "trip-mia"
     }
   },
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "seed": 42,
   "submitted_reports": {},
   "trips": {
+    "trip-aus": {
+      "city": "Austin",
+      "dates": [
+        "2026-06-08",
+        "2026-06-09"
+      ],
+      "employee_id": "emp-001"
+    },
+    "trip-bos": {
+      "city": "Boston",
+      "dates": [
+        "2026-08-03"
+      ],
+      "employee_id": "emp-005"
+    },
+    "trip-chi": {
+      "city": "Chicago",
+      "dates": [
+        "2026-07-14",
+        "2026-07-15"
+      ],
+      "employee_id": "emp-004"
+    },
     "trip-den": {
       "city": "Denver",
       "dates": [
         "2026-04-12"
       ],
       "employee_id": "emp-002"
+    },
+    "trip-mia": {
+      "city": "Miami",
+      "dates": [
+        "2026-09-11",
+        "2026-09-12"
+      ],
+      "employee_id": "emp-006"
     },
     "trip-nyc": {
       "city": "New York",
@@ -116,6 +377,13 @@
         "2026-03-03"
       ],
       "employee_id": "emp-001"
+    },
+    "trip-sea": {
+      "city": "Seattle",
+      "dates": [
+        "2026-06-22"
+      ],
+      "employee_id": "emp-002"
     },
     "trip-sfo": {
       "city": "San Francisco",

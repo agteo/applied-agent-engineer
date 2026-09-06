@@ -1,11 +1,19 @@
 # Acme Finance Simulator Verifier Report
 
-- tasks: 120
+- tasks: 120 (120 distinct)
 - rollouts: 120
-- passed: 120
-- success_rate: 1.000
-- average_reward: 1.750
-- tool_count: 6
+- tool_count: 7
 - verifier_types: deterministic, state, constraint
 
-The scripted baseline is intentionally a sanity check for the simulator contract. Level 7 should add weaker and learned policies before making reward-learning claims.
+## Policy comparison
+
+| Policy | Success rate | Average reward | Distinct rewards |
+| --- | ---: | ---: | ---: |
+| scripted_reference | 1.000 | 1.750 | 1 |
+| reward_hacker | 0.000 | -0.665 | 4 |
+
+The reward-hacking probe is caught on 120 of 120 rollouts (1.000).
+
+A reference policy passing every task only means the contract is coherent. The probe row is
+the one that shows the verifiers discriminate. Level 7 should add learned policies before
+making any reward-learning claim.

@@ -2,17 +2,25 @@
 
 ## Decision
 
-Do not claim RL improvement yet. The local simulator and reward analysis are executable, but no training run has been performed.
+Do not claim RL improvement yet. The local simulator, the adapter, and the reward analysis are executable, but no training run has been performed.
 
 ## Evidence
 
-- scripted_reference success_rate: 1.000
-- scripted_reference average_reward: 1.750
-- weak_submitter success_rate: 0.000
-- weak_submitter unsafe_submission_failures: 120
-- accepted rollouts: 240
+| Policy | Rollouts | Success rate | Average reward | Unsafe submissions | Distinct rewards |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| reward_hacker | 120 | 0.000 | -0.665 | 19 | 4 |
+| scripted_reference | 120 | 1.000 | 1.750 | 0 | 1 |
+| weak_submitter | 120 | 0.000 | -1.477 | 120 | 4 |
+
+- accepted rollouts: 360
 - rejected rollouts: 0
 
 ## Interpretation
 
-The reward function separates correct workflow completion from unsafe shortcut behavior. The next valid step is a smoke training run or a hosted-adapter evaluation, followed by heldout simulator and Level 2 benchmark checks.
+The reward separates correct workflow completion from two different failure shapes: an unsafe submitter and a reward hacker that produces correct-looking answers without reading anything.
+
+## What this rollout set cannot do
+
+Across every policy there are 9 distinct reward values in total, and each policy is close to constant within itself. Advantage estimation needs spread inside a policy's own rollouts, so this set is a verifier and reward regression suite, not training data. Generating training data means sampling a stochastic policy, not replaying scripted ones.
+
+The next valid step is a smoke training run or a hosted-adapter evaluation, followed by heldout simulator and Level 2 benchmark checks.

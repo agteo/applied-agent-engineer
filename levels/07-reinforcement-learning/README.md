@@ -1,4 +1,4 @@
-# Level 7: RL for Agent Reliability
+# Level 7: RL Literacy for Agent Engineers
 
 ## Goal
 
@@ -10,9 +10,11 @@ Level 7 asks: can experience improve behavior, and how would we know?
 
 ## Scope
 
-Level 7 now has an executable local analysis path over the Acme Finance
-Operations Simulator. Running RL training is still an optional advanced
-implementation path, not a default course completion requirement.
+Level 7 is a literacy track. It has an executable local analysis path over the
+Acme Finance Operations Simulator, and it does **not** train anything. Running
+RL training is an optional advanced implementation path, not a completion
+requirement, and this level does not prepare a learner for an RL engineering
+role. See [tracks/rl-literacy-for-agent-engineers.md](../../tracks/rl-literacy-for-agent-engineers.md).
 
 ## Learning Outcomes
 
@@ -93,12 +95,17 @@ comparison.
 
 ## Exit Criteria
 
-To complete Level 7, the learner must submit:
+To complete Level 7, the learner must submit, with no GPU:
 
 1. An RL framing of the Acme environment.
 2. Rollout data with rewards and termination reasons.
-3. Verifier and reward hacking risk analysis.
-4. A rigorous experiment design.
-5. Learning curves and training logs if optional training is run.
-6. Evaluation against the Level 2 benchmark.
-7. Failure analysis comparing pre-training and post-training behavior.
+3. A reward hacking review naming at least one exploit the current verifiers do
+   **not** catch, and the check you would add to catch it.
+4. A rigorous experiment design, including the decision rule that would make you
+   reject the trained policy.
+5. A written critique of a training result you did not produce: what evidence is
+   missing, and what claim the evidence actually supports.
+
+Optional, and not required to complete the level: if you run training, add
+learning curves and training logs, evaluation against the Level 2 benchmark, and
+a failure analysis comparing pre-training and post-training behavior.
