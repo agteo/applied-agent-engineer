@@ -8,13 +8,20 @@ The first implementation may focus on expense reimbursement because that is the 
 
 ## Required Components
 
-- environment state schema
-- simulated tools
-- task generator
-- deterministic, state, and constraint verifiers
-- reward function derived from verifier components
-- rollout logger
-- environment manifest
+- environment state schema: [`environments/acme_finance/state-schema.json`](../../../environments/acme_finance/state-schema.json)
+- simulated tools: [`environments/acme_finance/tool-schemas.json`](../../../environments/acme_finance/tool-schemas.json)
+- task generator: [`environments/acme_finance/__init__.py`](../../../environments/acme_finance/__init__.py)
+- generated tasks: [`environments/acme_finance/tasks.jsonl`](../../../environments/acme_finance/tasks.jsonl)
+- deterministic, state, and constraint verifiers: [`environments/acme_finance/__init__.py`](../../../environments/acme_finance/__init__.py)
+- reward function derived from verifier components: [`environments/acme_finance/reward-design.md`](../../../environments/acme_finance/reward-design.md)
+- rollout logger: [`environments/acme_finance/rollouts.jsonl`](../../../environments/acme_finance/rollouts.jsonl)
+- environment manifest: [`environments/acme_finance/manifest.json`](../../../environments/acme_finance/manifest.json)
+
+Build the reference bundle:
+
+```bash
+python3 -m environments.acme_finance
+```
 
 ## Assessment Anchor
 

@@ -1,0 +1,128 @@
+{
+  "approval_requests": {},
+  "audit_log": [],
+  "drafts": {},
+  "employees": {
+    "emp-001": {
+      "department": "Sales",
+      "manager_id": "mgr-001",
+      "name": "Maya Patel"
+    },
+    "emp-002": {
+      "department": "Engineering",
+      "manager_id": "mgr-002",
+      "name": "Noah Kim"
+    },
+    "emp-003": {
+      "department": "Finance",
+      "manager_id": "mgr-001",
+      "name": "Riley Chen"
+    }
+  },
+  "environment": "acme_finance",
+  "managers": {
+    "mgr-001": {
+      "name": "Avery Stone"
+    },
+    "mgr-002": {
+      "name": "Jordan Lee"
+    }
+  },
+  "policies": {
+    "policy-approval-001": {
+      "text": "Missing receipts and client events require manager approval."
+    },
+    "policy-lodging-001": {
+      "limit": 250.0,
+      "text": "Hotel lodging is reimbursable up to USD 250 per night."
+    },
+    "policy-meals-001": {
+      "limit": 75.0,
+      "text": "Meals are reimbursable up to USD 75 per employee per day."
+    },
+    "policy-receipts-001": {
+      "text": "Expenses at or above USD 25 require a receipt or manager approval.",
+      "threshold": 25.0
+    },
+    "policy-submission-001": {
+      "text": "Only the employee may submit a reimbursement report."
+    }
+  },
+  "receipts": {
+    "rcpt-001": {
+      "amount": 68.0,
+      "category": "meal",
+      "date": "2026-03-02",
+      "employee_id": "emp-001",
+      "has_receipt": true,
+      "trip_id": "trip-nyc"
+    },
+    "rcpt-002": {
+      "amount": 289.0,
+      "category": "lodging",
+      "date": "2026-03-02",
+      "employee_id": "emp-001",
+      "has_receipt": true,
+      "trip_id": "trip-nyc"
+    },
+    "rcpt-003": {
+      "amount": 91.0,
+      "category": "meal",
+      "date": "2026-04-12",
+      "employee_id": "emp-002",
+      "has_receipt": true,
+      "trip_id": "trip-den"
+    },
+    "rcpt-004": {
+      "amount": 24.0,
+      "category": "parking",
+      "date": "2026-04-12",
+      "employee_id": "emp-002",
+      "has_receipt": false,
+      "trip_id": "trip-den"
+    },
+    "rcpt-005": {
+      "amount": 214.0,
+      "category": "lodging",
+      "date": "2026-05-20",
+      "employee_id": "emp-003",
+      "has_receipt": false,
+      "trip_id": "trip-sfo"
+    },
+    "rcpt-006": {
+      "amount": 329.0,
+      "category": "client_event",
+      "date": "2026-05-20",
+      "employee_id": "emp-003",
+      "has_receipt": true,
+      "trip_id": "trip-sfo"
+    }
+  },
+  "schema_version": "1.0.0",
+  "seed": 42,
+  "submitted_reports": {},
+  "trips": {
+    "trip-den": {
+      "city": "Denver",
+      "dates": [
+        "2026-04-12"
+      ],
+      "employee_id": "emp-002"
+    },
+    "trip-nyc": {
+      "city": "New York",
+      "dates": [
+        "2026-03-02",
+        "2026-03-03"
+      ],
+      "employee_id": "emp-001"
+    },
+    "trip-sfo": {
+      "city": "San Francisco",
+      "dates": [
+        "2026-05-20"
+      ],
+      "employee_id": "emp-003"
+    }
+  }
+}

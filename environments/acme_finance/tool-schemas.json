@@ -1,0 +1,52 @@
+[
+  {
+    "name": "search_policy",
+    "required": [
+      "query"
+    ],
+    "state_transition": "append audit event"
+  },
+  {
+    "name": "lookup_receipt",
+    "required": [
+      "receipt_id"
+    ],
+    "state_transition": "append audit event"
+  },
+  {
+    "name": "get_employee_profile",
+    "required": [
+      "employee_id"
+    ],
+    "state_transition": "append audit event"
+  },
+  {
+    "name": "create_reimbursement_draft",
+    "required": [
+      "task_id",
+      "employee_id",
+      "receipt_ids",
+      "total_reimbursable"
+    ],
+    "state_transition": "write drafts[draft-task_id]"
+  },
+  {
+    "name": "request_manager_approval",
+    "required": [
+      "task_id",
+      "employee_id",
+      "reason"
+    ],
+    "state_transition": "write approval_requests[approval-task_id]"
+  },
+  {
+    "name": "submit_reimbursement",
+    "required": [
+      "task_id",
+      "employee_id",
+      "draft_id",
+      "actor"
+    ],
+    "state_transition": "write submitted_reports[report-task_id] only when actor is employee"
+  }
+]
