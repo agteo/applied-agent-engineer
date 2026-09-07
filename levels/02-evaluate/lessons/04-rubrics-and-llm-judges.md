@@ -1,7 +1,5 @@
 # Lesson 4: Rubrics and LLM Judges
 
-Status: outline
-
 ## Core Idea
 
 Some qualities are hard to grade with code. Rubrics make subjective judgment more consistent.
@@ -39,6 +37,24 @@ Track:
 - false negatives
 - common disagreement patterns
 - cases the judge should not grade
+
+## Common Failure Modes
+
+- Using an uncalibrated judge as if it were ground truth.
+- Hiding the rubric inside a prompt nobody reviews.
+- Asking the judge to score facts that deterministic code can check.
+
+## Exercise
+
+Name one field deterministic code should grade and one field a rubric judge may grade.
+
+Check your answer:
+
+```text
+Code should grade `total_reimbursable`; a rubric judge may grade clarity or helpfulness after hard constraints pass.
+```
+
+Use the Level 2 benchmark report to confirm the answer against the evaluation system rather than relying on memory.
 
 ## Checkpoint
 

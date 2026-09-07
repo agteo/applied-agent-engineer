@@ -1,7 +1,5 @@
 # Lesson 3: Cleaning and Deduplication
 
-Status: outline
-
 ## Core Idea
 
 More data is not automatically better data.
@@ -26,6 +24,24 @@ Deduplicate by:
 - normalized task text
 - semantic similarity
 - shared source trace
+
+## Common Failure Modes
+
+- Removing duplicates without recording what was rejected.
+- Keeping rows with missing provenance.
+- Deduplicating only by id when prompt and target are duplicated.
+
+## Exercise
+
+Why does the Phase 4 builder write `rejected.jsonl`?
+
+Check your answer:
+
+```text
+So reviewers can inspect filtered rows and confirm the cleaner removed duplicates, missing provenance, and invalid target contracts.
+```
+
+Use the Acme training dataset to confirm the answer against the data workflow rather than relying on memory.
 
 ## Checkpoint
 

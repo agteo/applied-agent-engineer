@@ -1,7 +1,5 @@
 # Lesson 7: Post-RL Evaluation
 
-Status: outline
-
 ## Core Idea
 
 RL improvement must be evaluated outside the training loop.
@@ -20,6 +18,24 @@ Use:
 - Level 2 benchmark
 - Level 3 failure taxonomy
 - Level 6 environment tasks
+
+## Common Failure Modes
+
+- Adopting a policy because simulator reward rose.
+- Ignoring regressions on earlier benchmark tasks.
+- Not comparing failure types before and after training.
+
+## Exercise
+
+What checks come after a successful RL smoke run?
+
+Check your answer:
+
+```text
+Run heldout simulator evaluation, rerun the Level 2 benchmark, compare failure taxonomy before/after, and manually inspect sampled rollouts.
+```
+
+Use the Phase 7 experiment report to confirm the answer against the RL reliability workflow rather than relying on memory.
 
 ## Checkpoint
 

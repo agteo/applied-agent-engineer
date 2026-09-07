@@ -1,7 +1,5 @@
 # Lesson 5: Metrics and Confidence
 
-Status: outline
-
 ## Core Idea
 
 Scores need uncertainty. A benchmark result without context can mislead.
@@ -41,6 +39,24 @@ Useful habits:
 - report confidence intervals where appropriate
 - avoid declaring tiny differences meaningful
 - inspect examples behind metric changes
+
+## Common Failure Modes
+
+- Reporting only overall success and hiding weak slices.
+- Treating a small sample as precise.
+- Ignoring cost or latency when comparing configurations.
+
+## Exercise
+
+A benchmark passes 89/100 tasks. What success rate should the report show?
+
+Check your answer:
+
+```text
+It should show `0.890` or `89%`, and it should still include per-tag breakdowns because the overall number hides weak slices.
+```
+
+Use the Level 2 benchmark report to confirm the answer against the evaluation system rather than relying on memory.
 
 ## Checkpoint
 

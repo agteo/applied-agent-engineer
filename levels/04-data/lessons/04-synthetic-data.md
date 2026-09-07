@@ -1,7 +1,5 @@
 # Lesson 4: Synthetic Data
 
-Status: outline
-
 ## Core Idea
 
 Synthetic data is useful when it targets known gaps and passes quality filters.
@@ -23,6 +21,24 @@ Use synthetic data to:
 - hidden leakage from eval tasks
 - model-generated errors
 - overfitting to the generator's style
+
+## Common Failure Modes
+
+- Generating examples that do not target known gaps.
+- Letting synthetic examples leak into heldout evaluation.
+- Claiming synthetic data proves model improvement.
+
+## Exercise
+
+Name one valid use and one invalid use of synthetic Acme examples.
+
+Check your answer:
+
+```text
+Valid: target known receipt or approval gaps for training rehearsal. Invalid: claiming production improvement without heldout benchmark evidence.
+```
+
+Use the Acme training dataset to confirm the answer against the data workflow rather than relying on memory.
 
 ## Checkpoint
 

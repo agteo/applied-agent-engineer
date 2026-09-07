@@ -1,7 +1,5 @@
 # Lesson 2: ML Foundations for Post-training
 
-Status: outline
-
 ## Core Idea
 
 Track 5B requires a real training run. Eleven bullet points and a five-line loop will not prepare you for one, and this lesson does not pretend otherwise.
@@ -43,6 +41,24 @@ loss.backward()
 optimizer.step()
 optimizer.zero_grad()
 ```
+
+## Common Failure Modes
+
+- Confusing memorization with generalization.
+- Changing hyperparameters without a baseline.
+- Reading training loss as task reliability.
+
+## Exercise
+
+Why is lower training loss not enough to adopt a model?
+
+Check your answer:
+
+```text
+It may reflect memorization or output-format fit. Adoption needs heldout benchmark improvement and no safety regression.
+```
+
+Use the Phase 5 decision memo to confirm the answer against the model-improvement workflow rather than relying on memory.
 
 ## Checkpoint
 

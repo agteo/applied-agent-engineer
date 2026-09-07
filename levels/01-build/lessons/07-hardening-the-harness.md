@@ -1,7 +1,5 @@
 # Lesson 7: Hardening the Harness
 
-Status: outline
-
 ## Core Idea
 
 Agent reliability is mostly harness design.
@@ -47,6 +45,24 @@ Fail clearly when the system cannot safely continue:
 - repeated invalid output
 - permission denied
 - tool timeout
+
+## Common Failure Modes
+
+- Letting the loop run without a step budget.
+- Allowing unknown tool names to execute dynamically.
+- Swallowing tool errors and producing a confident final answer anyway.
+
+## Exercise
+
+Name two harness checks that should fail before a tool executes.
+
+Check your answer:
+
+```text
+Unknown tool name and invalid argument schema should fail before execution; both should be visible in the trace.
+```
+
+Use the Acme Expense Agent trace to confirm the answer against the agent harness rather than relying on memory.
 
 ## Checkpoint
 

@@ -1,7 +1,5 @@
 # Lesson 2: Schemas and Formats
 
-Status: outline
-
 ## Core Idea
 
 Datasets need contracts just like tools do.
@@ -25,6 +23,24 @@ Datasets need contracts just like tools do.
 - quality score
 - split
 - provenance
+
+## Common Failure Modes
+
+- Adding rows whose shape changes silently across files.
+- Putting important fields inside unstructured text.
+- Versioning the dataset card but not the row schema.
+
+## Exercise
+
+Name four fields every Acme dataset row needs.
+
+Check your answer:
+
+```text
+`schema_version`, `example_id`, `messages`, `target_final_answer`, plus provenance and split fields for training discipline.
+```
+
+Use the Acme training dataset to confirm the answer against the data workflow rather than relying on memory.
 
 ## Checkpoint
 

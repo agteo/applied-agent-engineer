@@ -1,7 +1,5 @@
 # Lesson 3: Deterministic Graders
 
-Status: outline
-
 ## Core Idea
 
 Use code when correctness can be checked with code.
@@ -43,6 +41,18 @@ Use deterministic graders for:
 - Treating partial correctness as all-or-nothing.
 - Ignoring tool traces.
 - Failing closed without useful error messages.
+
+## Exercise
+
+For expected total 75.00 and actual total 108.00, write the grader failure message.
+
+Check your answer:
+
+```text
+`task-id: total_reimbursable: expected 75.00, got 108.00.` The message names the field and both values.
+```
+
+Use the Level 2 benchmark report to confirm the answer against the evaluation system rather than relying on memory.
 
 ## Checkpoint
 

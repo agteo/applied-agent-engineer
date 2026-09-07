@@ -1,7 +1,5 @@
 # Lesson 4: LoRA and QLoRA
 
-Status: outline
-
 ## Core Idea
 
 LoRA adapts a model by training small low-rank adapter weights instead of updating all model weights.
@@ -18,6 +16,24 @@ QLoRA combines quantization with LoRA to reduce memory needs.
 - quantization
 - checkpoint
 - merge vs serve adapter
+
+## Common Failure Modes
+
+- Choosing LoRA because it is cheaper without checking whether model behavior is the bottleneck.
+- Reporting an adapter path without training logs.
+- Changing rank, data, and base model at once.
+
+## Exercise
+
+What evidence is required before Track 5B can claim completion?
+
+Check your answer:
+
+```text
+Training logs, adapter or checkpoint artifact, configuration, Level 2 benchmark comparison, and unsafe_submission slice review.
+```
+
+Use the Phase 5 decision memo to confirm the answer against the model-improvement workflow rather than relying on memory.
 
 ## Checkpoint
 

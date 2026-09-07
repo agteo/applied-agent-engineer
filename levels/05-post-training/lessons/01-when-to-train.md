@@ -1,7 +1,5 @@
 # Lesson 1: When To Train
 
-Status: outline
-
 ## Core Idea
 
 Fine-tuning is an intervention, not a default step.
@@ -26,6 +24,24 @@ Avoid training when:
 - evals are weak
 - data quality is poor
 - the behavior changes frequently
+
+## Common Failure Modes
+
+- Treating training as the default fix for every failure.
+- Ignoring cheaper tool or retrieval interventions.
+- Approving training without a benchmark gate.
+
+## Exercise
+
+Given 49 tool/retrieval labels and 13 model labels, what should the decision memo recommend?
+
+Check your answer:
+
+```text
+Fix tools and retrieval before training; use SFT data for rehearsal, not as proof that fine-tuning is justified.
+```
+
+Use the Phase 5 decision memo to confirm the answer against the model-improvement workflow rather than relying on memory.
 
 ## Checkpoint
 

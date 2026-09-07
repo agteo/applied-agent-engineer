@@ -1,7 +1,5 @@
 # Lesson 2: Tool Schemas and Validation
 
-Status: outline
-
 ## Core Idea
 
 Tools are contracts. The agent should never execute vague, malformed, or unsafe tool calls.
@@ -62,6 +60,24 @@ The harness should validate:
 ## Design Rule
 
 Validation errors should become observations. They should not crash the whole run unless the error is unrecoverable.
+
+## Common Failure Modes
+
+- Accepting loosely typed tool arguments and discovering bad input only after a side effect.
+- Letting the model invent optional fields that the tool silently ignores.
+- Returning tool errors that do not name the invalid field.
+
+## Exercise
+
+Write one invalid `lookup_receipt` call and the exact validation error it should produce.
+
+Check your answer:
+
+```text
+`lookup_receipt({"receipt": "rcpt-001"})` should fail before execution with an error such as `missing required field receipt_id`. The trace should show no receipt lookup side effect.
+```
+
+Use the Acme Expense Agent trace to confirm the answer against the agent harness rather than relying on memory.
 
 ## Checkpoint
 

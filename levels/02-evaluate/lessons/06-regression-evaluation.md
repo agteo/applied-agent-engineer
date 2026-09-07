@@ -1,7 +1,5 @@
 # Lesson 6: Regression Evaluation
 
-Status: outline
-
 ## Core Idea
 
 Every agent change is a hypothesis. Regression evals test whether the hypothesis helped.
@@ -38,6 +36,24 @@ Example:
 Adopt version B if task success improves by at least 8 percentage points,
 approval safety does not decrease, and average cost increases by less than 20%.
 ```
+
+## Common Failure Modes
+
+- Fixing one failure while breaking an earlier passing task.
+- Keeping regression cases outside CI.
+- Deleting hard cases because they make the score look worse.
+
+## Exercise
+
+When should a fixed failed task enter the regression pack?
+
+Check your answer:
+
+```text
+After the failure is understood and the expected behavior is stable, promote it so future changes cannot reintroduce it silently.
+```
+
+Use the Level 2 benchmark report to confirm the answer against the evaluation system rather than relying on memory.
 
 ## Checkpoint
 

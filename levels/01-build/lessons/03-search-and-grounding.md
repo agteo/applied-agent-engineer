@@ -1,7 +1,5 @@
 # Lesson 3: Search and Grounding
 
-Status: outline
-
 ## Core Idea
 
 Agents should not invent policy. They should retrieve policy and cite the source.
@@ -36,6 +34,24 @@ Later modules can replace the implementation with embeddings, a vector database,
 - Omitting source ids.
 - Treating retrieval score as truth.
 - Hiding search failures from the final answer.
+
+## Common Failure Modes
+
+- Citing a policy id that was never retrieved.
+- Using keyword search that returns the broadest policy instead of the relevant one.
+- Answering from memory when the task requires fixture evidence.
+
+## Exercise
+
+For a missing-receipt question, name the policy ids the agent must retrieve before answering.
+
+Check your answer:
+
+```text
+A strong answer retrieves `policy-receipts-001` and, when approval is required, `policy-approval-001`; it should not cite unseen policy ids.
+```
+
+Use the Acme Expense Agent trace to confirm the answer against the agent harness rather than relying on memory.
 
 ## Checkpoint
 

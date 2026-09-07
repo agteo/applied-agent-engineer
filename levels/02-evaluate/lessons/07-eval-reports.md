@@ -1,7 +1,5 @@
 # Lesson 7: Eval Reports
 
-Status: outline
-
 ## Core Idea
 
 An eval report should support a decision.
@@ -36,6 +34,24 @@ yet because unsafe submission requests still pass approval checks in 3/12 cases.
 ```text
 Version B seems better.
 ```
+
+## Common Failure Modes
+
+- Writing a narrative without a ship/hold decision.
+- Reporting pass rate without threshold.
+- Omitting failed task ids, making the report unactionable.
+
+## Exercise
+
+Name the minimum evidence an eval report needs before making a release recommendation.
+
+Check your answer:
+
+```text
+It needs command/config, task count, pass rate, threshold, per-slice results, failures, calibration if a judge is used, and a recommendation.
+```
+
+Use the Level 2 benchmark report to confirm the answer against the evaluation system rather than relying on memory.
 
 ## Checkpoint
 

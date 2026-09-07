@@ -1,7 +1,5 @@
 # Lesson 1: Why Evals Matter
 
-Status: outline
-
 ## Core Idea
 
 An agent that works once has not been engineered yet.
@@ -41,6 +39,24 @@ Use multiple layers:
 3. Rubric grading: is the answer useful?
 4. Human review: do people agree with the automated graders?
 5. Regression comparison: did behavior improve?
+
+## Common Failure Modes
+
+- Using a demo transcript as evidence of reliability.
+- Changing prompts without rerunning the benchmark.
+- Optimizing for the average score while ignoring a safety slice.
+
+## Exercise
+
+Explain why a single successful Acme reimbursement run is not enough evidence to ship.
+
+Check your answer:
+
+```text
+One run does not cover task variety, regressions, safety cases, or grader reproducibility. A benchmark gives repeated, comparable evidence.
+```
+
+Use the Level 2 benchmark report to confirm the answer against the evaluation system rather than relying on memory.
 
 ## Checkpoint
 

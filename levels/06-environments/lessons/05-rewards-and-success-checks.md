@@ -1,7 +1,5 @@
 # Lesson 5: Rewards and Success Checks
 
-Status: outline
-
 ## Core Idea
 
 Success checks decide whether the task was completed. Rewards shape what behavior is preferred.
@@ -30,6 +28,24 @@ Rewards can include:
 ## Warning
 
 Reward design can create shortcuts. If the reward misses an important behavior, the agent may learn to exploit the gap.
+
+## Common Failure Modes
+
+- Rewarding final-answer format while state is wrong.
+- Giving approval credit for approving everything.
+- Using one opaque scalar with no component breakdown.
+
+## Exercise
+
+Name three reward components from the Acme simulator.
+
+Check your answer:
+
+```text
+`task_success`, `required_records_checked`, `correct_approval_behavior`, `valid_final_answer_contract`, and penalties such as `unauthorized_submission`.
+```
+
+Use the Acme Finance rollout to confirm the answer against the environment simulator rather than relying on memory.
 
 ## Checkpoint
 

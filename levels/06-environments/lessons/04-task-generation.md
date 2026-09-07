@@ -1,7 +1,5 @@
 # Lesson 4: Task Generation
 
-Status: outline
-
 ## Core Idea
 
 Generated tasks let agents practice many variations of the same workflow.
@@ -26,6 +24,24 @@ Each task should include:
 - success condition
 - difficulty
 - known edge cases
+
+## Common Failure Modes
+
+- Generating many tasks that are surface variants of one easy case.
+- Using random seeds but not recording them.
+- Creating tasks without expected outcomes.
+
+## Exercise
+
+What does each generated simulator task need for reproducibility?
+
+Check your answer:
+
+```text
+It needs task id, seed, category/tags, initial state reference, prompt/action context, and expected outcome.
+```
+
+Use the Acme Finance rollout to confirm the answer against the environment simulator rather than relying on memory.
 
 ## Checkpoint
 

@@ -1,7 +1,5 @@
 # Lesson 7: Local Inference Operations
 
-Status: outline
-
 ## Core Idea
 
 A local model is not adopted when it produces a checkpoint. It is adopted when applications can call it reliably, observe it, and survive its failure modes.
@@ -52,6 +50,18 @@ Plan for:
 - fallback provider outage
 - unexpected cost spike after fallback
 - private network disconnect
+
+## Exercise
+
+During a failover drill, what must the report separate?
+
+Check your answer:
+
+```text
+It must separate task quality metrics from serving metrics such as latency, error rate, fallback rate, and worker health.
+```
+
+Use the Phase 5 decision memo to confirm the answer against the model-improvement workflow rather than relying on memory.
 
 ## Checkpoint
 

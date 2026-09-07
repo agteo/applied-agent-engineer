@@ -1,7 +1,5 @@
 # Lesson 4: State and Traces
 
-Status: outline
-
 ## Core Idea
 
 If you cannot see what the agent did, you cannot evaluate or diagnose it.
@@ -41,6 +39,24 @@ A good trace is:
 - loadable by scripts
 - safe to store
 - free of real secrets or private data
+
+## Common Failure Modes
+
+- Saving only the final answer and losing the tool path that produced it.
+- Logging private data or volatile timestamps in artifacts that should be reproducible.
+- Recording state after mutation but not before, making transitions impossible to audit.
+
+## Exercise
+
+List the minimum trace fields needed to debug a wrong reimbursement total.
+
+Check your answer:
+
+```text
+You need task id, prompt, tool calls and arguments, observations, final answer, timing/cost metadata if available, and enough state identifiers to replay the calculation.
+```
+
+Use the Acme Expense Agent trace to confirm the answer against the agent harness rather than relying on memory.
 
 ## Checkpoint
 

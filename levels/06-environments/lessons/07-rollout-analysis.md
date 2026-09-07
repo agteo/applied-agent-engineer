@@ -1,7 +1,5 @@
 # Lesson 7: Rollout Analysis
 
-Status: outline
-
 ## Core Idea
 
 Rollouts are trajectories collected from agent-environment interaction.
@@ -33,6 +31,24 @@ Analyze rollouts by:
 - approval errors
 - common state transitions
 - failure category
+
+## Common Failure Modes
+
+- Looking only at total reward and ignoring component failures.
+- Keeping rollouts without actions or observations.
+- Failing to compare strong and weak policies.
+
+## Exercise
+
+What fields should a rollout contain before Level 7 uses it?
+
+Check your answer:
+
+```text
+Actions, observations, verifier outputs, reward components, terminal state or hash, policy id, seed, and termination reason.
+```
+
+Use the Acme Finance rollout to confirm the answer against the environment simulator rather than relying on memory.
 
 ## Checkpoint
 

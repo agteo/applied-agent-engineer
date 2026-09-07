@@ -61,9 +61,9 @@ training is kept optional and explicit:
 python3 -m rl_reliability.acme
 ```
 
-The next build priority is hardening the course through the teaching-depth,
-portfolio, and domain-transfer workstreams. Levels 5-7 lessons are still
-outlines, so the code currently runs ahead of the teaching.
+The next build priority is hardening the course through portfolio and
+domain-transfer workstreams. The lesson-depth gate now runs in CI, and every
+numbered lesson has a named failure-mode section plus a checkable exercise.
 
 The course is organized around a simple progression:
 

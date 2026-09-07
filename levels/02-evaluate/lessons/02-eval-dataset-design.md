@@ -1,7 +1,5 @@
 # Lesson 2: Eval Dataset Design
 
-Status: outline
-
 ## Core Idea
 
 The dataset defines what "good" means.
@@ -47,6 +45,24 @@ Use splits even before model training:
 - hidden or held-out tasks for later regression checks
 
 Do not tune directly against the final reporting set.
+
+## Common Failure Modes
+
+- Building a task set from only easy examples.
+- Mixing train examples into heldout evaluation.
+- Leaving expected outputs underspecified so failures cannot be interpreted.
+
+## Exercise
+
+Write the metadata fields a benchmark task needs before it can be graded.
+
+Check your answer:
+
+```text
+It needs task id, prompt, category/tags, employee or fixture ids, expected answer fields, required tools when relevant, and grading notes.
+```
+
+Use the Level 2 benchmark report to confirm the answer against the evaluation system rather than relying on memory.
 
 ## Checkpoint
 

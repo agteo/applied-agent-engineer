@@ -1,7 +1,5 @@
 # Lesson 5: Human Approval
 
-Status: outline
-
 ## Core Idea
 
 Some actions require permission. A reliable agent needs explicit approval gates for risky operations.
@@ -42,6 +40,24 @@ The trace should record:
 - approver
 - decision
 - timestamp
+
+## Common Failure Modes
+
+- Treating approval as a polite UI confirmation instead of a permission boundary.
+- Requesting approval after the risky action has already happened.
+- Asking for approval on every task, which hides the true risk signal.
+
+## Exercise
+
+Decide whether the agent may submit a reimbursement report when the user asks, "Can you submit this for me?"
+
+Check your answer:
+
+```text
+No. The course policy says only the employee may submit. The agent may prepare a draft or recommendation, but submission stays employee-controlled.
+```
+
+Use the Acme Expense Agent trace to confirm the answer against the agent harness rather than relying on memory.
 
 ## Checkpoint
 

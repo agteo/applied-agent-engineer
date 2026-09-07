@@ -1,7 +1,5 @@
 # Lesson 2: Failure Taxonomies
 
-Status: outline
-
 ## Core Idea
 
 A taxonomy turns scattered anecdotes into analyzable data.
@@ -25,6 +23,24 @@ Avoid labels like:
 - failed
 
 They do not tell an engineer what to fix.
+
+## Common Failure Modes
+
+- Using vague labels such as `bad answer`.
+- Mixing root cause labels with severity labels.
+- Creating labels that cannot guide an intervention.
+
+## Exercise
+
+Classify a failure where the agent never calls required receipt lookup.
+
+Check your answer:
+
+```text
+Use a tool-selection label such as `TOOLS.selection`, not a generic model-quality label.
+```
+
+Use the annotated failure bundle to confirm the answer against the diagnosis workflow rather than relying on memory.
 
 ## Checkpoint
 

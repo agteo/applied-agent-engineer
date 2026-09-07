@@ -1,7 +1,5 @@
 # Lesson 1: Environment Thinking
 
-Status: outline
-
 ## Core Idea
 
 An environment is a world an agent can act in.
@@ -33,6 +31,24 @@ Draft created, but hotel receipt is missing.
 Reward:
 Partial credit for correct items, penalty for missing approval.
 ```
+
+## Common Failure Modes
+
+- Designing a simulator that only tests final text.
+- Leaving state transitions implicit.
+- Building tasks whose success cannot be verified from state.
+
+## Exercise
+
+Name the five parts of an environment loop.
+
+Check your answer:
+
+```text
+Task, agent or policy, action, state transition, observation/reward, then continue or terminate.
+```
+
+Use the Acme Finance rollout to confirm the answer against the environment simulator rather than relying on memory.
 
 ## Checkpoint
 

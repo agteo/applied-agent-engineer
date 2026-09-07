@@ -1,7 +1,5 @@
 # Lesson 2: Rewards and Reward Hacking
 
-Status: outline
-
 ## Core Idea
 
 The agent may optimize the reward instead of the real goal.
@@ -19,6 +17,24 @@ The agent may optimize the reward instead of the real goal.
 - What useful behavior does it ignore?
 - How could the agent get high reward while failing the user?
 - Which metrics should catch the exploit?
+
+## Common Failure Modes
+
+- Assuming a reward component cannot be exploited.
+- Failing to create a negative-control policy.
+- Using reward improvement as the only adoption gate.
+
+## Exercise
+
+What does the weak_submitter policy prove?
+
+Check your answer:
+
+```text
+It proves the verifier/reward setup catches unsafe submission shortcuts rather than giving credit for fast terminal actions.
+```
+
+Use the Phase 7 experiment report to confirm the answer against the RL reliability workflow rather than relying on memory.
 
 ## Checkpoint
 
