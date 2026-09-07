@@ -59,3 +59,6 @@ A learner completing this track should have:
 - rollout logs
 - reward hacking examples
 
+Portfolio example:
+
+- [`examples/portfolio/environment-verifier-engineering.md`](../examples/portfolio/environment-verifier-engineering.md)

@@ -53,3 +53,6 @@ A learner completing this track should have:
 - a failure analysis report
 - a recommendation about whether a candidate agent version should ship
 
+Portfolio example:
+
+- [`examples/portfolio/agent-quality-engineering.md`](../examples/portfolio/agent-quality-engineering.md)

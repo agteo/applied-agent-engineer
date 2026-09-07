@@ -64,6 +64,8 @@ simulator, with no GPU:
   and the decision rule that would make you reject the trained policy
 - a written critique of a training result you did not produce — what evidence is
   missing, and what claim the evidence actually supports
+- a portfolio writeup comparable to
+  [`examples/portfolio/rl-literacy.md`](../examples/portfolio/rl-literacy.md)
 
 ## If You Do Run Training
 

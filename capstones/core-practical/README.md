@@ -44,6 +44,22 @@ Your job is to identify one meaningful failure mode, make a targeted improvement
 - failure diagnosis
 - intervention explanation
 - data recommendation for the next improvement cycle
+- portfolio writeup using [`templates/portfolio-writeup.md`](../../templates/portfolio-writeup.md)
+
+## Differentiation Requirement
+
+Your capstone must contain at least one element you chose yourself:
+
+- your own failure mode
+- your own task family
+- your own domain port
+- your own verifier or reward component
+- your own model or serving comparison
+
+Do not submit only the reference Acme path with the same failure, task, and
+recommendation as the examples. Identical submissions are weak portfolio
+evidence because they prove you followed instructions, not that you can scope
+and defend engineering work.
 
 ## Grading Shape
 
@@ -53,7 +69,8 @@ Your job is to identify one meaningful failure mode, make a targeted improvement
 | Eval run and metrics are correct | 20% |
 | Failure diagnosis is evidence-backed | 25% |
 | Intervention targets the diagnosis | 20% |
-| Recommendation is practical and honest | 15% |
+| Portfolio writeup and differentiating choice | 10% |
+| Recommendation is practical and honest | 5% |
 
 ## Not Required
 
@@ -61,4 +78,3 @@ Your job is to identify one meaningful failure mode, make a targeted improvement
 - model fine-tuning
 - RL training
 - production deployment
-

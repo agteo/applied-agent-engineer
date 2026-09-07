@@ -49,3 +49,5 @@ Reference artifacts:
 - Phase 5A bundle: [`model_improvement/acme/`](../model_improvement/acme/)
 - assessment anchor:
   [`examples/reference-artifacts/model-improvement-decision/`](../examples/reference-artifacts/model-improvement-decision/)
+- portfolio example:
+  [`examples/portfolio/model-improvement.md`](../examples/portfolio/model-improvement.md)
