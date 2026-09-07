@@ -1,4 +1,4 @@
-"""Run the Acme benchmark.
+"""Run the StrongBench benchmark.
 
     python3 -m evals.runner --model scripted
 """
@@ -11,25 +11,25 @@ from pathlib import Path
 import sys
 from typing import Any
 
-AGENT_ROOT = Path(__file__).resolve().parents[1] / "examples" / "acme-expense-agent"
+AGENT_ROOT = Path(__file__).resolve().parents[1] / "examples" / "strongbench-expense-agent"
 if str(AGENT_ROOT) not in sys.path:
     sys.path.insert(0, str(AGENT_ROOT))
 
-from acme_agent.agent import run_agent  # noqa: E402
-from acme_agent.models import get_model  # noqa: E402
-from evals.acme_benchmark.graders.deterministic import grade_task  # noqa: E402
-from evals.acme_benchmark.graders.rubric import calibration_agreement, grade_quality  # noqa: E402
+from strongbench_agent.agent import run_agent  # noqa: E402
+from strongbench_agent.models import get_model  # noqa: E402
+from evals.strongbench_benchmark.graders.deterministic import grade_task  # noqa: E402
+from evals.strongbench_benchmark.graders.rubric import calibration_agreement, grade_quality  # noqa: E402
 from evals.report import build_report, summarize  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
-BENCHMARK_DIR = ROOT / "evals" / "acme_benchmark"
+BENCHMARK_DIR = ROOT / "evals" / "strongbench_benchmark"
 DEFAULT_TASKS = BENCHMARK_DIR / "tasks.jsonl"
 DEFAULT_REPORT = ROOT / "evals" / "reports" / "sample-report.md"
 DEFAULT_THRESHOLDS = BENCHMARK_DIR / "thresholds.json"
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Run the Acme benchmark.")
+    parser = argparse.ArgumentParser(description="Run the StrongBench benchmark.")
     parser.add_argument("--model", default="scripted", help="Model adapter: scripted or provider model name.")
     parser.add_argument("--tasks", default=str(DEFAULT_TASKS))
     parser.add_argument("--report", default=str(DEFAULT_REPORT))

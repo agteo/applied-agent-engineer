@@ -13,7 +13,7 @@ Use curated proprietary-style data to adapt a local or open model, then evaluate
 ## Core Question
 
 ```text
-Does adapting a smaller local model improve the Acme Expense Agent enough
+Does adapting a smaller local model improve the StrongBench Expense Agent enough
 to justify the cost, complexity, and operational tradeoffs?
 ```
 

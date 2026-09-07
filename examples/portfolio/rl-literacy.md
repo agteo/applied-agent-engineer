@@ -2,7 +2,7 @@
 
 ## One-Sentence Claim
 
-I framed Acme simulator rollouts as an RL reliability problem and showed why
+I framed StrongBench simulator rollouts as an RL reliability problem and showed why
 reward improvement alone is not enough to claim agent improvement.
 
 ## Problem
@@ -14,7 +14,7 @@ checks.
 
 ## Measurement
 
-- RL analysis command: `python3 -m rl_reliability.acme`
+- RL analysis command: `python3 -m rl_reliability.strongbench`
 - accepted rollouts: 240
 - scripted reference: 120 rollouts, 1.000 success rate
 - weak submitter: 120 rollouts, 0.000 success rate
@@ -53,7 +53,7 @@ benchmark.
 
 ## Links
 
-- [`rl_reliability/acme/experiment-report.md`](../../rl_reliability/acme/experiment-report.md)
-- [`rl_reliability/acme/reward-hacking-review.md`](../../rl_reliability/acme/reward-hacking-review.md)
-- [`rl_reliability/acme/mdp-framing.md`](../../rl_reliability/acme/mdp-framing.md)
+- [`rl_reliability/strongbench/experiment-report.md`](../../rl_reliability/strongbench/experiment-report.md)
+- [`rl_reliability/strongbench/reward-hacking-review.md`](../../rl_reliability/strongbench/reward-hacking-review.md)
+- [`rl_reliability/strongbench/mdp-framing.md`](../../rl_reliability/strongbench/mdp-framing.md)
 - [`integrations/prime-intellect/reports/template.md`](../../integrations/prime-intellect/reports/template.md)

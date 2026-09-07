@@ -24,7 +24,7 @@ By the end of this level, learners can:
 
 ## Required Build
 
-Learners create a production-style eval operations report and Agent Failure Report for Acme Expense Agent v1 using the Level 2 benchmark.
+Learners create a production-style eval operations report and Agent Failure Report for StrongBench Expense Agent v1 using the Level 2 benchmark.
 
 ## Production Eval Operations Flow
 
@@ -153,7 +153,7 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 
 ## Project
 
-The Level 3 project is [Acme Expense Agent Failure Report v1](project/acme-expense-agent-failure-report-v1.md).
+The Level 3 project is [StrongBench Expense Agent Failure Report v1](project/strongbench-expense-agent-failure-report-v1.md).
 
 ## Exit Criteria
 

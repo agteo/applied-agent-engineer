@@ -89,13 +89,13 @@ Each level produces artifacts that become inputs to later levels.
 
 ## Canonical System
 
-The current executable seed is the Acme Expense Agent.
+The current executable seed is the StrongBench Expense Agent.
 
 The agent helps employees answer expense-policy questions, search receipts and approvals, prepare reimbursement drafts, and route edge cases to a human reviewer.
 
 This domain is useful because it is realistic without requiring real private data. It includes policies, structured records, proprietary-style business data, tool use, ambiguity, permissions, compliance, and measurable task outcomes.
 
-The agent is a scaffold, not the ceiling. The canonical system may expand into an Acme Finance Operations Agent if that better reflects deployed enterprise agent work: invoices, approvals, purchase orders, reconciliation, audit support, and exception handling.
+The agent is a scaffold, not the ceiling. The canonical system may expand into a StrongBench Finance Operations Agent if that better reflects deployed enterprise agent work: invoices, approvals, purchase orders, reconciliation, audit support, and exception handling.
 
 The final domain should remain contingent on where companies are actually deploying agents and where reliability can be evaluated with hard verifiers. See [canonical-system-strategy.md](canonical-system-strategy.md).
 

@@ -20,4 +20,4 @@ def test_phase3_bundle_has_annotated_failures_and_regression_pack(tmp_path):
 
 
 def test_default_phase3_output_path_is_under_evals():
-    assert "evals/operations/acme" in str(DEFAULT_OUT)
+    assert "evals/operations/strongbench" in str(DEFAULT_OUT)

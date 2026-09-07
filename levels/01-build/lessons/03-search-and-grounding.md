@@ -51,7 +51,7 @@ Check your answer:
 A strong answer retrieves `policy-receipts-001` and, when approval is required, `policy-approval-001`; it should not cite unseen policy ids.
 ```
 
-Use the Acme Expense Agent trace to confirm the answer against the agent harness rather than relying on memory.
+Use the StrongBench Expense Agent trace to confirm the answer against the agent harness rather than relying on memory.
 
 ## Checkpoint
 

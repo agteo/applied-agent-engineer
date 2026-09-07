@@ -1,7 +1,7 @@
 import json
 
-from model_improvement.acme import DEFAULT_OUT, build_phase5_bundle, write_phase5_bundle
-from model_improvement.acme.train_lora import build_training_plan, load_config
+from model_improvement.strongbench import DEFAULT_OUT, build_phase5_bundle, write_phase5_bundle
+from model_improvement.strongbench.train_lora import build_training_plan, load_config
 
 
 def test_phase5_decision_uses_benchmark_failures_and_dataset():
@@ -42,7 +42,7 @@ def test_phase5_writes_sft_export_and_decision_artifacts(tmp_path):
     assert first_train["messages"][0]["role"] == "system"
     assert first_train["messages"][-1]["role"] == "assistant"
     assert first_train["split"] == "train"
-    assert first_train["provenance"]["source_dataset"] == "datasets/acme/cleaned.jsonl"
+    assert first_train["provenance"]["source_dataset"] == "datasets/strongbench/cleaned.jsonl"
 
     config = json.loads((tmp_path / "lora-config.template.json").read_text(encoding="utf-8"))
     assert config["status"] == "template_not_run"
@@ -50,7 +50,7 @@ def test_phase5_writes_sft_export_and_decision_artifacts(tmp_path):
 
 
 def test_default_phase5_output_path_is_under_model_improvement():
-    assert "model_improvement/acme" in str(DEFAULT_OUT)
+    assert "model_improvement/strongbench" in str(DEFAULT_OUT)
 
 
 def test_lora_dry_run_plan_validates_generated_config(tmp_path):

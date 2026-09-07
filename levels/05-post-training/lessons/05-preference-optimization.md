@@ -25,7 +25,7 @@ This lesson is conceptual unless the learner has enough preference data from Lev
 
 ## Exercise
 
-What makes an Acme preference pair useful?
+What makes a StrongBench preference pair useful?
 
 Check your answer:
 

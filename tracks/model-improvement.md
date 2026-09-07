@@ -46,7 +46,7 @@ A learner completing this track should have:
 
 Reference artifacts:
 
-- Phase 5A bundle: [`model_improvement/acme/`](../model_improvement/acme/)
+- Phase 5A bundle: [`model_improvement/strongbench/`](../model_improvement/strongbench/)
 - assessment anchor:
   [`examples/reference-artifacts/model-improvement-decision/`](../examples/reference-artifacts/model-improvement-decision/)
 - portfolio example:

@@ -2,7 +2,7 @@
 
 ## Objective
 
-Define the Acme Finance Operations Simulator state schema.
+Define the StrongBench Finance Operations Simulator state schema.
 
 ## Deliverable
 

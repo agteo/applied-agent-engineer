@@ -12,7 +12,7 @@ one. If they only work hosted, the contract was the vendor's, not yours.
 ## Shape of the run
 
 ```python
-from acme_finance_reliability import load_environment
+from strongbench_finance_reliability import load_environment
 
 env = load_environment(seed=42, task_count=120)
 
@@ -21,7 +21,7 @@ baseline = env.evaluate(my_policy)
 
 # 2. Train. The reward function is env.reward(task_id, observations, terminal_state).
 #    Use trl.GRPOTrainer with that as the reward, or SFT on the Phase 4 export
-#    at model_improvement/acme/sft-train.jsonl.
+#    at model_improvement/strongbench/sft-train.jsonl.
 
 # 3. Held-out eval: rebuild with a different seed so tasks are not the ones
 #    trained on, then evaluate again.

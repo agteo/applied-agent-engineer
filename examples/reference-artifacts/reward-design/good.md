@@ -1,4 +1,4 @@
-# Good Reward Design: Acme Finance Reliability
+# Good Reward Design: StrongBench Finance Reliability
 
 ## Objective
 

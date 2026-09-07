@@ -2,7 +2,7 @@
 
 ## One-Sentence Claim
 
-I built a deterministic benchmark and eval-ops loop for the Acme Expense Agent,
+I built a deterministic benchmark and eval-ops loop for the StrongBench Expense Agent,
 then used it to hold quality steady while diagnosing concrete receipt, policy,
 and approval failures.
 
@@ -56,6 +56,6 @@ extraction, and rerun the Level 2 benchmark plus the Phase 3 regression pack.
 ## Links
 
 - [`evals/reports/sample-report.md`](../../evals/reports/sample-report.md)
-- [`evals/operations/acme/failure-report.md`](../../evals/operations/acme/failure-report.md)
+- [`evals/operations/strongbench/failure-report.md`](../../evals/operations/strongbench/failure-report.md)
 - [`examples/reference-artifacts/eval-report/good.md`](../reference-artifacts/eval-report/good.md)
 - [`examples/reference-artifacts/failure-analysis/good.md`](../reference-artifacts/failure-analysis/good.md)

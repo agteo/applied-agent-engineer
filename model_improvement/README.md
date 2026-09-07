@@ -3,10 +3,10 @@
 This folder contains the executable Level 5A model-improvement decision
 workflow and Track 5B/5C preparation artifacts.
 
-Build the Acme bundle with no API key:
+Build the StrongBench bundle with no API key:
 
 ```bash
-python3 -m model_improvement.acme
+python3 -m model_improvement.strongbench
 ```
 
 The command consumes:
@@ -19,7 +19,7 @@ It writes:
 
 ```text
 model_improvement/
-  acme/
+  strongbench/
     decision-memo.md
     decision.json
     comparison-report.md
@@ -36,7 +36,7 @@ model_improvement/
 Validate the optional LoRA config without running training:
 
 ```bash
-python3 -m model_improvement.acme.train_lora --dry-run
+python3 -m model_improvement.strongbench.train_lora --dry-run
 ```
 
 Core Phase 5 does not claim that a model was trained. Track 5B completion still

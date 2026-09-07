@@ -40,7 +40,7 @@ Check your answer:
 `create_reimbursement_draft` writes a draft; `request_manager_approval` writes an approval request; `submit_reimbursement` writes a report when authorized.
 ```
 
-Use the Acme Finance rollout to confirm the answer against the environment simulator rather than relying on memory.
+Use the StrongBench Finance rollout to confirm the answer against the environment simulator rather than relying on memory.
 
 ## Checkpoint
 

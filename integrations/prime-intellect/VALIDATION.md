@@ -9,7 +9,7 @@ working hosted path.
   with the local verifiers. This runs in CI on every push:
 
   ```bash
-  python3 integrations/prime-intellect/environments/acme_finance_reliability/acme_finance_reliability.py
+  python3 integrations/prime-intellect/environments/strongbench_finance_reliability/strongbench_finance_reliability.py
   ```
 
 - The reward separates the reference policy from the reward-hacking probe.
@@ -30,7 +30,7 @@ working hosted path.
 | --- | --- | --- |
 | CLI version | Config keys and subcommand names move between releases | Run `prime --version` and record it in your run report |
 | Account tier | Available GPU types, max concurrent jobs, and queue time | Check quota before sizing the smoke run |
-| Environment registry | Whether a custom environment must be published before it can be referenced by id | Publish from `environments/acme_finance_reliability/` and use the returned id |
+| Environment registry | Whether a custom environment must be published before it can be referenced by id | Publish from `environments/strongbench_finance_reliability/` and use the returned id |
 | Auth | API key vs. browser login, and per-org scoping | Never commit a key; use the CLI's own credential store |
 | Reward reporting | Hosted trainers may expect a scalar, not a component dict | Send `reward["total"]`; keep `reward["components"]` in your own logs |
 

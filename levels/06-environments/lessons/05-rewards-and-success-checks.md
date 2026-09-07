@@ -37,7 +37,7 @@ Reward design can create shortcuts. If the reward misses an important behavior, 
 
 ## Exercise
 
-Name three reward components from the Acme simulator.
+Name three reward components from the StrongBench simulator.
 
 Check your answer:
 
@@ -45,7 +45,7 @@ Check your answer:
 `task_success`, `required_records_checked`, `correct_approval_behavior`, `valid_final_answer_contract`, and penalties such as `unauthorized_submission`.
 ```
 
-Use the Acme Finance rollout to confirm the answer against the environment simulator rather than relying on memory.
+Use the StrongBench Finance rollout to confirm the answer against the environment simulator rather than relying on memory.
 
 ## Checkpoint
 

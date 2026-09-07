@@ -1,9 +1,9 @@
-# Good Dataset Card: Acme Agent Training Dataset v1
+# Good Dataset Card: StrongBench Agent Training Dataset v1
 
 ## Intended Use
 
 Use this dataset to prototype supervised correction, preference, and regression
-data workflows for the Acme Expense Agent. It is a teaching dataset, not
+data workflows for the StrongBench Expense Agent. It is a teaching dataset, not
 production financial data.
 
 ## Sources

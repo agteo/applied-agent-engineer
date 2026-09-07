@@ -2,17 +2,17 @@
 
 This folder contains the executable Level 7 local analysis path.
 
-Build the Acme RL reliability bundle:
+Build the StrongBench RL reliability bundle:
 
 ```bash
-python3 -m rl_reliability.acme
+python3 -m rl_reliability.strongbench
 ```
 
-The command consumes the Level 6 Acme Finance simulator rollouts and writes:
+The command consumes the Level 6 StrongBench Finance simulator rollouts and writes:
 
 ```text
 rl_reliability/
-  acme/
+  strongbench/
     rl-rollouts.jsonl
     rl-rollouts-rejected.jsonl
     rollout-schema.json

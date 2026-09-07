@@ -2,7 +2,7 @@
 
 ## Objective
 
-Create the first project-specific failure taxonomy for Acme Expense Agent.
+Create the first project-specific failure taxonomy for StrongBench Expense Agent.
 
 ## Build
 

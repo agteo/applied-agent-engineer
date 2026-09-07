@@ -2,17 +2,17 @@
 
 ## Objective
 
-Route the Acme Expense Agent through a local inference gateway and prove that it can continue when the local worker fails.
+Route the StrongBench Expense Agent through a local inference gateway and prove that it can continue when the local worker fails.
 
 ## Setup
 
 Use generic aliases instead of hardcoded model names:
 
-- `acme-local-primary`
-- `acme-hosted-fallback`
-- `acme-agent-model`
+- `strongbench-local-primary`
+- `strongbench-hosted-fallback`
+- `strongbench-agent-model`
 
-The alias `acme-agent-model` should route to the local primary first and use a hosted or secondary fallback only when the primary is unavailable or unhealthy.
+The alias `strongbench-agent-model` should route to the local primary first and use a hosted or secondary fallback only when the primary is unavailable or unhealthy.
 
 ## Drill
 

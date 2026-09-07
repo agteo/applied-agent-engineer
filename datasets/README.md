@@ -1,12 +1,12 @@
 # Datasets
 
-This folder contains the Level 4 Acme Agent Training Dataset v1 builder and
+This folder contains the Level 4 StrongBench Agent Training Dataset v1 builder and
 generated artifacts.
 
 Build the dataset with no API key:
 
 ```bash
-python3 -m datasets.acme
+python3 -m datasets.strongbench
 ```
 
 The command reads Level 1 traces and Level 3 failure annotations, adds
@@ -14,7 +14,7 @@ synthetic gap-targeted examples, filters low-quality rows, and writes:
 
 ```text
 datasets/
-  acme/
+  strongbench/
     raw.jsonl
     cleaned.jsonl
     rejected.jsonl

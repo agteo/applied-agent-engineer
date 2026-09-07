@@ -84,7 +84,7 @@ GRPO generates multiple candidate completions or trajectories for the same
 prompt. A reward function scores each one, and the trainer updates toward
 outputs that beat the group average.
 
-In the Acme simulator, that would mean:
+In the StrongBench simulator, that would mean:
 
 ```text
 same task: "Prepare reimbursement draft for rcpt-001 and rcpt-002"
@@ -150,7 +150,7 @@ For this course, the minimum honest progression is:
 
 ## Exercise
 
-Use `rl_reliability/acme/metrics.json` and answer these questions:
+Use `rl_reliability/strongbench/metrics.json` and answer these questions:
 
 1. Which policy has higher reward?
 2. Which policy has unsafe submission failures?

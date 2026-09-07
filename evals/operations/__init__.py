@@ -16,16 +16,16 @@ import sys
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
-AGENT_ROOT = ROOT / "examples" / "acme-expense-agent"
+AGENT_ROOT = ROOT / "examples" / "strongbench-expense-agent"
 if str(AGENT_ROOT) not in sys.path:
     sys.path.insert(0, str(AGENT_ROOT))
 
-from acme_agent.agent import run_agent  # noqa: E402
-from acme_agent.models import ModelResponse  # noqa: E402
-from evals.acme_benchmark.graders.deterministic import grade_task  # noqa: E402
+from strongbench_agent.agent import run_agent  # noqa: E402
+from strongbench_agent.models import ModelResponse  # noqa: E402
+from evals.strongbench_benchmark.graders.deterministic import grade_task  # noqa: E402
 from evals.runner import BENCHMARK_DIR, DEFAULT_TASKS, load_tasks, run_benchmark  # noqa: E402
 
-DEFAULT_OUT = ROOT / "evals" / "operations" / "acme"
+DEFAULT_OUT = ROOT / "evals" / "operations" / "strongbench"
 MIN_ANNOTATIONS = 30
 
 TAXONOMY = {
@@ -60,7 +60,7 @@ class WeakNoToolModel:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Build Phase 3 Acme eval-ops artifacts.")
+    parser = argparse.ArgumentParser(description="Build Phase 3 StrongBench eval-ops artifacts.")
     parser.add_argument("--tasks", default=str(DEFAULT_TASKS))
     parser.add_argument("--out", default=str(DEFAULT_OUT))
     args = parser.parse_args(argv)
@@ -247,7 +247,7 @@ def build_failure_report(
     scripted_passed = sum(result["passed"] for result in scripted_results)
     weak_passed = sum(result["passed"] for result in weak_results)
     lines = [
-        "# Acme Expense Agent Failure Report v1",
+        "# StrongBench Expense Agent Failure Report v1",
         "",
         "## Executive Summary",
         "",
@@ -300,7 +300,7 @@ def write_bundle(bundle: dict[str, Any], out: Path) -> None:
 
 
 def render_taxonomy() -> str:
-    lines = ["# Acme Failure Taxonomy", ""]
+    lines = ["# StrongBench Failure Taxonomy", ""]
     for label, description in sorted(TAXONOMY.items()):
         lines.append(f"- `{label}`: {description}")
     return "\n".join(lines) + "\n"

@@ -6,7 +6,7 @@ Turn benchmark results into a decision-ready report.
 
 ## Build
 
-Compare two Acme Expense Agent configurations.
+Compare two StrongBench Expense Agent configurations.
 
 Examples:
 

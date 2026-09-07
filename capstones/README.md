@@ -14,7 +14,7 @@ Focus:
 Build -> Evaluate -> Diagnose -> Data Recommendation
 ```
 
-Learners improve a flawed Acme Expense Agent, run a benchmark, diagnose failures, and recommend the next data or system intervention.
+Learners improve a flawed StrongBench Expense Agent, run a benchmark, diagnose failures, and recommend the next data or system intervention.
 
 Start here: [core-practical/README.md](core-practical/README.md)
 

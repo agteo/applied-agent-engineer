@@ -37,7 +37,7 @@ Check your answer:
 Heldout rows are reserved for evaluation. Training on them would contaminate the measurement used to decide whether the model improved.
 ```
 
-Use the Acme training dataset to confirm the answer against the data workflow rather than relying on memory.
+Use the StrongBench training dataset to confirm the answer against the data workflow rather than relying on memory.
 
 ## Checkpoint
 

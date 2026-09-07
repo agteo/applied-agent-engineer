@@ -40,7 +40,7 @@ Check your answer:
 It needs the rejected or original bad answer, plus provenance linking the correction to the failure annotation.
 ```
 
-Use the Acme training dataset to confirm the answer against the data workflow rather than relying on memory.
+Use the StrongBench training dataset to confirm the answer against the data workflow rather than relying on memory.
 
 ## Checkpoint
 

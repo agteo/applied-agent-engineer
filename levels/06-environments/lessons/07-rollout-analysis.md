@@ -48,7 +48,7 @@ Check your answer:
 Actions, observations, verifier outputs, reward components, terminal state or hash, policy id, seed, and termination reason.
 ```
 
-Use the Acme Finance rollout to confirm the answer against the environment simulator rather than relying on memory.
+Use the StrongBench Finance rollout to confirm the answer against the environment simulator rather than relying on memory.
 
 ## Checkpoint
 

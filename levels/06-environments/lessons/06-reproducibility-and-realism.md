@@ -41,7 +41,7 @@ Check your answer:
 It states what the simulator omits, so high simulator reward is not mistaken for production reliability.
 ```
 
-Use the Acme Finance rollout to confirm the answer against the environment simulator rather than relying on memory.
+Use the StrongBench Finance rollout to confirm the answer against the environment simulator rather than relying on memory.
 
 ## Checkpoint
 

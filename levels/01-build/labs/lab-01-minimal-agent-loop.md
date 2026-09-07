@@ -69,11 +69,11 @@ The lab passes if:
 
 ## Reference Solution
 
-Write your own version first, then compare: [`solutions/lab_01_minimal_agent_loop.py`](../../../examples/acme-expense-agent/solutions/lab_01_minimal_agent_loop.py).
+Write your own version first, then compare: [`solutions/lab_01_minimal_agent_loop.py`](../../../examples/strongbench-expense-agent/solutions/lab_01_minimal_agent_loop.py).
 
 ```bash
-cd examples/acme-expense-agent
+cd examples/strongbench-expense-agent
 python solutions/lab_01_minimal_agent_loop.py
 ```
 
-It is standalone by design: no imports from the harness, because Lab 1's point is that an agent loop is about forty lines and no framework. [How to compare](../../../examples/acme-expense-agent/solutions/README.md).
+It is standalone by design: no imports from the harness, because Lab 1's point is that an agent loop is about forty lines and no framework. [How to compare](../../../examples/strongbench-expense-agent/solutions/README.md).

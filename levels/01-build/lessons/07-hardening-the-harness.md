@@ -62,7 +62,7 @@ Check your answer:
 Unknown tool name and invalid argument schema should fail before execution; both should be visible in the trace.
 ```
 
-Use the Acme Expense Agent trace to confirm the answer against the agent harness rather than relying on memory.
+Use the StrongBench Expense Agent trace to confirm the answer against the agent harness rather than relying on memory.
 
 ## Checkpoint
 

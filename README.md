@@ -13,11 +13,11 @@ locally, but it does not train anything. Track 5B and hosted RL training remain
 optional GPU work.
 
 ```bash
-cd examples/acme-expense-agent
+cd examples/strongbench-expense-agent
 python3 run_agent.py --all --quiet
 ```
 
-That runs the Acme Expense Agent over 22 tasks with no API key and no network, writes a trace bundle, and exits non-zero if any task fails to produce a contract-valid answer. Tools, fixtures, tests, reference solutions for all four Level 1 labs, and a CI workflow ship with it: [examples/acme-expense-agent/](examples/acme-expense-agent/).
+That runs the StrongBench Expense Agent over 22 tasks with no API key and no network, writes a trace bundle, and exits non-zero if any task fails to produce a contract-valid answer. Tools, fixtures, tests, reference solutions for all four Level 1 labs, and a CI workflow ship with it: [examples/strongbench-expense-agent/](examples/strongbench-expense-agent/).
 
 Level 2 adds a deterministic 100-task benchmark, graders, a Markdown eval
 report, and a CI release gate:
@@ -32,25 +32,25 @@ Level 3 builds the failure-analysis and regression bundle:
 python3 -m evals.operations
 ```
 
-Level 4 builds the cleaned Acme training dataset and dataset card:
+Level 4 builds the cleaned StrongBench training dataset and dataset card:
 
 ```bash
-python3 -m datasets.acme
+python3 -m datasets.strongbench
 ```
 
 Level 5A builds the model-improvement decision bundle and SFT export, then
 validates the optional LoRA config in dry-run mode:
 
 ```bash
-python3 -m model_improvement.acme
-python3 -m model_improvement.acme.train_lora --dry-run
+python3 -m model_improvement.strongbench
+python3 -m model_improvement.strongbench.train_lora --dry-run
 ```
 
-Level 6 builds the Acme Finance Operations Simulator, verifiers, rollout logs,
+Level 6 builds the StrongBench Finance Operations Simulator, verifiers, rollout logs,
 and verifier-derived rewards:
 
 ```bash
-python3 -m environments.acme_finance
+python3 -m environments.strongbench_finance
 ```
 
 Level 7 builds RL literacy over the local simulator: rollout comparison, reward
@@ -58,7 +58,7 @@ decomposition, and reward-hacking review. No training run happens, and hosted
 training is kept optional and explicit:
 
 ```bash
-python3 -m rl_reliability.acme
+python3 -m rl_reliability.strongbench
 ```
 
 The next build priority is hardening the course through portfolio and
@@ -103,11 +103,11 @@ Concepts -> Tools -> Lab -> Project -> Evaluation
 
 Every level also consumes artifacts produced by earlier levels. Learners do not build seven unrelated demos. They evolve one canonical AI system from a basic tool-using assistant into a measurable, diagnosable, data-producing, locally improvable system.
 
-The current executable seed is the Acme Expense Agent. The final canonical system should remain contingent on where companies are actually deploying agents and need stronger evaluation capability.
+The current executable seed is the StrongBench Expense Agent. The final canonical system should remain contingent on where companies are actually deploying agents and need stronger evaluation capability.
 
 ## Canonical Course System
 
-The current executable course project is the Acme Expense Agent.
+The current executable course project is the StrongBench Expense Agent.
 
 At first, it answers expense-policy questions and uses simple tools. Later, learners evaluate it, diagnose its failures, convert traces into training data, fine-tune or adapt a smaller local model, place it inside a simulated company environment, and eventually train it through experience.
 
@@ -146,26 +146,26 @@ levels/
     project/
 
 examples/
-  acme-expense-agent/     # the implemented Level 1 system
-    acme_agent/           # harness, tools, schemas, validation, traces
+  strongbench-expense-agent/     # the implemented Level 1 system
+    strongbench_agent/           # harness, tools, schemas, validation, traces
     fixtures/             # policy, receipt, employee, and task data
     solutions/            # reference solutions for the Level 1 labs
     tests/
     run_agent.py
 
 evals/
-  acme_benchmark/          # Level 2 tasks, schema, graders, calibration, threshold
+  strongbench_benchmark/          # Level 2 tasks, schema, graders, calibration, threshold
   operations/              # Level 3 failure bundle and regression pack
   runner.py                # benchmark runner
   report.py                # deterministic Markdown report writer
 datasets/
-  acme/                    # Level 4 dataset builder and generated dataset card
+  strongbench/             # Level 4 dataset builder and generated dataset card
 model_improvement/
-  acme/                    # Level 5A decision bundle, SFT export, LoRA dry-run config
+  strongbench/             # Level 5A decision bundle, SFT export, LoRA dry-run config
 environments/
-  acme_finance/            # Level 6 simulator, tasks, rollouts, verifiers, rewards
+  strongbench_finance/            # Level 6 simulator, tasks, rollouts, verifiers, rewards
 rl_reliability/
-  acme/                    # Level 7 rollouts, reward-hacking review, experiment templates
+  strongbench/             # Level 7 rollouts, reward-hacking review, experiment templates
 resources/
 capstones/
 templates/
@@ -195,22 +195,22 @@ After Level 4, learners can choose one or more tracks:
 2. Run the agent. No signup, no API key, and nothing to install:
 
    ```bash
-   cd examples/acme-expense-agent
+   cd examples/strongbench-expense-agent
    python3 run_agent.py --all --quiet
-   python3 -m acme_agent.check_traces traces/level-1.jsonl
+   python3 -m strongbench_agent.check_traces traces/level-1.jsonl
    ```
 
-   Then read [its README](examples/acme-expense-agent/README.md), particularly the design decisions and the known limitations.
+   Then read [its README](examples/strongbench-expense-agent/README.md), particularly the design decisions and the known limitations.
 
    The agent and every builder in this repo run on the standard library alone.
    Only the test suites need a dependency:
 
    ```bash
-   python3 -m pip install -r examples/acme-expense-agent/requirements.txt
+   python3 -m pip install -r examples/strongbench-expense-agent/requirements.txt
    python3 -m pytest
    ```
 
-3. Start Level 1 in [levels/01-build/README.md](levels/01-build/README.md), and build your own version before reading the [reference solutions](examples/acme-expense-agent/solutions/README.md).
+3. Start Level 1 in [levels/01-build/README.md](levels/01-build/README.md), and build your own version before reading the [reference solutions](examples/strongbench-expense-agent/solutions/README.md).
 
 4. Run the Level 2 benchmark from the repository root:
 
@@ -227,27 +227,27 @@ After Level 4, learners can choose one or more tracks:
 6. Build the Level 4 dataset bundle:
 
    ```bash
-   python3 -m datasets.acme
+   python3 -m datasets.strongbench
    ```
 
 7. Build the Level 5A model-improvement bundle:
 
    ```bash
-   python3 -m model_improvement.acme
-   python3 -m model_improvement.acme.train_lora --dry-run
+   python3 -m model_improvement.strongbench
+   python3 -m model_improvement.strongbench.train_lora --dry-run
    ```
 
 8. Build the Level 6 simulator bundle:
 
    ```bash
-   python3 -m environments.acme_finance
+   python3 -m environments.strongbench_finance
    ```
 
 9. Build the Level 7 RL literacy bundle, and check the adapter loads:
 
    ```bash
-   python3 -m rl_reliability.acme
-   python3 integrations/prime-intellect/environments/acme_finance_reliability/acme_finance_reliability.py
+   python3 -m rl_reliability.strongbench
+   python3 integrations/prime-intellect/environments/strongbench_finance_reliability/strongbench_finance_reliability.py
    ```
 
 Read these as you need them, not before:

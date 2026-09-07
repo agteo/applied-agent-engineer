@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from evals.acme_benchmark.graders.deterministic import grade_task
-from evals.acme_benchmark.graders.rubric import calibration_agreement
+from evals.strongbench_benchmark.graders.deterministic import grade_task
+from evals.strongbench_benchmark.graders.rubric import calibration_agreement
 from evals.runner import BENCHMARK_DIR, load_tasks, run_benchmark
 from evals.report import build_report, summarize
 
@@ -9,7 +9,7 @@ from evals.report import build_report, summarize
 def test_benchmark_has_100_tasks_and_domain_field():
     tasks = load_tasks(BENCHMARK_DIR / "tasks.jsonl")
     assert len(tasks) == 100
-    assert {task["domain"] for task in tasks} == {"acme_expense"}
+    assert {task["domain"] for task in tasks} == {"strongbench_expense"}
     assert len({task["id"] for task in tasks}) == 100
 
 

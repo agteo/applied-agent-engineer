@@ -1,4 +1,4 @@
-# Good Model Improvement Decision: Acme Expense Agent v1
+# Good Model Improvement Decision: StrongBench Expense Agent v1
 
 ## Decision
 
@@ -23,7 +23,7 @@ tool arguments.
 ## Next Step
 
 Change the receipt lookup planner, add regression cases from
-`evals/operations/acme/regression-pack.jsonl`, and rerun the Level 2 benchmark.
+`evals/operations/strongbench/regression-pack.jsonl`, and rerun the Level 2 benchmark.
 Only consider SFT after the tool behavior plateaus and the remaining failures
 look like answer-generation errors.
 

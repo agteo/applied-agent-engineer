@@ -1,6 +1,6 @@
 import json
 
-from datasets.acme import DEFAULT_OUT, build_dataset, write_dataset
+from datasets.strongbench import DEFAULT_OUT, build_dataset, write_dataset
 
 
 def test_phase4_dataset_builds_cleaned_splits_and_card(tmp_path):
@@ -28,4 +28,4 @@ def test_phase4_dataset_builds_cleaned_splits_and_card(tmp_path):
 
 
 def test_default_phase4_output_path_is_under_datasets():
-    assert "datasets/acme" in str(DEFAULT_OUT)
+    assert "datasets/strongbench" in str(DEFAULT_OUT)

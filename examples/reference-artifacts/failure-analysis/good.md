@@ -1,4 +1,4 @@
-# Good Failure Analysis: Acme Expense Agent v1
+# Good Failure Analysis: StrongBench Expense Agent v1
 
 ## Claim
 
@@ -10,8 +10,8 @@ selection and policy-boundary interpretation, not final-answer formatting.
 - Benchmark: `python3 -m evals.runner --model scripted`
 - Result: 89/100 tasks passed
 - Diagnostic bundle: `python3 -m evals.operations`
-- Annotated failures: 30 rows in `evals/operations/acme/annotated-failures.jsonl`
-- Regression pack: 30 cases in `evals/operations/acme/regression-pack.jsonl`
+- Annotated failures: 30 rows in `evals/operations/strongbench/annotated-failures.jsonl`
+- Regression pack: 30 cases in `evals/operations/strongbench/regression-pack.jsonl`
 
 ## Failure Modes
 

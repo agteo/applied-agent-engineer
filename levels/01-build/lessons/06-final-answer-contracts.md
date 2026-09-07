@@ -19,7 +19,7 @@ A good final answer contract includes:
 
 ## Expense Agent Contract
 
-Use the project contract in [../project/acme-expense-agent-v1.md](../project/acme-expense-agent-v1.md).
+Use the project contract in [../project/strongbench-expense-agent-v1.md](../project/strongbench-expense-agent-v1.md).
 
 ## Validation
 
@@ -43,7 +43,7 @@ Check your answer:
 `total_reimbursable`, `approvals_required`, and `missing_information` are required; policy citation fields are strongly recommended for grounding checks.
 ```
 
-Use the Acme Expense Agent trace to confirm the answer against the agent harness rather than relying on memory.
+Use the StrongBench Expense Agent trace to confirm the answer against the agent harness rather than relying on memory.
 
 ## Checkpoint
 

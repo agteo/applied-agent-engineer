@@ -8,7 +8,7 @@ The course should use one recurring system so learners experience the full impro
 build -> evaluate -> diagnose -> collect data -> improve -> simulate -> verify -> train
 ```
 
-The current executable seed is the Acme Expense Agent. It is useful because it is bounded, offline, policy-driven, tool-heavy, and easy to grade. It should not be treated as the guaranteed final domain.
+The current executable seed is the StrongBench Expense Agent. It is useful because it is bounded, offline, policy-driven, tool-heavy, and easy to grade. It should not be treated as the guaranteed final domain.
 
 The final canonical system should be chosen by the kinds of agents companies are actually deploying and need capability in evaluating.
 
@@ -122,12 +122,12 @@ Risks:
 
 ## Recommended Direction
 
-Keep the current Acme Expense Agent as Level 1's executable seed.
+Keep the current StrongBench Expense Agent as Level 1's executable seed.
 
 Expand the canonical system toward:
 
 ```text
-Acme Finance Operations Agent
+StrongBench Finance Operations Agent
 ```
 
 This lets the repo preserve existing work while broadening the domain enough to support production eval operations, verifier engineering, and RL environments.
@@ -151,7 +151,7 @@ Level 5:
   Model improvement decisions and optional post-training on curated finance workflow data.
 
 Level 6:
-  Acme Finance Simulator with expenses, invoices, approvals, vendors, employees, audit logs, and state verifiers.
+  StrongBench Finance Simulator with expenses, invoices, approvals, vendors, employees, audit logs, and state verifiers.
 
 Level 7:
   RL reliability experiment using verifier-derived rewards and held-out regression evaluation.

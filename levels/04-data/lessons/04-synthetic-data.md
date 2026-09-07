@@ -30,7 +30,7 @@ Use synthetic data to:
 
 ## Exercise
 
-Name one valid use and one invalid use of synthetic Acme examples.
+Name one valid use and one invalid use of synthetic StrongBench examples.
 
 Check your answer:
 
@@ -38,7 +38,7 @@ Check your answer:
 Valid: target known receipt or approval gaps for training rehearsal. Invalid: claiming production improvement without heldout benchmark evidence.
 ```
 
-Use the Acme training dataset to confirm the answer against the data workflow rather than relying on memory.
+Use the StrongBench training dataset to confirm the answer against the data workflow rather than relying on memory.
 
 ## Checkpoint
 

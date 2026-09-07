@@ -12,9 +12,9 @@ Reinforcement Learning from Human Feedback uses human judgments or preference da
 
 Reinforcement Learning from Verifiable Rewards uses automatically checkable outcomes, such as correct math, passing tests, or successful environment tasks.
 
-## Acme Fit
+## StrongBench Fit
 
-Acme Finance Operations Simulator is closer to RLVR when success checks are deterministic. Human review can supplement it when answer quality, clarity, or judgment is subjective.
+StrongBench Finance Operations Simulator is closer to RLVR when success checks are deterministic. Human review can supplement it when answer quality, clarity, or judgment is subjective.
 
 ## Common Failure Modes
 
@@ -24,7 +24,7 @@ Acme Finance Operations Simulator is closer to RLVR when success checks are dete
 
 ## Exercise
 
-For Acme totals and approvals, should you prefer RLHF or RLVR-style rewards?
+For StrongBench totals and approvals, should you prefer RLHF or RLVR-style rewards?
 
 Check your answer:
 
@@ -36,4 +36,4 @@ Use the Phase 7 experiment report to confirm the answer against the RL reliabili
 
 ## Checkpoint
 
-You are ready to move on when you can decide which Acme outcomes are verifiable and which need human or rubric judgment.
+You are ready to move on when you can decide which StrongBench outcomes are verifiable and which need human or rubric judgment.

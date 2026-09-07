@@ -1,4 +1,4 @@
-# Weak Model Improvement Decision: Acme Expense Agent v1
+# Weak Model Improvement Decision: StrongBench Expense Agent v1
 
 We should fine-tune a smaller model because the agent has some failures and we
 now have a dataset. The model will probably learn the policies and make fewer

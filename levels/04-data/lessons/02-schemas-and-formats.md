@@ -32,7 +32,7 @@ Datasets need contracts just like tools do.
 
 ## Exercise
 
-Name four fields every Acme dataset row needs.
+Name four fields every StrongBench dataset row needs.
 
 Check your answer:
 
@@ -40,7 +40,7 @@ Check your answer:
 `schema_version`, `example_id`, `messages`, `target_final_answer`, plus provenance and split fields for training discipline.
 ```
 
-Use the Acme training dataset to confirm the answer against the data workflow rather than relying on memory.
+Use the StrongBench training dataset to confirm the answer against the data workflow rather than relying on memory.
 
 ## Checkpoint
 

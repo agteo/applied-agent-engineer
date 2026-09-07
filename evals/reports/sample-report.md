@@ -1,4 +1,4 @@
-# Acme Benchmark Report
+# StrongBench Benchmark Report
 
 - model: scripted
 - tasks: 100

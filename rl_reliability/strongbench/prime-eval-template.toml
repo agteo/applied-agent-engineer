@@ -1,0 +1,5 @@
+# Prime-compatible eval template for StrongBench Finance Reliability
+environment = "strongbench_finance_reliability"
+rollouts = "rl_reliability/strongbench/rl-rollouts.jsonl"
+policy = "scripted_reference"
+mode = "eval"

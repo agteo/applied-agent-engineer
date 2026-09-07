@@ -11,7 +11,7 @@ python3 -m evals.operations
 Outputs:
 
 ```text
-evals/operations/acme/
+evals/operations/strongbench/
   annotated-failures.jsonl
   regression-pack.jsonl
   failure-distribution.json

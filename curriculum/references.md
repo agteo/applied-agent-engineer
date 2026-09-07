@@ -44,7 +44,7 @@ Track 5B requires a real training run, and Level 5's ML foundations lesson is a 
 
 This repo should not ask learners to reinvent prior art blindly.
 
-The Acme curriculum intentionally starts smaller than these systems, but it should borrow their discipline:
+The StrongBench curriculum intentionally starts smaller than these systems, but it should borrow their discipline:
 
 - explicit task schemas
 - reproducible environments

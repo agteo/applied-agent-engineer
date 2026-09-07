@@ -2,7 +2,7 @@
 
 ## Objective
 
-Design the task schema for Acme Expense Agent Benchmark v1.
+Design the task schema for StrongBench Expense Agent Benchmark v1.
 
 ## Build
 

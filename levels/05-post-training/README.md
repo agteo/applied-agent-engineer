@@ -42,13 +42,13 @@ Track 5A learners produce a model improvement decision memo.
 
 Track 5B learners run a small post-training experiment using Agent Training Dataset v1 and evaluate the result on the Level 2 benchmark.
 
-Track 5C learners run the Acme Expense Agent through a local inference gateway and demonstrate reliable fallback when the local worker fails.
+Track 5C learners run the StrongBench Expense Agent through a local inference gateway and demonstrate reliable fallback when the local worker fails.
 
 Build the reference Track 5A bundle and optional Track 5B/5C preparation files:
 
 ```bash
-python3 -m model_improvement.acme
-python3 -m model_improvement.acme.train_lora --dry-run
+python3 -m model_improvement.strongbench
+python3 -m model_improvement.strongbench.train_lora --dry-run
 ```
 
 ## Comparison
@@ -90,7 +90,7 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 ## Projects
 
 The Track 5A reference bundle is in
-[`model_improvement/acme/`](../../model_improvement/acme/).
+[`model_improvement/strongbench/`](../../model_improvement/strongbench/).
 
 The Track 5B project is [Base vs Prompted vs Fine-tuned](project/base-vs-prompted-vs-finetuned.md).
 

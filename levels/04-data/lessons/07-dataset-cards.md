@@ -25,7 +25,7 @@ A dataset card explains what the dataset is, where it came from, and how it shou
 
 ## Exercise
 
-Name three facts the Acme dataset card must include.
+Name three facts the StrongBench dataset card must include.
 
 Check your answer:
 
@@ -33,7 +33,7 @@ Check your answer:
 It should include intended use, source counts, cleaning/rejection summary, split policy, contamination controls, and limitations.
 ```
 
-Use the Acme training dataset to confirm the answer against the data workflow rather than relying on memory.
+Use the StrongBench training dataset to confirm the answer against the data workflow rather than relying on memory.
 
 ## Checkpoint
 

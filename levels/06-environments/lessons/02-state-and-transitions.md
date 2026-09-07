@@ -42,7 +42,7 @@ Check your answer:
 A draft record is written with task id, employee id, receipt ids, total, and status; an audit event records the action and observation.
 ```
 
-Use the Acme Finance rollout to confirm the answer against the environment simulator rather than relying on memory.
+Use the StrongBench Finance rollout to confirm the answer against the environment simulator rather than relying on memory.
 
 ## Checkpoint
 

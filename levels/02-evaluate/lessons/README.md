@@ -10,5 +10,5 @@ Read these lessons in order:
 6. [Regression Evaluation](06-regression-evaluation.md)
 7. [Eval Reports](07-eval-reports.md)
 
-The lessons prepare learners to build the Acme Expense Agent Benchmark v1.
+The lessons prepare learners to build the StrongBench Expense Agent Benchmark v1.
 

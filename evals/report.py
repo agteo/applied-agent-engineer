@@ -1,4 +1,4 @@
-"""Render Acme benchmark results as a deterministic Markdown report."""
+"""Render StrongBench benchmark results as a deterministic Markdown report."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ from typing import Any
 
 def build_report(summary: dict[str, Any]) -> str:
     lines = [
-        "# Acme Benchmark Report",
+        "# StrongBench Benchmark Report",
         "",
         f"- model: {summary['model']}",
         f"- tasks: {summary['task_count']}",

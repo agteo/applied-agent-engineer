@@ -2,7 +2,7 @@
 
 ## Objective
 
-Generate and filter rollout data from Acme Finance Operations Simulator.
+Generate and filter rollout data from StrongBench Finance Operations Simulator.
 
 ## Deliverable
 

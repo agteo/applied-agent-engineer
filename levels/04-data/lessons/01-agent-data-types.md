@@ -33,7 +33,7 @@ Check your answer:
 It is correction or preference data, not a plain demonstration, because it contains both rejected and target behavior.
 ```
 
-Use the Acme training dataset to confirm the answer against the data workflow rather than relying on memory.
+Use the StrongBench training dataset to confirm the answer against the data workflow rather than relying on memory.
 
 ## Checkpoint
 

@@ -2,17 +2,17 @@
 
 This folder contains simulated environments where agents can practice safely.
 
-Build the Level 6 Acme Finance Operations Simulator:
+Build the Level 6 StrongBench Finance Operations Simulator:
 
 ```bash
-python3 -m environments.acme_finance
+python3 -m environments.strongbench_finance
 ```
 
 The command generates:
 
 ```text
 environments/
-  acme_finance/
+  strongbench_finance/
     manifest.json
     state-schema.json
     initial-state.json

@@ -56,7 +56,7 @@ Check your answer:
 You need task id, prompt, tool calls and arguments, observations, final answer, timing/cost metadata if available, and enough state identifiers to replay the calculation.
 ```
 
-Use the Acme Expense Agent trace to confirm the answer against the agent harness rather than relying on memory.
+Use the StrongBench Expense Agent trace to confirm the answer against the agent harness rather than relying on memory.
 
 ## Checkpoint
 

@@ -20,7 +20,7 @@ By the end of this level, learners can:
 
 ## Required Build
 
-Learners build Acme Expense Agent v1.
+Learners build StrongBench Expense Agent v1.
 
 The agent helps employees with expense reimbursement tasks. It must answer policy questions, inspect receipt records, calculate reimbursable amounts, and prepare a structured reimbursement recommendation.
 
@@ -154,30 +154,30 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 
 | Lab | Description | Reference solution |
 | --- | --- | --- |
-| [Lab 1: Minimal Agent Loop](labs/lab-01-minimal-agent-loop.md) | Build the smallest useful agent loop. | [`lab_01_minimal_agent_loop.py`](../../examples/acme-expense-agent/solutions/lab_01_minimal_agent_loop.py) |
-| [Lab 2: Tool Schemas](labs/lab-02-tool-schemas.md) | Add typed tools and argument validation. | [`lab_02_tool_schemas.py`](../../examples/acme-expense-agent/solutions/lab_02_tool_schemas.py) |
-| [Lab 3: Policy Search](labs/lab-03-policy-search.md) | Ground answers using a local policy corpus. | [`lab_03_policy_search.py`](../../examples/acme-expense-agent/solutions/lab_03_policy_search.py) |
-| [Lab 4: Trace Capture](labs/lab-04-trace-capture.md) | Save trajectories for later evaluation. | [`lab_04_trace_capture.py`](../../examples/acme-expense-agent/solutions/lab_04_trace_capture.py) |
+| [Lab 1: Minimal Agent Loop](labs/lab-01-minimal-agent-loop.md) | Build the smallest useful agent loop. | [`lab_01_minimal_agent_loop.py`](../../examples/strongbench-expense-agent/solutions/lab_01_minimal_agent_loop.py) |
+| [Lab 2: Tool Schemas](labs/lab-02-tool-schemas.md) | Add typed tools and argument validation. | [`lab_02_tool_schemas.py`](../../examples/strongbench-expense-agent/solutions/lab_02_tool_schemas.py) |
+| [Lab 3: Policy Search](labs/lab-03-policy-search.md) | Ground answers using a local policy corpus. | [`lab_03_policy_search.py`](../../examples/strongbench-expense-agent/solutions/lab_03_policy_search.py) |
+| [Lab 4: Trace Capture](labs/lab-04-trace-capture.md) | Save trajectories for later evaluation. | [`lab_04_trace_capture.py`](../../examples/strongbench-expense-agent/solutions/lab_04_trace_capture.py) |
 
-Write your own version before reading a solution. [How to compare](../../examples/acme-expense-agent/solutions/README.md).
+Write your own version before reading a solution. [How to compare](../../examples/strongbench-expense-agent/solutions/README.md).
 
 ## Working Implementation
 
-A complete Level 1 system ships in [examples/acme-expense-agent/](../../examples/acme-expense-agent/). It runs offline with no API key:
+A complete Level 1 system ships in [examples/strongbench-expense-agent/](../../examples/strongbench-expense-agent/). It runs offline with no API key:
 
 ```bash
-cd examples/acme-expense-agent
+cd examples/strongbench-expense-agent
 python run_agent.py --all --quiet
-python -m acme_agent.check_traces traces/level-1.jsonl
+python -m strongbench_agent.check_traces traces/level-1.jsonl
 ```
 
-Use it as a reference and an argument to have, not as a template to copy. Its [known limitations](../../examples/acme-expense-agent/README.md#known-limitations) are listed deliberately, and finding more of them is Level 3 work.
+Use it as a reference and an argument to have, not as a template to copy. Its [known limitations](../../examples/strongbench-expense-agent/README.md#known-limitations) are listed deliberately, and finding more of them is Level 3 work.
 
 Fixtures you can build against without inventing your own: nine policy sections, twelve receipts across three employees, and the twenty-two manual tasks in `fixtures/tasks.json`.
 
 ## Project
 
-The Level 1 project is [Acme Expense Agent v1](project/acme-expense-agent-v1.md).
+The Level 1 project is [StrongBench Expense Agent v1](project/strongbench-expense-agent-v1.md).
 
 ## Exit Criteria
 
@@ -193,7 +193,7 @@ To complete Level 1, the learner must submit:
 Check your own trace bundle before submitting:
 
 ```bash
-python -m acme_agent.check_traces path/to/your/traces.jsonl
+python -m strongbench_agent.check_traces path/to/your/traces.jsonl
 ```
 
 It fails with the trace id and the field name, so "invalid trace" is never the whole message.

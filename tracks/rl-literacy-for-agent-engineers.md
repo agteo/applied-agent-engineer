@@ -8,7 +8,7 @@ Renamed from "RL for Agent Reliability" because that title promised reliability
 engineering while the track delivered analysis. The completion bar below is one
 the analysis path can actually meet.
 
-The executable path is [`rl_reliability/acme/`](../rl_reliability/acme/) and the
+The executable path is [`rl_reliability/strongbench/`](../rl_reliability/strongbench/) and the
 hosted adapter is
 [`integrations/prime-intellect/`](../integrations/prime-intellect/). Hosted RL
 training remains optional and must be backed by real logs and benchmark

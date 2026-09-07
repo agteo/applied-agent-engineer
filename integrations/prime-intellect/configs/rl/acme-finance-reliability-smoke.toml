@@ -1,8 +1,0 @@
-# Optional hosted RL smoke template. Smallest run that proves the
-# pipeline moves at all; it is not expected to improve anything.
-environment = "acme_finance_reliability"
-rollouts = "rl_reliability/acme/rl-rollouts.jsonl"
-method = "grpo"
-task_count = 8
-steps = 5
-status = "template_not_run"

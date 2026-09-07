@@ -14,7 +14,7 @@ misbehaves.
 ```powershell
 py -3 -m venv .venv
 .venv\Scripts\Activate.ps1
-python -m pip install -r examples\acme-expense-agent\requirements.txt
+python -m pip install -r examples\strongbench-expense-agent\requirements.txt
 ```
 
 After that, **every `python3` in the README and in the level docs becomes
@@ -73,15 +73,15 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 | The docs say | On Windows, run |
 | --- | --- |
 | `python3 run_agent.py --all --quiet` | `python run_agent.py --all --quiet` |
-| `python3 -m acme_agent.check_traces traces/level-1.jsonl` | `python -m acme_agent.check_traces traces/level-1.jsonl` |
+| `python3 -m strongbench_agent.check_traces traces/level-1.jsonl` | `python -m strongbench_agent.check_traces traces/level-1.jsonl` |
 | `python3 -m evals.runner --model scripted` | `python -m evals.runner --model scripted` |
 | `python3 -m evals.operations` | `python -m evals.operations` |
-| `python3 -m datasets.acme` | `python -m datasets.acme` |
-| `python3 -m model_improvement.acme` | `python -m model_improvement.acme` |
-| `python3 -m model_improvement.acme.train_lora --dry-run` | `python -m model_improvement.acme.train_lora --dry-run` |
-| `python3 -m environments.acme_finance` | `python -m environments.acme_finance` |
-| `python3 -m rl_reliability.acme` | `python -m rl_reliability.acme` |
-| `python3 integrations/prime-intellect/.../acme_finance_reliability.py` | `python integrations\prime-intellect\environments\acme_finance_reliability\acme_finance_reliability.py` |
+| `python3 -m datasets.strongbench` | `python -m datasets.strongbench` |
+| `python3 -m model_improvement.strongbench` | `python -m model_improvement.strongbench` |
+| `python3 -m model_improvement.strongbench.train_lora --dry-run` | `python -m model_improvement.strongbench.train_lora --dry-run` |
+| `python3 -m environments.strongbench_finance` | `python -m environments.strongbench_finance` |
+| `python3 -m rl_reliability.strongbench` | `python -m rl_reliability.strongbench` |
+| `python3 integrations/prime-intellect/.../strongbench_finance_reliability.py` | `python integrations\prime-intellect\environments\strongbench_finance_reliability\strongbench_finance_reliability.py` |
 
 Forward slashes in that last path work fine too — Python accepts them on
 Windows. Use whichever you find readable.
@@ -140,9 +140,9 @@ should pass, and the last command should print nothing.
 
 ```powershell
 python -m pytest evals\tests datasets\tests model_improvement\tests environments\tests rl_reliability\tests
-python -m environments.acme_finance
-python -m rl_reliability.acme
-python integrations\prime-intellect\environments\acme_finance_reliability\acme_finance_reliability.py
+python -m environments.strongbench_finance
+python -m rl_reliability.strongbench
+python integrations\prime-intellect\environments\strongbench_finance_reliability\strongbench_finance_reliability.py
 git diff --exit-code -- environments rl_reliability integrations
 ```
 

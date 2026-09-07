@@ -2,7 +2,7 @@
 
 ## Objective
 
-Deploy a local or open model behind a gateway and decide whether the Acme Expense Agent should use local, hosted, or hybrid inference.
+Deploy a local or open model behind a gateway and decide whether the StrongBench Expense Agent should use local, hosted, or hybrid inference.
 
 This project completes Track 5C. It does not require training a model.
 
@@ -11,7 +11,7 @@ This project completes Track 5C. It does not require training a model.
 Build a two-tier serving stack:
 
 1. One local or self-managed inference worker.
-2. One gateway endpoint used by the Acme Expense Agent.
+2. One gateway endpoint used by the StrongBench Expense Agent.
 
 The gateway must provide:
 
@@ -22,7 +22,7 @@ The gateway must provide:
 - basic latency and error visibility
 
 Use the reference gateway drill plan in
-[`model_improvement/acme/gateway-plan.json`](../../../model_improvement/acme/gateway-plan.json)
+[`model_improvement/strongbench/gateway-plan.json`](../../../model_improvement/strongbench/gateway-plan.json)
 as the minimum Track 5C contract.
 
 ## Required Tests

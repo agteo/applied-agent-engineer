@@ -3,3 +3,6 @@
 ROADMAP.md
 STATUS.md
 
+# Python runtime artifacts.
+__pycache__/
+*.pyc

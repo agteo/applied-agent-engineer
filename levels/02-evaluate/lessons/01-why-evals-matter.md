@@ -48,7 +48,7 @@ Use multiple layers:
 
 ## Exercise
 
-Explain why a single successful Acme reimbursement run is not enough evidence to ship.
+Explain why a single successful StrongBench reimbursement run is not enough evidence to ship.
 
 Check your answer:
 

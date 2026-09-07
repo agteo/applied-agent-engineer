@@ -15,7 +15,7 @@ Reinforcement learning frames behavior as interaction between an agent and an en
 - return
 - termination
 
-## Acme Example
+## StrongBench Example
 
 ```text
 State:
@@ -36,7 +36,7 @@ Positive if approval was required and requested, negative if unnecessary or miss
 
 ## Exercise
 
-Frame one Acme simulator task as state, action, reward, and termination.
+Frame one StrongBench simulator task as state, action, reward, and termination.
 
 Check your answer:
 
@@ -48,4 +48,4 @@ Use the Phase 7 experiment report to confirm the answer against the RL reliabili
 
 ## Checkpoint
 
-You are ready to move on when you can map an Acme task to state, action, reward, and termination.
+You are ready to move on when you can map a StrongBench task to state, action, reward, and termination.

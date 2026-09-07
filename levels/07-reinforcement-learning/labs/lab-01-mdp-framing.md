@@ -2,7 +2,7 @@
 
 ## Objective
 
-Frame Acme Finance Operations Simulator as a reinforcement learning problem.
+Frame StrongBench Finance Operations Simulator as a reinforcement learning problem.
 
 ## Deliverable
 

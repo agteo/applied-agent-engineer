@@ -23,7 +23,7 @@ Each task should include:
 
 ## Coverage
 
-The Acme Expense Agent benchmark should cover:
+The StrongBench Expense Agent benchmark should cover:
 
 - simple policy questions
 - multi-item reimbursement tasks

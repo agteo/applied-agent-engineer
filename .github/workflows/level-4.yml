@@ -27,5 +27,5 @@ jobs:
       - name: Run dataset tests
         run: python -m pytest evals/tests datasets/tests
 
-      - name: Build Acme dataset
-        run: python3 -m datasets.acme
+      - name: Build StrongBench dataset
+        run: python3 -m datasets.strongbench

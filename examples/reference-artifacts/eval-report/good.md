@@ -1,4 +1,4 @@
-# Good Eval Report: Acme Expense Agent v1
+# Good Eval Report: StrongBench Expense Agent v1
 
 ## Decision
 
@@ -7,7 +7,7 @@ baseline below the current 0.890 success rate.
 
 ## Evidence
 
-- Benchmark: `evals/acme_benchmark/tasks.jsonl`
+- Benchmark: `evals/strongbench_benchmark/tasks.jsonl`
 - Runner: `python3 -m evals.runner --model scripted`
 - Result: 89/100 tasks passed
 - Weakest tag: `receipt_lookup`, 3/10 passed

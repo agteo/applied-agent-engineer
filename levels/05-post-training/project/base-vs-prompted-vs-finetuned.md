@@ -2,7 +2,7 @@
 
 ## Objective
 
-Compare whether post-training improves Acme Expense Agent behavior enough to justify adoption.
+Compare whether post-training improves StrongBench Expense Agent behavior enough to justify adoption.
 
 This project completes Track 5B. Learners who only complete a model strategy memo have completed Track 5A, not post-training implementation.
 
@@ -17,12 +17,12 @@ Compare at least three:
 
 Reference Phase 5A artifacts:
 
-- decision memo: [`model_improvement/acme/decision-memo.md`](../../../model_improvement/acme/decision-memo.md)
-- comparison report: [`model_improvement/acme/comparison-report.md`](../../../model_improvement/acme/comparison-report.md)
-- SFT train data: [`model_improvement/acme/sft-train.jsonl`](../../../model_improvement/acme/sft-train.jsonl)
-- SFT dev data: [`model_improvement/acme/sft-dev.jsonl`](../../../model_improvement/acme/sft-dev.jsonl)
-- optional LoRA config: [`model_improvement/acme/lora-config.template.json`](../../../model_improvement/acme/lora-config.template.json)
-- dry-run validator: `python3 -m model_improvement.acme.train_lora --dry-run`
+- decision memo: [`model_improvement/strongbench/decision-memo.md`](../../../model_improvement/strongbench/decision-memo.md)
+- comparison report: [`model_improvement/strongbench/comparison-report.md`](../../../model_improvement/strongbench/comparison-report.md)
+- SFT train data: [`model_improvement/strongbench/sft-train.jsonl`](../../../model_improvement/strongbench/sft-train.jsonl)
+- SFT dev data: [`model_improvement/strongbench/sft-dev.jsonl`](../../../model_improvement/strongbench/sft-dev.jsonl)
+- optional LoRA config: [`model_improvement/strongbench/lora-config.template.json`](../../../model_improvement/strongbench/lora-config.template.json)
+- dry-run validator: `python3 -m model_improvement.strongbench.train_lora --dry-run`
 
 ## Required Metrics
 

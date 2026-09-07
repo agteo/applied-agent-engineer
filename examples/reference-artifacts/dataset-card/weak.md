@@ -1,4 +1,4 @@
-# Weak Dataset Card: Acme Agent Training Dataset v1
+# Weak Dataset Card: StrongBench Agent Training Dataset v1
 
 This dataset contains examples for training the expense agent. It includes
 traces, failures, and synthetic data. The data was cleaned and split into train,

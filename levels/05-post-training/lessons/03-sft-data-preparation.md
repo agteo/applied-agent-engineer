@@ -11,7 +11,7 @@ Use chat-style examples:
 ```json
 {
   "messages": [
-    { "role": "system", "content": "You are Acme Expense Agent." },
+    { "role": "system", "content": "You are StrongBench Expense Agent." },
     { "role": "user", "content": "I lost my hotel receipt. Can I submit it?" },
     { "role": "assistant", "content": "..." }
   ]

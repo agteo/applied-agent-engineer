@@ -23,14 +23,14 @@ By the end of this level, learners can:
 
 ## Required Build
 
-Learners build the first version of Acme Finance Operations Simulator, a simulated company environment for policy-governed finance workflows.
+Learners build the first version of StrongBench Finance Operations Simulator, a simulated company environment for policy-governed finance workflows.
 
-The first implementation may start with expense reimbursement because the executable Level 1 seed is the Acme Expense Agent. The target simulator should be able to expand into invoices, purchase orders, vendor records, reconciliation, approval routing, audit logs, and exception handling.
+The first implementation may start with expense reimbursement because the executable Level 1 seed is the StrongBench Expense Agent. The target simulator should be able to expand into invoices, purchase orders, vendor records, reconciliation, approval routing, audit logs, and exception handling.
 
 Build the reference simulator bundle:
 
 ```bash
-python3 -m environments.acme_finance
+python3 -m environments.strongbench_finance
 ```
 
 ## Environment Loop
@@ -54,7 +54,7 @@ Observation + reward signal
 Agent continues or stops
 ```
 
-## Acme Finance Operations Simulator Scope
+## StrongBench Finance Operations Simulator Scope
 
 The first simulator should include:
 
@@ -105,8 +105,8 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 
 ## Project
 
-The Level 6 project is [Acme Finance Operations Simulator v1](project/acme-finance-operations-simulator-v1.md). The reference implementation is in
-[`environments/acme_finance/`](../../environments/acme_finance/). The first implementation may start with expenses, then expand as the canonical domain decision is finalized.
+The Level 6 project is [StrongBench Finance Operations Simulator v1](project/strongbench-finance-operations-simulator-v1.md). The reference implementation is in
+[`environments/strongbench_finance/`](../../environments/strongbench_finance/). The first implementation may start with expenses, then expand as the canonical domain decision is finalized.
 
 ## Exit Criteria
 

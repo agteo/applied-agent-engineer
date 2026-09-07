@@ -10,5 +10,5 @@ Read these lessons in order:
 6. [Final Answer Contracts](06-final-answer-contracts.md)
 7. [Hardening the Harness](07-hardening-the-harness.md)
 
-The lessons prepare learners for the labs and the Acme Expense Agent v1 project.
+The lessons prepare learners for the labs and the StrongBench Expense Agent v1 project.
 

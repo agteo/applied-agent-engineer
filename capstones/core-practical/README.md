@@ -8,7 +8,7 @@ It should be executable without a GPU.
 
 ## Objective
 
-Improve a flawed Acme Expense Agent using the core loop:
+Improve a flawed StrongBench Expense Agent using the core loop:
 
 ```text
 Build -> Evaluate -> Diagnose -> Data Recommendation
@@ -18,7 +18,7 @@ Build -> Evaluate -> Diagnose -> Data Recommendation
 
 You are given:
 
-- a flawed Acme Expense Agent implementation
+- a flawed StrongBench Expense Agent implementation
 - policy, receipt, employee, and trip fixtures
 - a benchmark subset
 - traces from failed runs
@@ -56,7 +56,7 @@ Your capstone must contain at least one element you chose yourself:
 - your own verifier or reward component
 - your own model or serving comparison
 
-Do not submit only the reference Acme path with the same failure, task, and
+Do not submit only the reference StrongBench path with the same failure, task, and
 recommendation as the examples. Identical submissions are weak portfolio
 evidence because they prove you followed instructions, not that you can scope
 and defend engineering work.

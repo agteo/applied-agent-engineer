@@ -41,7 +41,7 @@ Check your answer:
 So reviewers can inspect filtered rows and confirm the cleaner removed duplicates, missing provenance, and invalid target contracts.
 ```
 
-Use the Acme training dataset to confirm the answer against the data workflow rather than relying on memory.
+Use the StrongBench training dataset to confirm the answer against the data workflow rather than relying on memory.
 
 ## Checkpoint
 

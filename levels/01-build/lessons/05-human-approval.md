@@ -57,7 +57,7 @@ Check your answer:
 No. The course policy says only the employee may submit. The agent may prepare a draft or recommendation, but submission stays employee-controlled.
 ```
 
-Use the Acme Expense Agent trace to confirm the answer against the agent harness rather than relying on memory.
+Use the StrongBench Expense Agent trace to confirm the answer against the agent harness rather than relying on memory.
 
 ## Checkpoint
 

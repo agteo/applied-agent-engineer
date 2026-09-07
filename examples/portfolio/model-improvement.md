@@ -14,8 +14,8 @@ workflow boundaries rather than model answer generation.
 
 ## Measurement
 
-- decision command: `python3 -m model_improvement.acme`
-- LoRA dry-run command: `python3 -m model_improvement.acme.train_lora --dry-run`
+- decision command: `python3 -m model_improvement.strongbench`
+- LoRA dry-run command: `python3 -m model_improvement.strongbench.train_lora --dry-run`
 - Level 4 cleaned rows: 152
 - SFT export: 78 train rows, 47 dev rows
 - heldout rows rejected from SFT: 27
@@ -55,7 +55,7 @@ LoRA experiment if remaining failures are model-generation failures.
 
 ## Links
 
-- [`model_improvement/acme/decision-memo.md`](../../model_improvement/acme/decision-memo.md)
-- [`model_improvement/acme/comparison-report.md`](../../model_improvement/acme/comparison-report.md)
-- [`model_improvement/acme/lora-config.template.json`](../../model_improvement/acme/lora-config.template.json)
+- [`model_improvement/strongbench/decision-memo.md`](../../model_improvement/strongbench/decision-memo.md)
+- [`model_improvement/strongbench/comparison-report.md`](../../model_improvement/strongbench/comparison-report.md)
+- [`model_improvement/strongbench/lora-config.template.json`](../../model_improvement/strongbench/lora-config.template.json)
 - [`examples/reference-artifacts/model-improvement-decision/good.md`](../reference-artifacts/model-improvement-decision/good.md)

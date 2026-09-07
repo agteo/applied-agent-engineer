@@ -25,13 +25,13 @@ jobs:
         run: python3 -m evals.operations
 
       - name: Build Phase 4 prerequisites
-        run: python3 -m datasets.acme
+        run: python3 -m datasets.strongbench
 
       - name: Run model-improvement tests
         run: python -m pytest evals/tests datasets/tests model_improvement/tests
 
-      - name: Build Acme model-improvement bundle
-        run: python3 -m model_improvement.acme
+      - name: Build StrongBench model-improvement bundle
+        run: python3 -m model_improvement.strongbench
 
       - name: Validate optional LoRA dry-run config
-        run: python3 -m model_improvement.acme.train_lora --dry-run
+        run: python3 -m model_improvement.strongbench.train_lora --dry-run

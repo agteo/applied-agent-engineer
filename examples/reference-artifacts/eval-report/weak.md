@@ -1,4 +1,4 @@
-# Weak Eval Report: Acme Expense Agent v1
+# Weak Eval Report: StrongBench Expense Agent v1
 
 The agent did pretty well. It passed most tasks and only failed a few edge
 cases. The benchmark seems good enough, so the agent is probably ready.

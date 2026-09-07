@@ -1,0 +1,11 @@
+# Optional hosted RL small-experiment template. This is the smallest
+# run that could support a reliability claim, and only alongside the
+# evidence listed in reports/template.md.
+environment = "strongbench_finance_reliability"
+rollouts = "rl_reliability/strongbench/rl-rollouts.jsonl"
+method = "grpo"
+train_seed = 42
+heldout_seed = 7
+task_count = 120
+steps = 400
+status = "template_not_run"

@@ -77,7 +77,7 @@ Check your answer:
 `lookup_receipt({"receipt": "rcpt-001"})` should fail before execution with an error such as `missing required field receipt_id`. The trace should show no receipt lookup side effect.
 ```
 
-Use the Acme Expense Agent trace to confirm the answer against the agent harness rather than relying on memory.
+Use the StrongBench Expense Agent trace to confirm the answer against the agent harness rather than relying on memory.
 
 ## Checkpoint
 

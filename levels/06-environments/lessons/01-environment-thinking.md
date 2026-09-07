@@ -48,13 +48,13 @@ Check your answer:
 Task, agent or policy, action, state transition, observation/reward, then continue or terminate.
 ```
 
-Use the Acme Finance rollout to confirm the answer against the environment simulator rather than relying on memory.
+Use the StrongBench Finance rollout to confirm the answer against the environment simulator rather than relying on memory.
 
 ## Checkpoint
 
-You are ready to move on when you can describe the Acme expense domain as state, actions, and outcomes.
+You are ready to move on when you can describe the StrongBench expense domain as state, actions, and outcomes.
 
 ## Reading
 
-- [tau2-bench](https://github.com/sierra-research/tau2-bench) — the closest published relative of what Level 6 asks you to build: a domain with a written policy, simulated tools, generated tasks, and per-task success criteria. Read its domain definitions before designing Acme Finance Operations Simulator, then note where you are deliberately building something smaller.
+- [tau2-bench](https://github.com/sierra-research/tau2-bench) — the closest published relative of what Level 6 asks you to build: a domain with a written policy, simulated tools, generated tasks, and per-task success criteria. Read its domain definitions before designing StrongBench Finance Operations Simulator, then note where you are deliberately building something smaller.
 - [WebArena](https://github.com/web-arena-x/webarena) — a self-hostable environment for the harder case, where the environment is a real application rather than a state machine you wrote.

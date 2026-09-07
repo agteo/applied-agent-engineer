@@ -41,7 +41,7 @@ Check your answer:
 It needs task id, seed, category/tags, initial state reference, prompt/action context, and expected outcome.
 ```
 
-Use the Acme Finance rollout to confirm the answer against the environment simulator rather than relying on memory.
+Use the StrongBench Finance rollout to confirm the answer against the environment simulator rather than relying on memory.
 
 ## Checkpoint
 

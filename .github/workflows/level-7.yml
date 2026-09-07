@@ -22,16 +22,16 @@ jobs:
         run: python -m pip install pytest
 
       - name: Build Phase 6 prerequisites
-        run: python3 -m environments.acme_finance
+        run: python3 -m environments.strongbench_finance
 
       - name: Run RL reliability tests
         run: python -m pytest environments/tests rl_reliability/tests
 
-      - name: Build Acme RL reliability bundle
-        run: python3 -m rl_reliability.acme
+      - name: Build StrongBench RL reliability bundle
+        run: python3 -m rl_reliability.strongbench
 
       - name: Smoke-check the Prime Intellect adapter
-        run: python3 integrations/prime-intellect/environments/acme_finance_reliability/acme_finance_reliability.py
+        run: python3 integrations/prime-intellect/environments/strongbench_finance_reliability/strongbench_finance_reliability.py
 
       - name: Fail if committed artifacts drifted from a fresh build
         run: git diff --exit-code -- environments rl_reliability integrations

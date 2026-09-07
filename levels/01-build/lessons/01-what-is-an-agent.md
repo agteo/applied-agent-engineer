@@ -54,6 +54,23 @@ Example:
 
 Likely requires retrieval because the answer depends on policy.
 
+Check your answer:
+
+```text
+"Can I reimburse dinner during business travel?"  -> retrieval
+    The answer lives in policy text, not in the model.
+
+"What is 48.50 plus 91.00 against a USD 75 daily cap?"  -> tool call
+    Arithmetic against a policy limit is a calculator job, not a guess.
+
+"Submit Noah's expense report for him."  -> human approval
+    policy-submission-001 reserves submission for the employee. The agent
+    prepares the draft and stops.
+```
+
+A task can need more than one. The useful question is which capability the
+task *starts* with, because that decides the agent's first action.
+
 ## Checkpoint
 
 You are ready to move on when you can explain why an agent harness is responsible for reliability, not just the model.

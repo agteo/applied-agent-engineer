@@ -1,4 +1,4 @@
-# Weak Failure Analysis: Acme Expense Agent v1
+# Weak Failure Analysis: StrongBench Expense Agent v1
 
 The failures are mostly from edge cases and confusing questions. The model
 probably needs more examples and a better prompt. Receipt tasks seem somewhat

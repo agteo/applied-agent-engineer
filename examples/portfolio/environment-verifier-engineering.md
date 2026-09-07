@@ -1,4 +1,4 @@
-# Environment And Verifier Engineering: Acme Finance Simulator
+# Environment And Verifier Engineering: StrongBench Finance Simulator
 
 ## One-Sentence Claim
 
@@ -13,7 +13,7 @@ submitting a report as the wrong actor.
 
 ## Measurement
 
-- simulator command: `python3 -m environments.acme_finance`
+- simulator command: `python3 -m environments.strongbench_finance`
 - tasks: 120
 - task categories: 8
 - simulated tools: 6
@@ -55,7 +55,7 @@ same verifier interface to a second domain.
 
 ## Links
 
-- [`environments/acme_finance/verifier-report.md`](../../environments/acme_finance/verifier-report.md)
-- [`environments/acme_finance/reward-design.md`](../../environments/acme_finance/reward-design.md)
-- [`environments/acme_finance/simulator-bias-note.md`](../../environments/acme_finance/simulator-bias-note.md)
+- [`environments/strongbench_finance/verifier-report.md`](../../environments/strongbench_finance/verifier-report.md)
+- [`environments/strongbench_finance/reward-design.md`](../../environments/strongbench_finance/reward-design.md)
+- [`environments/strongbench_finance/simulator-bias-note.md`](../../environments/strongbench_finance/simulator-bias-note.md)
 - [`examples/reference-artifacts/reward-design/good.md`](../reference-artifacts/reward-design/good.md)

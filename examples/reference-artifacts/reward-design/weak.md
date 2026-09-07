@@ -1,4 +1,4 @@
-# Weak Reward Design: Acme Finance Reliability
+# Weak Reward Design: StrongBench Finance Reliability
 
 Give 1 point if the final answer seems correct and 0 points if it is wrong. Add
 extra credit when the answer is detailed. Penalize answers that are too short.

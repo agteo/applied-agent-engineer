@@ -31,7 +31,7 @@ Use the same benchmark and report slices from Level 2.
 
 ## Exercise
 
-What benchmark must a trained Acme model rerun?
+What benchmark must a trained StrongBench model rerun?
 
 Check your answer:
 

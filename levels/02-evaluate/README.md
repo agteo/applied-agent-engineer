@@ -22,7 +22,7 @@ By the end of this level, learners can:
 
 ## Required Build
 
-Learners build the first benchmark for Acme Expense Agent v1.
+Learners build the first benchmark for StrongBench Expense Agent v1.
 
 The benchmark should include at least 100 tasks covering policy questions, receipt lookup, reimbursement calculation, approval requirements, ambiguity, and unsafe requests.
 
@@ -104,7 +104,7 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 
 ## Project
 
-The Level 2 project is [Acme Expense Agent Benchmark v1](project/acme-expense-agent-benchmark-v1.md).
+The Level 2 project is [StrongBench Expense Agent Benchmark v1](project/strongbench-expense-agent-benchmark-v1.md).
 
 ## Exit Criteria
 

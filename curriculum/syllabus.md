@@ -96,9 +96,9 @@ Build a reliable tool-using agent that interacts with realistic systems.
 
 ### Project
 
-Build the Acme Expense Agent v1.
+Build the StrongBench Expense Agent v1.
 
-The Acme Expense Agent is the current executable seed. The canonical system may later expand into a broader Acme Finance Operations Agent if that better matches deployed enterprise agent work.
+The StrongBench Expense Agent is the current executable seed. The canonical system may later expand into a broader StrongBench Finance Operations Agent if that better matches deployed enterprise agent work.
 
 ### Exit Criteria
 
@@ -127,7 +127,7 @@ Teach learners how to know whether an agent is good.
 
 ### Project
 
-Create a benchmark for Acme Expense Agent v1 with at least 100 tasks, multiple grader types, and a reproducible eval report.
+Create a benchmark for StrongBench Expense Agent v1 with at least 100 tasks, multiple grader types, and a reproducible eval report.
 
 ### Exit Criteria
 
@@ -275,7 +275,7 @@ This track is about serving reliability, not model training. It can be completed
 
 ### Project
 
-Build a resilient local inference stack for the current Acme agent. The first implementation uses the Acme Expense Agent; later versions may target the broader Acme Finance Operations Agent.
+Build a resilient local inference stack for the current StrongBench agent. The first implementation uses the StrongBench Expense Agent; later versions may target the broader StrongBench Finance Operations Agent.
 
 ### Exit Criteria
 
@@ -306,7 +306,7 @@ Teach learners to build simulated worlds and verifiers where agents can practice
 
 ### Project
 
-Build the first version of Acme Finance Operations Simulator, starting from expense policies, employee records, receipts, approvals, and task outcomes. The simulator should be able to expand toward invoices, purchase orders, vendors, reconciliation, audit logs, and exception handling.
+Build the first version of StrongBench Finance Operations Simulator, starting from expense policies, employee records, receipts, approvals, and task outcomes. The simulator should be able to expand toward invoices, purchase orders, vendors, reconciliation, audit logs, and exception handling.
 
 ### Exit Criteria
 
@@ -338,7 +338,7 @@ Teach learners how agents can improve through experience, how verifier-derived r
 
 ### Project
 
-Analyze rollouts, rewards, and a proposed training setup for the Acme Finance Operations Simulator. Running RL training is optional until the repo has a real environment implementation, verifier contracts, compute requirements, and reference training scripts.
+Analyze rollouts, rewards, and a proposed training setup for the StrongBench Finance Operations Simulator. Running RL training is optional until the repo has a real environment implementation, verifier contracts, compute requirements, and reference training scripts.
 
 ### Exit Criteria
 
@@ -367,7 +367,7 @@ The course has two capstones.
 
 Required for core completion. No GPU required.
 
-Learners improve a flawed Acme Expense Agent, run evals, diagnose failures, make one targeted intervention, and write a recommendation.
+Learners improve a flawed StrongBench Expense Agent, run evals, diagnose failures, make one targeted intervention, and write a recommendation.
 
 See [../capstones/core-practical/README.md](../capstones/core-practical/README.md).
 

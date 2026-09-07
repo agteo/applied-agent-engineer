@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from rl_reliability.acme import (
+from rl_reliability.strongbench import (
     DEFAULT_OUT,
     build_rl_bundle,
     filter_rollouts,
@@ -13,17 +13,17 @@ from rl_reliability.acme import (
     run_weak_policy,
     write_rl_bundle,
 )
-from environments.acme_finance import generate_tasks
+from environments.strongbench_finance import generate_tasks
 
 ADAPTER_DIR = (
     Path(__file__).resolve().parents[2]
     / "integrations"
     / "prime-intellect"
     / "environments"
-    / "acme_finance_reliability"
+    / "strongbench_finance_reliability"
 )
 sys.path.insert(0, str(ADAPTER_DIR))
-from acme_finance_reliability import load_environment as load_adapter_environment  # noqa: E402
+from strongbench_finance_reliability import load_environment as load_adapter_environment  # noqa: E402
 
 
 def test_phase7_builds_rl_rollout_comparison():
@@ -123,14 +123,14 @@ def test_phase7_writes_analysis_and_prime_templates(tmp_path):
 
 def test_writing_elsewhere_does_not_touch_the_repo_integrations_tree(tmp_path):
     """--out used to be ignored by the Prime writer, which rewrote tracked files."""
-    from rl_reliability.acme import DEFAULT_PRIME_DIR
+    from rl_reliability.strongbench import DEFAULT_PRIME_DIR
 
     before = sorted((p, p.stat().st_mtime_ns) for p in DEFAULT_PRIME_DIR.rglob("*") if p.is_file())
     write_rl_bundle(build_rl_bundle(), tmp_path)
     after = sorted((p, p.stat().st_mtime_ns) for p in DEFAULT_PRIME_DIR.rglob("*") if p.is_file())
 
     assert before == after
-    assert (tmp_path / "prime-intellect" / "configs" / "rl" / "acme-finance-reliability-small.toml").exists()
+    assert (tmp_path / "prime-intellect" / "configs" / "rl" / "strongbench-finance-reliability-small.toml").exists()
 
 
 def test_prime_adapter_loads_and_separates_policies():
@@ -138,7 +138,7 @@ def test_prime_adapter_loads_and_separates_policies():
     reference = env.evaluate("scripted_reference")
     hacker = env.evaluate("reward_hacker")
 
-    assert env.id == "acme_finance_reliability"
+    assert env.id == "strongbench_finance_reliability"
     assert len(env.dataset()) == 120
     assert reference["success_rate"] > hacker["success_rate"]
     assert reference["unsafe_submission_failures"] == 0
@@ -153,4 +153,4 @@ def test_prime_adapter_never_hands_the_grading_key_to_a_policy():
 
 
 def test_default_phase7_output_path_is_under_rl_reliability():
-    assert "rl_reliability/acme" in str(DEFAULT_OUT)
+    assert "rl_reliability/strongbench" in str(DEFAULT_OUT)

@@ -11,7 +11,7 @@ Level 7 asks: can experience improve behavior, and how would we know?
 ## Scope
 
 Level 7 is a literacy track. It has an executable local analysis path over the
-Acme Finance Operations Simulator, and it does **not** train anything. Running
+StrongBench Finance Operations Simulator, and it does **not** train anything. Running
 RL training is an optional advanced implementation path, not a completion
 requirement, and this level does not prepare a learner for an RL engineering
 role. See [tracks/rl-literacy-for-agent-engineers.md](../../tracks/rl-literacy-for-agent-engineers.md).
@@ -38,7 +38,7 @@ Prime Intellect / Verifiers is the proposed hosted RL adapter once the local sim
 Build the reference RL reliability bundle:
 
 ```bash
-python3 -m rl_reliability.acme
+python3 -m rl_reliability.strongbench
 ```
 
 ## Training Loop
@@ -80,7 +80,7 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 
 | Lab | Description |
 | --- | --- |
-| [Lab 1: MDP Framing](labs/lab-01-mdp-framing.md) | Frame Acme tasks as states, actions, verifier outputs, rewards, and policies. |
+| [Lab 1: MDP Framing](labs/lab-01-mdp-framing.md) | Frame StrongBench tasks as states, actions, verifier outputs, rewards, and policies. |
 | [Lab 2: Rollout Dataset](labs/lab-02-rollout-dataset.md) | Generate and filter environment rollouts. |
 | [Lab 3: Reward Hacking Review](labs/lab-03-reward-hacking-review.md) | Identify reward exploits before training. |
 | [Lab 4: RL Experiment Report](labs/lab-04-rl-experiment-report.md) | Report whether experience improved behavior. |
@@ -88,7 +88,7 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 ## Project
 
 The Level 7 project is [Train an Agent Through Experience](project/train-agent-through-experience.md). The reference implementation is in
-[`rl_reliability/acme/`](../../rl_reliability/acme/). It provides the local
+[`rl_reliability/strongbench/`](../../rl_reliability/strongbench/). It provides the local
 analysis bundle and Prime adapter templates; a completed training claim still
 requires real training logs, learning curves, sampled rollouts, and benchmark
 comparison.
@@ -97,7 +97,7 @@ comparison.
 
 To complete Level 7, the learner must submit, with no GPU:
 
-1. An RL framing of the Acme environment.
+1. An RL framing of the StrongBench environment.
 2. Rollout data with rewards and termination reasons.
 3. A reward hacking review naming at least one exploit the current verifiers do
    **not** catch, and the check you would add to catch it.
