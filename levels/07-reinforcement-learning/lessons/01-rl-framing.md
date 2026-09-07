@@ -1,5 +1,7 @@
 # Lesson 1: RL Framing
 
+Status: outline
+
 ## Core Idea
 
 Reinforcement learning frames behavior as interaction between an agent and an environment.
@@ -31,4 +33,3 @@ Positive if approval was required and requested, negative if unnecessary or miss
 ## Checkpoint
 
 You are ready to move on when you can map an Acme task to state, action, reward, and termination.
-

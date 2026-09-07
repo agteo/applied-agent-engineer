@@ -1,5 +1,7 @@
 # Lesson 3: Simulated Tools
 
+Status: outline
+
 ## Core Idea
 
 Simulated tools should behave like real tools in the ways that matter for learning and evaluation.
@@ -27,4 +29,3 @@ Simulated tools should include:
 ## Checkpoint
 
 You are ready to move on when the agent cannot succeed by exploiting unrealistic tool behavior.
-

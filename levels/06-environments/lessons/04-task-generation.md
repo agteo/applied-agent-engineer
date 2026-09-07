@@ -1,5 +1,7 @@
 # Lesson 4: Task Generation
 
+Status: outline
+
 ## Core Idea
 
 Generated tasks let agents practice many variations of the same workflow.
@@ -28,4 +30,3 @@ Each task should include:
 ## Checkpoint
 
 You are ready to move on when generated tasks have known outcomes and reproducible initial states.
-

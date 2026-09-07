@@ -1,5 +1,7 @@
 # Lesson 5: Metrics and Confidence
 
+Status: outline
+
 ## Core Idea
 
 Scores need uncertainty. A benchmark result without context can mislead.
@@ -43,4 +45,3 @@ Useful habits:
 ## Checkpoint
 
 You are ready to move on when your report can distinguish a real improvement from noise.
-

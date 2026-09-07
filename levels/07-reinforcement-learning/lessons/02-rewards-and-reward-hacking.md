@@ -1,5 +1,7 @@
 # Lesson 2: Rewards and Reward Hacking
 
+Status: outline
+
 ## Core Idea
 
 The agent may optimize the reward instead of the real goal.
@@ -21,4 +23,3 @@ The agent may optimize the reward instead of the real goal.
 ## Checkpoint
 
 You are ready to move on when every reward component has a known exploit risk.
-

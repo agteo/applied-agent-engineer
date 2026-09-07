@@ -1,5 +1,7 @@
 # Lesson 1: Reading Trajectories
 
+Status: outline
+
 ## Core Idea
 
 The final answer is not enough. To diagnose an agent, inspect the path it took.
@@ -23,4 +25,3 @@ Mark the first point where the trajectory went wrong. Later mistakes often casca
 ## Checkpoint
 
 You are ready to move on when you can identify the earliest visible failure in a trace.
-

@@ -1,5 +1,7 @@
 # Lesson 7: Hardening the Harness
 
+Status: outline
+
 ## Core Idea
 
 Agent reliability is mostly harness design.
@@ -49,4 +51,3 @@ Fail clearly when the system cannot safely continue:
 ## Checkpoint
 
 You are ready to complete Level 1 when the agent fails visibly, safely, and with enough trace detail for Level 2 and Level 3.
-

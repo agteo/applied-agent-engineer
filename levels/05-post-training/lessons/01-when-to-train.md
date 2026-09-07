@@ -1,5 +1,7 @@
 # Lesson 1: When To Train
 
+Status: outline
+
 ## Core Idea
 
 Fine-tuning is an intervention, not a default step.
@@ -28,4 +30,3 @@ Avoid training when:
 ## Checkpoint
 
 You are ready to move on when you can argue for or against training using Level 2 and Level 3 evidence.
-

@@ -6,8 +6,7 @@ track is the literacy prerequisite, not the qualification.
 
 Renamed from "RL for Agent Reliability" because that title promised reliability
 engineering while the track delivered analysis. The completion bar below is one
-the analysis path can actually meet. See
-[`ROADMAP.md`](../ROADMAP.md) — the Honest Bar Decision.
+the analysis path can actually meet.
 
 The executable path is [`rl_reliability/acme/`](../rl_reliability/acme/) and the
 hosted adapter is

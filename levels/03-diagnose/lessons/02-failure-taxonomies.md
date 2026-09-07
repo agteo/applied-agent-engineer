@@ -1,5 +1,7 @@
 # Lesson 2: Failure Taxonomies
 
+Status: outline
+
 ## Core Idea
 
 A taxonomy turns scattered anecdotes into analyzable data.

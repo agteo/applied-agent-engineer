@@ -1,5 +1,7 @@
 # Lesson 5: Human Approval
 
+Status: outline
+
 ## Core Idea
 
 Some actions require permission. A reliable agent needs explicit approval gates for risky operations.
@@ -44,4 +46,3 @@ The trace should record:
 ## Checkpoint
 
 You are ready to move on when risky actions cannot proceed without an approval record.
-

@@ -1,5 +1,7 @@
 # Lesson 4: RLHF and RLVR
 
+Status: outline
+
 ## Core Idea
 
 Modern LLM reinforcement learning often uses human preferences, verifiable rewards, or both.

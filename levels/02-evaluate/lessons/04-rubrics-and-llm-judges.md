@@ -1,5 +1,7 @@
 # Lesson 4: Rubrics and LLM Judges
 
+Status: outline
+
 ## Core Idea
 
 Some qualities are hard to grade with code. Rubrics make subjective judgment more consistent.

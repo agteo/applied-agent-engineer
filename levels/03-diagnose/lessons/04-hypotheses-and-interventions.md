@@ -1,5 +1,7 @@
 # Lesson 4: Hypotheses and Interventions
 
+Status: outline
+
 ## Core Idea
 
 A diagnosis should lead to a testable intervention.
@@ -29,4 +31,3 @@ Add an approval_required field and a final-answer validation check.
 ## Checkpoint
 
 You are ready to move on when each intervention maps to a specific failure category.
-

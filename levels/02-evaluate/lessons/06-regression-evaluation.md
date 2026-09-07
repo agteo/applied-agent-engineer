@@ -1,5 +1,7 @@
 # Lesson 6: Regression Evaluation
 
+Status: outline
+
 ## Core Idea
 
 Every agent change is a hypothesis. Regression evals test whether the hypothesis helped.
@@ -40,4 +42,3 @@ approval safety does not decrease, and average cost increases by less than 20%.
 ## Checkpoint
 
 You are ready to move on when every benchmark run can be compared to a previous run.
-

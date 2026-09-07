@@ -1,5 +1,7 @@
 # Lesson 4: LoRA and QLoRA
 
+Status: outline
+
 ## Core Idea
 
 LoRA adapts a model by training small low-rank adapter weights instead of updating all model weights.

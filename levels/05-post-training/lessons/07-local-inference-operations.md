@@ -1,5 +1,7 @@
 # Lesson 7: Local Inference Operations
 
+Status: outline
+
 ## Core Idea
 
 A local model is not adopted when it produces a checkpoint. It is adopted when applications can call it reliably, observe it, and survive its failure modes.

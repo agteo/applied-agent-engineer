@@ -1,5 +1,7 @@
 # Lesson 6: Final Answer Contracts
 
+Status: outline
+
 ## Core Idea
 
 A structured final answer makes the agent easier to evaluate, debug, and integrate.
@@ -30,4 +32,3 @@ If the answer is invalid, the harness can ask the model to repair it once or twi
 ## Checkpoint
 
 You are ready to move on when final answers can be parsed and validated without reading prose.
-

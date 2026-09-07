@@ -1,5 +1,7 @@
 # Lesson 2: Schemas and Formats
 
+Status: outline
+
 ## Core Idea
 
 Datasets need contracts just like tools do.
@@ -27,4 +29,3 @@ Datasets need contracts just like tools do.
 ## Checkpoint
 
 You are ready to move on when every row has a documented schema and provenance field.
-

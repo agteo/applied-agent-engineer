@@ -1,5 +1,7 @@
 # Lesson 1: Why Evals Matter
 
+Status: outline
+
 ## Core Idea
 
 An agent that works once has not been engineered yet.

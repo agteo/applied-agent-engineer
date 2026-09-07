@@ -1,5 +1,7 @@
 # Lesson 1: Environment Thinking
 
+Status: outline
+
 ## Core Idea
 
 An environment is a world an agent can act in.

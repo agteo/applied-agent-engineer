@@ -1,5 +1,7 @@
 # Lesson 3: Cleaning and Deduplication
 
+Status: outline
+
 ## Core Idea
 
 More data is not automatically better data.
@@ -28,4 +30,3 @@ Deduplicate by:
 ## Checkpoint
 
 You are ready to move on when you can explain why each removed row was removed.
-

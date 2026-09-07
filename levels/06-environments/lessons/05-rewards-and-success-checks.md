@@ -1,5 +1,7 @@
 # Lesson 5: Rewards and Success Checks
 
+Status: outline
+
 ## Core Idea
 
 Success checks decide whether the task was completed. Rewards shape what behavior is preferred.
@@ -32,4 +34,3 @@ Reward design can create shortcuts. If the reward misses an important behavior, 
 ## Checkpoint
 
 You are ready to move on when each reward component maps to a behavior you actually care about.
-

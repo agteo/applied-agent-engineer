@@ -1,5 +1,7 @@
 # Lesson 7: Eval Reports
 
+Status: outline
+
 ## Core Idea
 
 An eval report should support a decision.
@@ -38,4 +40,3 @@ Version B seems better.
 ## Checkpoint
 
 You are ready to complete Level 2 when your report gives enough evidence for another engineer to agree or disagree with your recommendation.
-

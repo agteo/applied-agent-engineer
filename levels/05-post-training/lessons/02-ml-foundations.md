@@ -1,5 +1,7 @@
 # Lesson 2: ML Foundations for Post-training
 
+Status: outline
+
 ## Core Idea
 
 Track 5B requires a real training run. Eleven bullet points and a five-line loop will not prepare you for one, and this lesson does not pretend otherwise.

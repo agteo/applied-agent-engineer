@@ -1,5 +1,7 @@
 # Lesson 3: Root Cause Analysis
 
+Status: outline
+
 ## Core Idea
 
 Do not stop at the symptom. Ask what caused the failure and what evidence supports that explanation.
@@ -23,4 +25,3 @@ Possible causes:
 ## Checkpoint
 
 You are ready to move on when every labeled failure includes evidence from the trace.
-

@@ -1,5 +1,7 @@
 # Lesson 1: Agent Data Types
 
+Status: outline
+
 ## Core Idea
 
 Agent systems produce many kinds of useful data, not just prompt-response pairs.
@@ -20,4 +22,3 @@ Agent systems produce many kinds of useful data, not just prompt-response pairs.
 ## Checkpoint
 
 You are ready to move on when you can map each failure category to a useful data type.
-

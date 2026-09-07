@@ -1,5 +1,7 @@
 # Lesson 5: Experiment Design
 
+Status: outline
+
 ## Core Idea
 
 Treat fixes as experiments.
@@ -24,4 +26,3 @@ Define success before running the experiment.
 ## Checkpoint
 
 You are ready to move on when the result can confirm or reject the hypothesis.
-

@@ -1,5 +1,7 @@
 # Lesson 3: Deterministic Graders
 
+Status: outline
+
 ## Core Idea
 
 Use code when correctness can be checked with code.

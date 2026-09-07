@@ -1,5 +1,7 @@
 # Lesson 6: Evaluation After Training
 
+Status: outline
+
 ## Core Idea
 
 Training is not success. Benchmark improvement is success.
@@ -26,4 +28,3 @@ Use the same benchmark and report slices from Level 2.
 ## Checkpoint
 
 You are ready to complete Level 5 when the adapted model has been judged by the same benchmark as the baseline.
-

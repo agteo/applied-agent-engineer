@@ -1,5 +1,7 @@
 # Lesson 6: Failure Reports
 
+Status: outline
+
 ## Core Idea
 
 A failure report should help the next engineer improve the system.
@@ -20,4 +22,3 @@ A failure report should help the next engineer improve the system.
 ## Checkpoint
 
 You are ready to complete Level 3 when your report explains what to fix next and why.
-

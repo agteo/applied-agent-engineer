@@ -1,5 +1,7 @@
 # Lesson 7: Dataset Cards
 
+Status: outline
+
 ## Core Idea
 
 A dataset card explains what the dataset is, where it came from, and how it should and should not be used.
@@ -20,4 +22,3 @@ A dataset card explains what the dataset is, where it came from, and how it shou
 ## Checkpoint
 
 You are ready to complete Level 4 when another engineer can decide whether the dataset is safe and useful.
-

@@ -1,5 +1,7 @@
 # Lesson 6: Splits and Contamination
 
+Status: outline
+
 ## Core Idea
 
 Training data must not leak into trusted evaluation data.
@@ -24,4 +26,3 @@ Keep the Level 2 reporting benchmark protected.
 ## Checkpoint
 
 You are ready to move on when every example has a split and no held-out eval task appears in training data.
-

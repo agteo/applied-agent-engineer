@@ -1,5 +1,7 @@
 # Lesson 6: Training Experiments
 
+Status: outline
+
 ## Core Idea
 
 An RL experiment needs the same discipline as every previous module: versioning, measurement, diagnosis, and honest limitations.
@@ -21,4 +23,3 @@ Record:
 ## Checkpoint
 
 You are ready to move on when another engineer can reproduce or critique the experiment.
-

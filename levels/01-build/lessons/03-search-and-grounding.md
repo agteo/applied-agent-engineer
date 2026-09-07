@@ -1,5 +1,7 @@
 # Lesson 3: Search and Grounding
 
+Status: outline
+
 ## Core Idea
 
 Agents should not invent policy. They should retrieve policy and cite the source.
@@ -38,4 +40,3 @@ Later modules can replace the implementation with embeddings, a vector database,
 ## Checkpoint
 
 You are ready to move on when every policy claim in the final answer has at least one source id or is marked as uncertain.
-

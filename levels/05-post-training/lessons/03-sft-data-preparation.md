@@ -1,5 +1,7 @@
 # Lesson 3: SFT Data Preparation
 
+Status: outline
+
 ## Core Idea
 
 Supervised fine-tuning teaches a model to imitate target outputs for given inputs.
@@ -29,4 +31,3 @@ Use chat-style examples:
 ## Checkpoint
 
 You are ready to move on when every training example has a validated target answer.
-

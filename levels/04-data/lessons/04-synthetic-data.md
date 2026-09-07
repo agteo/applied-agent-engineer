@@ -1,5 +1,7 @@
 # Lesson 4: Synthetic Data
 
+Status: outline
+
 ## Core Idea
 
 Synthetic data is useful when it targets known gaps and passes quality filters.
@@ -25,4 +27,3 @@ Use synthetic data to:
 ## Checkpoint
 
 You are ready to move on when synthetic examples are labeled, filtered, and separated from held-out evals.
-

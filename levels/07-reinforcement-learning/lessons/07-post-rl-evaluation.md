@@ -1,5 +1,7 @@
 # Lesson 7: Post-RL Evaluation
 
+Status: outline
+
 ## Core Idea
 
 RL improvement must be evaluated outside the training loop.
@@ -22,4 +24,3 @@ Use:
 ## Checkpoint
 
 You are ready to complete Level 7 when you can explain what improved, what regressed, and whether the reward taught the intended behavior.
-

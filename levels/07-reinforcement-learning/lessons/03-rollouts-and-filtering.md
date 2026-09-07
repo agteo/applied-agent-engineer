@@ -1,5 +1,7 @@
 # Lesson 3: Rollouts and Filtering
 
+Status: outline
+
 ## Core Idea
 
 Training data from experience is only useful if the rollouts are valid, diverse, and correctly scored.
@@ -27,4 +29,3 @@ Filter or label:
 ## Checkpoint
 
 You are ready to move on when rollout data is clean enough to train or analyze.
-

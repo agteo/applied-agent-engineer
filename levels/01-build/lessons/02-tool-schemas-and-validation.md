@@ -1,5 +1,7 @@
 # Lesson 2: Tool Schemas and Validation
 
+Status: outline
+
 ## Core Idea
 
 Tools are contracts. The agent should never execute vague, malformed, or unsafe tool calls.
@@ -64,4 +66,3 @@ Validation errors should become observations. They should not crash the whole ru
 ## Checkpoint
 
 You are ready to move on when invalid tool arguments are rejected before execution and the agent can recover from the validation message.
-

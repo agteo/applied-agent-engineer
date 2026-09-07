@@ -1,5 +1,7 @@
 # Lesson 2: Eval Dataset Design
 
+Status: outline
+
 ## Core Idea
 
 The dataset defines what "good" means.
@@ -49,4 +51,3 @@ Do not tune directly against the final reporting set.
 ## Checkpoint
 
 You are ready to move on when your task set can fail the agent in meaningful, diverse ways.
-

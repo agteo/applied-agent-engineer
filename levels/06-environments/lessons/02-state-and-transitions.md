@@ -1,5 +1,7 @@
 # Lesson 2: State and Transitions
 
+Status: outline
+
 ## Core Idea
 
 State defines what is true in the environment. Transitions define how actions change what is true.
@@ -29,4 +31,3 @@ Every action should specify:
 ## Checkpoint
 
 You are ready to move on when every simulated action changes state in a predictable and inspectable way.
-

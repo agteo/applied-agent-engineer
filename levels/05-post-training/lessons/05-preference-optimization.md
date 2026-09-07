@@ -1,5 +1,7 @@
 # Lesson 5: Preference Optimization
 
+Status: outline
+
 ## Core Idea
 
 Preference optimization uses comparisons, not just ideal answers.
@@ -20,4 +22,3 @@ This lesson is conceptual unless the learner has enough preference data from Lev
 ## Checkpoint
 
 You are ready to move on when you can decide whether your dataset supports preference optimization.
-

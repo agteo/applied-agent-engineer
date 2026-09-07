@@ -1,5 +1,7 @@
 # Lesson 7: Rollout Analysis
 
+Status: outline
+
 ## Core Idea
 
 Rollouts are trajectories collected from agent-environment interaction.
@@ -35,4 +37,3 @@ Analyze rollouts by:
 ## Checkpoint
 
 You are ready to complete Level 6 when your rollouts can feed Level 7 training experiments.
-

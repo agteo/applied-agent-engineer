@@ -1,5 +1,7 @@
 # Lesson 4: State and Traces
 
+Status: outline
+
 ## Core Idea
 
 If you cannot see what the agent did, you cannot evaluate or diagnose it.
@@ -43,4 +45,3 @@ A good trace is:
 ## Checkpoint
 
 You are ready to move on when 20 manual tasks produce valid JSONL traces.
-

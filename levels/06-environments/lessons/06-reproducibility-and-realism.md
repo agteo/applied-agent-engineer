@@ -1,5 +1,7 @@
 # Lesson 6: Reproducibility and Realism
 
+Status: outline
+
 ## Core Idea
 
 An environment should be repeatable enough for science and realistic enough for engineering.
@@ -28,4 +30,3 @@ Record:
 ## Checkpoint
 
 You are ready to move on when another engineer can rerun the same episode and get the same environment behavior.
-
