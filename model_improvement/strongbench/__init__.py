@@ -280,7 +280,7 @@ def build_lora_config(sft_metrics: dict[str, Any]) -> dict[str, Any]:
     return {
         "purpose": "Track 5B optional small LoRA/SFT experiment configuration.",
         "status": "template_not_run",
-        "base_model": "choose-small-instruct-model-locally",
+        "base_model": "<set to a small local instruct model you can serve on the reference GPU>",
         "dataset": {
             "train": "model_improvement/strongbench/sft-train.jsonl",
             "dev": "model_improvement/strongbench/sft-dev.jsonl",

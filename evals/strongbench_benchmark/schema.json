@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.com/strongbench-benchmark-task.schema.json",
+  "$id": "https://github.com/agteo/applied-agent-engineer/blob/main/evals/strongbench_benchmark/schema.json",
   "title": "StrongBench benchmark task",
   "type": "object",
   "required": [

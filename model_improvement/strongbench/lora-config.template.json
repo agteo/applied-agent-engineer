@@ -1,5 +1,5 @@
 {
-  "base_model": "choose-small-instruct-model-locally",
+  "base_model": "<set to a small local instruct model you can serve on the reference GPU>",
   "compute_estimate": {
     "ci_mode": "dry-run only",
     "cost_note": "Core Phase 5 does not require paid compute; Track 5B completion requires a real run.",
