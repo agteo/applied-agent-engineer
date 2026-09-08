@@ -1,1 +1,1 @@
-"""Model-improvement workflows for Applied Agent Engineering."""
+"""Model-improvement workflows for Applied AI Systems Engineering."""

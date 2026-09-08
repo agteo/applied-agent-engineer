@@ -1,1 +1,1 @@
-"""Simulated agent environments for Applied Agent Engineering."""
+"""Simulated agent environments for Applied AI Systems Engineering."""

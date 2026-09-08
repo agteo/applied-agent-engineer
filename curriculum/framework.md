@@ -2,7 +2,7 @@
 
 ## Thesis
 
-Applied Agent Engineering is the discipline of building AI systems whose behavior can be measured, diagnosed, improved, and owned.
+Applied AI Systems Engineering is the discipline of building AI systems whose behavior can be measured, diagnosed, improved, and owned.
 
 The curriculum is designed around one belief: building an agent is only the beginning. Serious engineering starts when you can explain whether the system works, why it fails, what data would improve it, and whether the organization should rely on a frontier API, retrieval system, workflow automation, local model, fine-tuned adapter, or reinforcement learning loop.
 
@@ -11,7 +11,7 @@ Agents are used as the practical course vehicle because they expose the whole ap
 ## Curriculum Shape
 
 ```text
-                         APPLIED AGENT ENGINEERING
+                      APPLIED AI SYSTEMS ENGINEERING
 
                                 Foundations
                                      |

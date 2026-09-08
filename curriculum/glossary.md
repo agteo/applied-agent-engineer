@@ -1,6 +1,6 @@
 # Glossary
 
-Key terms and acronyms used throughout the Applied Agent Engineering curriculum.
+Key terms and acronyms used throughout the Applied AI Systems Engineering curriculum.
 
 ## Agent
 
@@ -237,4 +237,3 @@ A separation of data into training data, development data for iteration, and tes
 ## Verifier
 
 A program or process that checks whether an output or action satisfies a condition, such as passing tests or reaching a correct environment state.
-

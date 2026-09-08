@@ -2,7 +2,7 @@
 
 ## Course Overview
 
-Applied Agent Engineering teaches engineers how to build AI systems that can use tools, complete realistic tasks, improve through systematic measurement, and make productive use of proprietary data.
+Applied AI Systems Engineering teaches engineers how to build AI systems that can use tools, complete realistic tasks, improve through systematic measurement, and make productive use of proprietary data.
 
 The course uses agents as the hands-on vehicle, but the broader goal is applied AI stack ownership: evals, traces, data pipelines, local model adaptation, workflow integration, simulation, and reinforcement learning.
 

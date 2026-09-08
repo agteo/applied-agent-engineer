@@ -1,6 +1,8 @@
-# Applied Agent Engineering
+# Applied AI Systems Engineering
 
-Applied Agent Engineering is the discipline of building AI systems whose behavior can be measured, diagnosed, improved, and owned.
+Applied AI Systems Engineering is the discipline of building AI systems whose behavior can be measured, diagnosed, improved, and owned.
+
+Formerly Applied Agent Engineering. The course was renamed because its scope now covers evals, data, model improvement, environments, verifiers, and AI stack ownership, not only agent construction.
 
 This repository is an open-source curriculum and lab environment for developing applied AI systems talent. The goal is not just to teach people how to build agents. The goal is to train engineers who can help organizations evaluate AI behavior rigorously, use proprietary data responsibly, decide when local or open model improvement is justified, and own more of their AI stack.
 
