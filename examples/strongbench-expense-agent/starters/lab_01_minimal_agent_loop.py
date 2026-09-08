@@ -38,8 +38,22 @@ _OPERATORS = {
 
 def calculator(expression: str) -> dict[str, Any]:
     """Return a safe arithmetic result or an error."""
-    # TODO: parse and evaluate only numeric arithmetic AST nodes.
-    return {"error": "calculator is not implemented yet"}
+    def evaluate(node: ast.AST) -> float:
+        if isinstance(node, ast.Expression):
+            return evaluate(node.body)
+        if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)):
+            return float(node.value)
+        if isinstance(node, ast.BinOp) and type(node.op) in _OPERATORS:
+            return _OPERATORS[type(node.op)](evaluate(node.left), evaluate(node.right))
+        if isinstance(node, ast.UnaryOp) and type(node.op) in _OPERATORS:
+            return _OPERATORS[type(node.op)](evaluate(node.operand))
+        raise ValueError(f"unsupported expression: {ast.dump(node)}")
+
+    try:
+        tree = ast.parse(expression, mode="eval")
+        return {"result": round(evaluate(tree), 2)}
+    except (SyntaxError, ValueError, TypeError, ZeroDivisionError) as error:
+        return {"error": str(error)}
 
 
 _AMOUNTS = re.compile(r"\$?\s?(\d+(?:\.\d{1,2})?)")

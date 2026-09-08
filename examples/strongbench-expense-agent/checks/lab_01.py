@@ -61,9 +61,10 @@ def check(module) -> list[dict]:
         return passed, "Each trace records model responses, tool stages, and final_answer." if passed else "Every trace must record each stage and final_answer."
 
     def safe_tool(mod):
-        result = mod.calculator("__import__('os')")
-        passed = isinstance(result, dict) and "error" in result
-        return passed, "Unsafe expressions return an error." if passed else "calculator must reject arbitrary code instead of evaluating it."
+        unsafe = mod.calculator("__import__('os')")
+        safe = mod.calculator("47 + 68")
+        passed = isinstance(unsafe, dict) and "error" in unsafe and safe.get("result") == 115
+        return passed, "Safe arithmetic works and unsafe expressions return an error." if passed else "calculator must calculate 47 + 68 and reject arbitrary code instead of evaluating it."
 
     return [
         _check(module, "loop-terminates", "The loop stops", loops),
