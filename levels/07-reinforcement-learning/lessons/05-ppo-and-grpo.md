@@ -148,25 +148,88 @@ For this course, the minimum honest progression is:
 - **Batch composition drift:** training batches overrepresent easy tasks, so
   reward curves rise while hard approval or receipt tasks remain broken.
 
+## What This Repo's Data Would Do To These Algorithms
+
+Everything above describes what PPO and GRPO need. Open
+[`metrics.json`](../../../rl_reliability/strongbench/metrics.json) and check
+whether this repo can supply it:
+
+| Policy | Rollouts | Average reward | **Distinct rewards** |
+| --- | ---: | ---: | ---: |
+| `scripted_reference` | 120 | 1.90 | **1** |
+| `weak_submitter` | 120 | −1.63 | 4 |
+| `reward_hacker` | 120 | −0.82 | 4 |
+
+The last column is the one that matters, and it settles the question.
+
+GRPO computes advantage by comparing completions **within a group** and
+normalising by the group's spread. The reference policy returns the same reward
+on all 120 rollouts, so within any group drawn from it every completion is
+identical in value: the advantage is zero for all of them, the normalisation
+divides by a spread of zero, and there is nothing to learn from. PPO fares no
+better — its value model would learn to predict 1.90 perfectly and every
+advantage would collapse to zero.
+
+This is not a defect in the algorithms or in the environment. It is a property
+of **replaying scripted policies**: a deterministic policy produces one
+trajectory per task, so its return distribution has no width. Generating usable
+training data means sampling a stochastic policy, which is the step this repo has
+not taken.
+
+Two things follow that are worth carrying:
+
+- **Check reward variance before designing a run.** One line of code, and it can
+  tell you the budget would be wasted.
+- **Group-relative methods need within-group diversity specifically.** A dataset
+  can have plenty of variance *across* policies and none *within* one, and only
+  the second is what GRPO consumes.
+
 ## Exercise
 
-Use `rl_reliability/strongbench/metrics.json` and answer these questions:
+Open [`metrics.json`](../../../rl_reliability/strongbench/metrics.json) and
+[`experiment-report.md`](../../../rl_reliability/strongbench/experiment-report.md).
 
-1. Which policy has higher reward?
-2. Which policy has unsafe submission failures?
-3. Would you approve a training claim if a future run improved average reward
-   but increased unsafe submission failures?
+1. Which policy has the higher average reward, and which has unsafe submission
+   failures? Say what each fact does and does not establish.
+2. `scripted_reference` has `distinct_rewards: 1`. Walk through what GRPO's
+   advantage computation does with a group drawn entirely from this policy.
+3. Would you approve a training claim if a run improved average reward but
+   increased unsafe submission failures?
 
 Check your answer:
 
 ```text
-1. scripted_reference has higher average reward.
-2. weak_submitter has unsafe submission failures.
-3. No. The Level 7 quality gate requires no unsafe submission increase and a
-   Level 2 benchmark regression check. Reward alone is insufficient.
+1. scripted_reference has the higher average reward at 1.90; weak_submitter has
+   the unsafe submission failures, 120 of 120. The first establishes that the
+   reward ranks a competent policy above a broken one — a sanity check on the
+   reward, not evidence about any trained policy. The second establishes that
+   the safety check fires; it says nothing about whether a trained policy would
+   trip it.
+
+2. Every completion in the group has the same return, so the group mean equals
+   every member's reward and each advantage is zero. Normalising by the group
+   standard deviation then divides zero by zero. Whatever the implementation
+   does with that — clamp, skip, or produce NaNs — no gradient carries useful
+   information, because there is no relative signal to extract. The batch
+   teaches nothing.
+
+3. No. The Level 7 quality gate is a conjunction: heldout success must improve,
+   unsafe submission failures must not increase, and the Level 2 benchmark must
+   not regress. Reward improvement alone satisfies none of the three, and an
+   increase in unsafe submissions fails the second outright regardless of what
+   the other numbers did.
 ```
 
 ## Reading
+
+- [`rl_reliability/strongbench/experiment-plan.md`](../../../rl_reliability/strongbench/experiment-plan.md)
+  — the decision rule any run using these algorithms must clear. Read it before
+  the TRL docs below: the algorithm is the easy half, and the gate is what makes
+  a result mean something.
+- [`environments/strongbench_finance/reward-design.md`](../../../environments/strongbench_finance/reward-design.md)
+  — the eight components PPO or GRPO would be optimising here. Knowing which
+  behaviours carry which weight is what lets you read a reward curve as
+  behaviour rather than as a number.
 
 - [TRL GRPO trainer source docs](https://github.com/huggingface/trl/blob/main/docs/source/grpo_trainer.md) — read "Looking deeper into the GRPO method", especially completion groups, advantage computation, KL estimation, and loss types. Use it to decide what reward normalization and KL settings your experiment would declare.
 - [TRL PPO trainer source docs](https://github.com/huggingface/trl/blob/main/docs/source/ppo_trainer.md) — read the logged metrics section. Use it to decide which metrics would appear in your experiment report before you trust a reward curve.

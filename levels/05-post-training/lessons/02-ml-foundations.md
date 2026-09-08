@@ -2,19 +2,38 @@
 
 ## Core Idea
 
-Track 5B requires a real training run. Eleven bullet points and a five-line loop will not prepare you for one, and this lesson does not pretend otherwise.
+Track 5B requires a real training run. Eleven bullet points and a five-line loop
+will not prepare you for one, and this lesson does not pretend otherwise.
 
-This lesson is a **prerequisite gate**, not a substitute course. Take one of the courses below before attempting Lab 3, or come in already knowing this material.
+This lesson is a **prerequisite gate**, not a substitute course. Its job is to
+tell you honestly whether you are ready, and to make the reasons concrete by
+pointing at the artifacts in this repo that you will have to interpret.
+
+The distinction that matters: Track 5A asks you to *decide* whether training is
+justified, and you can do that rigorously with what Levels 1–4 taught. Track 5B
+asks you to run and interpret training, which needs ML foundations this course
+does not provide. Attempting 5B without them produces a run you cannot debug and
+a result you cannot defend — and the honest fallback, completing 5A well, is a
+genuinely valuable deliverable.
 
 ## Prerequisite Courses
 
 Pick one and finish it. Each is free, self-paced, and code-first.
 
-- [Hugging Face LLM Course](https://huggingface.co/learn/llm-course/chapter1/1) — the closest fit to this track. Chapters 1-3 cover transformers, tokenization, datasets, and a full fine-tuning loop with the same library stack Lab 3 uses. Chapter 11 covers supervised fine-tuning and LoRA directly. Budget roughly 15-20 hours.
-- [fast.ai Practical Deep Learning for Coders](https://course.fast.ai/) — better if you have never trained any model. Broader than you need, stronger on intuition for loss, overfitting, and learning rates. Budget 40+ hours.
-- [Karpathy, Neural Networks: Zero to Hero](https://karpathy.ai/zero-to-hero.html) — best if you want backpropagation to stop being a black box. Build a transformer from scratch. Budget 20+ hours.
+- [Hugging Face LLM Course](https://huggingface.co/learn/llm-course/chapter1/1)
+  — the closest fit. Chapters 1-3 cover transformers, tokenization, datasets,
+  and a full fine-tuning loop with the same stack Lab 3 uses; chapter 11 covers
+  SFT and LoRA directly. Roughly 15-20 hours.
+- [fast.ai Practical Deep Learning for Coders](https://course.fast.ai/) — better
+  if you have never trained any model. Broader than you need, stronger on
+  intuition for loss, overfitting, and learning rates. 40+ hours.
+- [Karpathy, Neural Networks: Zero to Hero](https://karpathy.ai/zero-to-hero.html)
+  — best if you want backpropagation to stop being a black box. 20+ hours.
 
-For the specific libraries Lab 3 uses, read [TRL's SFT documentation](https://huggingface.co/docs/trl/en/sft_trainer) and [PEFT's LoRA guide](https://huggingface.co/docs/peft/en/developer_guides/lora) alongside the course.
+For the specific libraries Lab 3 uses, read
+[TRL's SFT documentation](https://huggingface.co/docs/trl/en/sft_trainer) and
+[PEFT's LoRA guide](https://huggingface.co/docs/peft/en/developer_guides/lora)
+alongside the course.
 
 ## Concepts You Must Already Understand
 
@@ -30,9 +49,10 @@ If any of these is unfamiliar, you are not ready for Lab 3:
 - checkpoints, and what is actually inside one
 - the difference between full fine-tuning and a LoRA adapter
 
-## Minimal Loop
+## The Minimal Loop
 
-The loop itself is four lines. Recognising it is not the same as knowing what to do when it produces a bad model.
+Four lines. Recognising it is not the same as knowing what to do when it
+produces a bad model.
 
 ```python
 outputs = model(**batch)
@@ -42,23 +62,106 @@ optimizer.step()
 optimizer.zero_grad()
 ```
 
+## Reading This Repo's Config Is The Real Test
+
+Open
+[`lora-config.template.json`](../../../model_improvement/strongbench/lora-config.template.json).
+Every value in it is a decision, and if you cannot say what each one trades you
+cannot debug a run that uses it.
+
+```json
+{"hyperparameters": {"lora_rank": 8, "lora_alpha": 16, "epochs": 1,
+                     "learning_rate": 0.0002, "max_sequence_length": 2048},
+ "dataset": {"train_rows": 78, "dev_rows": 47}}
+```
+
+Four questions to ask yourself, with the answers this repo implies:
+
+**Why rank 8 rather than 64?** Adapter capacity should be sized to the data.
+Seventy-eight rows and a high-rank adapter is a memorisation machine: training
+loss falls beautifully and the benchmark does not move. If raising rank improves
+a metric, the constraint you are hitting is data.
+
+**Why a learning rate of 2e-4, when full fine-tuning uses 1e-5 or lower?**
+Because only the adapter's parameters move. A small number of freshly
+initialised weights tolerates — and needs — a much larger step size than
+updating a whole pretrained model.
+
+**Why one epoch?** With 78 rows, more passes is more memorisation. The dev split
+of 47 rows exists to show you that happening: training loss down, dev loss up, is
+the picture the courses above teach you to recognise.
+
+**Is 2048 tokens enough?** Measure before trusting it. Agent training rows carry
+a system prompt, a task, and a structured answer; silent truncation removes the
+end of the target, which is where the answer lives.
+
+If those four questions read as obvious, you are ready. If two of them are new,
+take the course first.
+
+## The Concept That Matters Most Here
+
+Of everything on the list, **overfitting** is the one this course's data makes
+almost unavoidable.
+
+Seventy-eight training rows, two-thirds of them template-generated by a single
+generator, targeting four failure modes. A model can fit that distribution very
+well without acquiring any capability — it can learn the templates, or the
+compact shape of the oracle targets, and both show up as a falling loss.
+
+That is why the adoption gate names the held-out benchmark rather than any
+training metric, and why the dataset card warns that synthetic examples "should
+not be used to claim real model improvement without held-out benchmark
+evaluation." The ML concept and the evaluation discipline are the same idea seen
+from two sides.
+
 ## Common Failure Modes
 
-- Confusing memorization with generalization.
-- Changing hyperparameters without a baseline.
-- Reading training loss as task reliability.
+- **Confusing memorization with generalization.** The central risk at this data
+  size.
+- **Changing hyperparameters without a baseline.** No attribution for any
+  movement.
+- **Reading training loss as task reliability.** Loss is the objective; the
+  benchmark is the outcome.
+- **Sizing the adapter to ambition rather than to row count.**
+- **Trusting a sequence length you have not measured against your longest row.**
+- **Attempting 5B without the prerequisites.** A run you cannot interpret is
+  worse than no run, because it produces a number people will quote.
 
 ## Exercise
 
-Why is lower training loss not enough to adopt a model?
+Open [`lora-config.template.json`](../../../model_improvement/strongbench/lora-config.template.json)
+and [`decision.json`](../../../model_improvement/strongbench/decision.json).
+
+1. The config pairs `lora_rank: 8` with `train_rows: 78`. Explain what would
+   happen to training loss and to benchmark success at rank 64, and name the
+   split that would reveal it first.
+2. `learning_rate` is 2e-4, one to two orders of magnitude above a typical full
+   fine-tune. Explain why that is correct here rather than a mistake.
+3. Why is lower training loss not enough to adopt a model?
 
 Check your answer:
 
 ```text
-It may reflect memorization or output-format fit. Adoption needs heldout benchmark improvement and no safety regression.
-```
+1. Training loss would fall further and faster: more adapter capacity fits 78
+   examples more exactly. Benchmark success would stay flat or drop, because the
+   benchmark is 100 tasks the adapter has never seen and memorised examples do
+   not transfer. The dev split of 47 rows reveals it first — dev loss rising
+   while training loss falls is the classic overfitting picture, and it appears
+   during the run rather than after it.
 
-Use the Phase 5 decision memo to confirm the answer against the model-improvement workflow rather than relying on memory.
+2. Because LoRA updates only the adapter's low-rank matrices, which are freshly
+   initialised and few, while the pretrained base stays frozen. Large steps on a
+   small number of new parameters are safe and necessary; the same step size
+   applied to all of a pretrained model's weights would destroy the
+   representations it already has. The learning rate is scaled to what is
+   actually moving.
+
+3. It may reflect memorization or output-format fit rather than capability —
+   both lower the loss. Adoption requires held-out benchmark improvement and no
+   increase in unsafe submission failures, which is a conjunction the decision
+   memo states before any run. Loss tells you the run worked mechanically; it
+   says nothing about whether the agent got better at the job.
+```
 
 ## Checkpoint
 
@@ -67,6 +170,18 @@ You are ready for Lab 3 when you can:
 1. Explain what your loss number represents in the units of your data.
 2. Explain why a falling training loss with a rising validation loss is bad news.
 3. Read a LoRA config and say what rank, alpha, and target modules each control.
-4. Estimate the VRAM your run needs before you rent the GPU. See [resources/gpu.md](../../../resources/gpu.md) for what that costs.
+4. Estimate the VRAM your run needs before you rent the GPU. See
+   [resources/gpu.md](../../../resources/gpu.md) for what that costs.
 
-If you cannot do all four, complete Track 5A instead. A rigorous model improvement decision memo is a real deliverable, and it is worth more than a training run you cannot interpret.
+If you cannot do all four, complete Track 5A instead. A rigorous model
+improvement decision memo is a real deliverable, and it is worth more than a
+training run you cannot interpret.
+
+## Reading
+
+- [`model_improvement/strongbench/decision-memo.md`](../../../model_improvement/strongbench/decision-memo.md)
+  — the 5A deliverable, and the fallback this lesson recommends. Read it to see
+  what a rigorous decision looks like without any training.
+- [`resources/gpu.md`](../../../resources/gpu.md) — what a run actually costs.
+  Read it before the course above, so the budget is a known quantity rather than
+  a surprise at the end.
