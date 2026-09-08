@@ -14,8 +14,8 @@ Written by [`strongbench_agent/trace.py`](../strongbench_agent/trace.py). Checke
 | `model` | string | The adapter's model name, e.g. `scripted-reference-v1`. |
 | `prompt_version` | string | Which system prompt produced this run. Without it, an eval result cannot be reproduced. |
 | `trace_schema_version` | string | Semantic version of this document. |
-| `run_id` | string | Distinguishes two runs of the same task. |
-| `started_at` | number | Unix timestamp. |
+| `run_id` | string | Distinguishes two runs of the same task. Committed scripted bundles use a stable id so rebuilds are byte-reproducible. |
+| `started_at` | number | Unix timestamp. Committed scripted bundles use a fixed timestamp so rebuilds are byte-reproducible. |
 | `steps` | array | One entry per loop iteration. See below. |
 | `final_answer` | object or null | Must match the final-answer contract in [`strongbench_agent/schemas.py`](../strongbench_agent/schemas.py). Null when the run stopped early. |
 | `error` | string or null | Set on `model_error` and `max_steps_exceeded`. |
@@ -26,14 +26,14 @@ Written by [`strongbench_agent/trace.py`](../strongbench_agent/trace.py). Checke
 | Field | Type | Notes |
 | --- | --- | --- |
 | `step` | integer | 1-indexed. |
-| `started_at` | number | Unix timestamp. |
+| `started_at` | number | Unix timestamp. Committed scripted bundles use fixed, ordered timestamps. |
 | `model_text` | string | Any prose the model returned this turn. |
 | `tool_name` | string or null | Null when the model answered or stalled. |
 | `tool_arguments` | object or null | What the model asked for, **before** validation. Keep it even when validation fails: this is the raw material for Level 3's failure taxonomy. |
 | `validated_arguments` | object or null | Null when validation rejected the call. |
 | `observation` | any | What the tool returned. Null on error. |
 | `error` | string or null | Prefixed by kind: `invalid_arguments`, `unknown_tool`, `tool_error`, `model_error`, `final_answer_invalid`, `no_action`. |
-| `latency_ms` | integer | Model call duration. |
+| `latency_ms` | integer | Model call duration. Committed scripted bundles set this to `0`; real-model runs may record wall-clock timing. |
 | `usage` | object | `input_tokens` / `output_tokens` when the provider reports them. |
 
 ## Metadata

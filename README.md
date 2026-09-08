@@ -69,9 +69,9 @@ training is kept optional and explicit:
 python3 -m rl_reliability.strongbench
 ```
 
-The next build priority is release hardening: make Level 1 trace generation
-byte-reproducible, clean up README dependency wording, and decide whether to
-expand or rename the finance simulator scope.
+The next build priority is finance simulator scope expansion: keep the first
+slice expense-first, then add reporting, reconciliation, and related finance
+operations workflows.
 
 The course is organized around a simple progression:
 
@@ -203,7 +203,7 @@ After Level 4, learners can choose one or more tracks:
 
 1. Read [curriculum/framework.md](curriculum/framework.md) for what this course is and why it is shaped this way.
 
-2. Run the agent. No signup, no API key, and nothing to install:
+2. Run the agent. No signup, no API key, and no package install is needed for the default scripted run or trace check:
 
    ```bash
    cd examples/strongbench-expense-agent
@@ -214,7 +214,7 @@ After Level 4, learners can choose one or more tracks:
    Then read [its README](examples/strongbench-expense-agent/README.md), particularly the design decisions and the known limitations.
 
    The agent and every builder in this repo run on the standard library alone.
-   Only the test suites need a dependency:
+   The test suites are the part that need `pytest`:
 
    ```bash
    python3 -m pip install -r examples/strongbench-expense-agent/requirements.txt

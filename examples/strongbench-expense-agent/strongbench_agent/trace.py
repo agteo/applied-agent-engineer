@@ -10,6 +10,7 @@ Schema documented in docs/trace-schema.md.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import time
 import uuid
@@ -18,6 +19,7 @@ from pathlib import Path
 from typing import Any
 
 TRACE_SCHEMA_VERSION = "1.0.0"
+DETERMINISTIC_STARTED_AT = 1_700_000_000.0
 
 
 @dataclass
@@ -72,16 +74,40 @@ class TraceWriter:
     failure is confusing when the cause is just a second run.
     """
 
-    def __init__(self, path: str | Path, append: bool = False) -> None:
+    def __init__(self, path: str | Path, append: bool = False, deterministic: bool = True) -> None:
         self.path = Path(path)
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self._opened = append
+        self._deterministic = deterministic
+        self._rows_written = 0
 
     def write(self, trace: Trace) -> None:
         mode = "a" if self._opened else "w"
         self._opened = True
+        payload = trace.to_dict()
+        if self._deterministic:
+            payload = deterministic_trace_payload(payload, self._rows_written)
+        self._rows_written += 1
         with open(self.path, mode, encoding="utf-8") as handle:
-            handle.write(json.dumps(trace.to_dict(), default=str) + "\n")
+            handle.write(json.dumps(payload, default=str) + "\n")
+
+
+def deterministic_trace_payload(payload: dict[str, Any], row_index: int = 0) -> dict[str, Any]:
+    """Normalize volatile trace fields for committed scripted trace bundles."""
+    normalized = dict(payload)
+    stable_source = "|".join(
+        str(normalized.get(key, ""))
+        for key in ("trace_schema_version", "agent_version", "model", "prompt_version", "task_id", "task")
+    )
+    normalized["run_id"] = hashlib.sha256(stable_source.encode("utf-8")).hexdigest()[:12]
+    normalized["started_at"] = DETERMINISTIC_STARTED_AT + row_index
+    for step_index, step in enumerate(normalized.get("steps", []), start=1):
+        step["started_at"] = DETERMINISTIC_STARTED_AT + row_index + (step_index / 1000)
+        step["latency_ms"] = 0
+    metadata = normalized.get("metadata", {})
+    metadata["latency_ms"] = 0
+    normalized["metadata"] = metadata
+    return normalized
 
 
 def load_traces(path: str | Path) -> list[dict[str, Any]]:

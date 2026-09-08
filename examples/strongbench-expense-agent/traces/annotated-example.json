@@ -18,12 +18,12 @@
     "model": "scripted-reference-v1",
     "prompt_version": "strongbench-expense-system-prompt-v1",
     "trace_schema_version": "1.0.0",
-    "run_id": "4436f40b1a7a",
-    "started_at": 1788806783.69821,
+    "run_id": "c679b8ad4d8e",
+    "started_at": 1700000003.0,
     "steps": [
       {
         "step": 1,
-        "started_at": 1788806783.698211,
+        "started_at": 1700000003.001,
         "model_text": "",
         "tool_name": "search_policy",
         "tool_arguments": {
@@ -73,7 +73,7 @@
       },
       {
         "step": 2,
-        "started_at": 1788806783.698268,
+        "started_at": 1700000003.002,
         "model_text": "",
         "tool_name": "lookup_receipt",
         "tool_arguments": {
@@ -120,7 +120,7 @@
       },
       {
         "step": 3,
-        "started_at": 1788806783.6983402,
+        "started_at": 1700000003.003,
         "model_text": "",
         "tool_name": "calculate_reimbursement",
         "tool_arguments": {
@@ -217,7 +217,7 @@
       },
       {
         "step": 4,
-        "started_at": 1788806783.698377,
+        "started_at": 1700000003.004,
         "model_text": "",
         "tool_name": null,
         "tool_arguments": null,

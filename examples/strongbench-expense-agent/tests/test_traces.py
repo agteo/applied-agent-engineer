@@ -4,7 +4,7 @@ from strongbench_agent import fixtures
 from strongbench_agent.agent import run_agent
 from strongbench_agent.check_traces import check
 from strongbench_agent.models import ScriptedModel
-from strongbench_agent.trace import TRACE_SCHEMA_VERSION, TraceWriter, load_traces
+from strongbench_agent.trace import DETERMINISTIC_STARTED_AT, TRACE_SCHEMA_VERSION, TraceWriter, load_traces
 
 
 def _run_all(path):
@@ -45,6 +45,20 @@ def test_trace_records_the_full_step_detail(tmp_path):
     assert tool_step["observation"] is not None
     assert trace["metadata"]["stop_reason"] == "final_answer"
     assert trace["metadata"]["latency_ms"] >= 0
+
+
+def test_scripted_trace_bundle_is_byte_reproducible(tmp_path):
+    path = tmp_path / "traces.jsonl"
+    _run_all(path)
+    first = path.read_bytes()
+
+    _run_all(path)
+    second = path.read_bytes()
+
+    traces = load_traces(path)
+    assert first == second
+    assert traces[0]["started_at"] == DETERMINISTIC_STARTED_AT
+    assert all(step["latency_ms"] == 0 for trace in traces for step in trace["steps"])
 
 
 def test_the_level_1_bundle_passes_the_automated_check(tmp_path):

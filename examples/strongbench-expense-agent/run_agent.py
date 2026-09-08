@@ -50,7 +50,7 @@ def main(argv: list[str] | None = None) -> int:
     else:
         selected = [{"task_id": "adhoc-001", "task": args.task, "employee_id": args.employee_id}]
 
-    writer = TraceWriter(args.traces, append=args.append)
+    writer = TraceWriter(args.traces, append=args.append, deterministic=args.model == "scripted")
     failures = 0
 
     for entry in selected:
