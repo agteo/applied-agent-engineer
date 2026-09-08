@@ -2,69 +2,171 @@
 
 ## Core Idea
 
-An agent that works once has not been engineered yet.
+Without evaluation you have opinions about your agent. With evaluation you have
+a number you can be wrong about — and being wrong in a way you can detect is the
+whole point.
 
-Evaluation turns demos into evidence. It helps teams decide whether a system is ready, whether a change helped, and where to invest next.
+The reason this matters more for agents than for ordinary software is that
+agents fail *plausibly*. A broken function throws. A broken agent returns a
+confident, well-formatted, entirely wrong answer, and nothing in the output
+distinguishes it from a correct one. In this repo, `bench-029` produces a clean
+summary, cites a real policy, reports `"confidence": "high"`, and is wrong by
+thirty-three dollars. No exception was raised. No log line was unusual.
 
-## Evaluation Questions
+That is the gap evaluation closes. Not "is the agent good?" — a question that
+resists answering — but the two questions you can actually act on: **did this
+change make things worse, and is it safe to ship?**
 
-A useful eval answers specific questions:
+## Demos Prove Nothing
 
-- Did the agent complete the task?
-- Was the final answer structurally valid?
-- Were policy citations correct?
-- Did the agent call the right tools?
-- Did the agent avoid unsafe actions?
-- How much did it cost?
-- How long did it take?
-- Did the new version improve over the old one?
+Every agent has a demo where it works. It was built against those cases.
 
-## Bad Eval Questions
+The failure of demo-driven development is not that the demo is faked; it is that
+the demo is a sample of size one, chosen by the person with the strongest reason
+to choose favourably. It cannot detect a regression, cannot compare two
+configurations, and cannot tell you which of an agent's capabilities is broken —
+because it exercises one.
 
-Avoid vague questions like:
+Compare with the artifact this level produces:
 
-- Is the agent smart?
-- Does the answer look good?
-- Which model is best?
-- Did the demo work?
+```text
+- tasks: 100
+- passed: 89
+- success_rate: 0.890
 
-Those questions hide the behavior you need to measure.
+| receipt_lookup | 3 | 10 | 0.300 |
+```
 
-## Evaluation Layers
+The second line is a claim about the whole system. The fourth is the finding: a
+capability that fails seven times in ten, invisible to anyone running a demo of
+the other four.
 
-Use multiple layers:
+## A Benchmark Has To Be Shown To Fail
 
-1. Contract checks: can the output be parsed?
-2. Deterministic grading: are known fields correct?
-3. Rubric grading: is the answer useful?
-4. Human review: do people agree with the automated graders?
-5. Regression comparison: did behavior improve?
+Here is the trap that makes many benchmarks worthless: **a test that everything
+passes is not a test.** A benchmark whose tasks can be satisfied without doing
+the work will report a high number for an agent that does not work, and the
+number will feel like reassurance.
+
+This repo checks for that explicitly by running a deliberately broken
+configuration alongside the real one:
+
+```text
+scripted baseline:      89/100 passed
+weak no-tool baseline:   0/30  passed
+```
+
+`weak-no-tool` is the same agent with its evidence-producing tools removed — it
+answers from the prompt. It scores zero. That is what makes the 89 a
+measurement: the tasks genuinely require the behaviour they claim to require,
+and an agent that skips it is caught on every single one.
+
+Run a deliberately broken configuration against your own benchmark before
+trusting it. If it does well, your benchmark is measuring something other than
+what you think.
+
+## The Number Becomes A Gate
+
+An eval that informs is useful. An eval that *blocks* changes behaviour.
+
+```json
+{"min_success_rate": 0.72}
+```
+
+That threshold is committed to the repo and enforced in CI. A change that drops
+the benchmark below it fails the build, which converts "we should check the
+benchmark" from a discipline someone has to remember into a property of the
+pipeline.
+
+The gap between 0.890 and 0.72 is not slack. It is the margin the known failures
+sit behind — receipt lookup, item parsing, approval boundaries — and the release
+recommendation says explicitly not to weaken the gate merely because nothing is
+near it.
+
+## What Evaluation Cannot Do
+
+Worth stating early, so the rest of the level is read accurately.
+
+**It cannot tell you the agent is good.** It tells you the agent scores 0.890 on
+one hundred tasks that someone chose. Coverage is a design decision, and the
+benchmark cannot see what it does not contain.
+
+**It cannot replace diagnosis.** A score says something is wrong, never why.
+That is Level 3, and it needs traces the benchmark does not read.
+
+**It cannot outrun contamination.** If tasks leak into training data, the
+number rises and means less. That is Level 4.
+
+**A passing gate is not evidence of correctness.** It is evidence that a
+specific set of checks did not fire.
+
+An evaluation you understand the limits of is worth more than one you trust.
 
 ## Common Failure Modes
 
-- Using a demo transcript as evidence of reliability.
-- Changing prompts without rerunning the benchmark.
-- Optimizing for the average score while ignoring a safety slice.
+- **Shipping on a demo.** A sample of one, chosen by an interested party.
+- **Trusting a benchmark nothing has failed.** Run a broken config first.
+- **Reading the aggregate only.** 89% conceals a capability at 30%.
+- **Treating the score as a verdict on quality.** It is a score on the tasks you
+  wrote.
+- **An eval that informs but does not gate.** Discipline decays; CI does not.
+- **Weakening the gate because there is headroom.** The headroom is the margin.
+- **Expecting the score to explain itself.** Scores locate; traces explain.
 
 ## Exercise
 
-Explain why a single successful StrongBench reimbursement run is not enough evidence to ship.
+Open [`sample-report.md`](../../../evals/reports/sample-report.md) and
+[`intervention-experiment.md`](../../../evals/operations/strongbench/intervention-experiment.md).
+
+1. `weak-no-tool` scores 0/30 and the scripted baseline scores 89/100. What
+   claim does having both numbers support that either alone would not?
+2. A colleague proposes lowering `min_success_rate` from 0.72 to 0.65 because
+   "no build has ever come close to failing it." Give the strongest version of
+   their argument, then the counter-argument.
+3. `bench-029` returns a fluent, well-cited answer with `"confidence": "high"`
+   and is wrong. Name two things in the report that catch it, and one thing that
+   would not have.
 
 Check your answer:
 
 ```text
-One run does not cover task variety, regressions, safety cases, or grader reproducibility. A benchmark gives repeated, comparable evidence.
+1. That the benchmark can detect failure. 89/100 alone is compatible with a
+   lenient benchmark almost anything passes; 0/30 alone says only that a broken
+   agent is broken. Together they show the tasks depend on the behaviour they
+   claim to measure — removing the tools collapses the score to zero — which is
+   what upgrades 89 from a number to a measurement.
+
+2. For: a gate nothing approaches is not gating anything, it is ceremony, and
+   the real quality bar is enforced by review. Against: the gate is not sized to
+   the current baseline, it is sized to what would be unacceptable to ship. The
+   annotated failures show live risks in receipt lookup, parsing and approval
+   boundaries; the headroom is the margin those are held behind. Lowering the
+   floor because you are far from it is spending a safety margin to buy nothing.
+
+3. Caught by: the deterministic total check, which compares 108.00 against the
+   expected 75.00 and reports both values; and the per-tag table, where the
+   failure contributes to a slice that can be seen collapsing. Not caught by:
+   the agent's own confidence field, which reports "high" — self-reported
+   confidence measures internal coherence, and this trace is perfectly coherent
+   from the miscategorisation onward.
 ```
 
-Use the Level 2 benchmark report to confirm the answer against the evaluation system rather than relying on memory.
+Then run `python3 -m evals.runner --model scripted` and read the header before
+the slice table. Notice how different a picture you have after ten more seconds
+of reading.
 
 ## Checkpoint
 
-You are ready to move on when you can name the exact behaviors your benchmark should measure.
+You are ready to move on when you can state what your benchmark can and cannot
+establish, have run a deliberately broken configuration against it, and know
+what your gate is protecting rather than only what it is set to.
 
 ## Reading
 
-- [Inspect](https://inspect.aisi.org.uk/?lang=en-US) — the UK AI Safety Institute's eval framework. Read its docs on datasets, solvers, and scorers before you design your own benchmark: the vocabulary it uses is the one the field uses, and its structure is close to what Level 2 asks you to build by hand.
-- [OpenAI Evals](https://github.com/openai/evals) — a registry of real evals. Read three of them and notice how much of an eval is dataset curation rather than code.
-
-Build yours by hand anyway. You should meet these frameworks knowing what they are solving, not before.
+- [`evals/operations/strongbench/release-recommendation.md`](../../../evals/operations/strongbench/release-recommendation.md)
+  — one page on why a passing baseline is not a reason to relax a gate. Read it
+  before the first time someone proposes lowering yours.
+- [SWE-bench](https://github.com/princeton-nlp/SWE-bench) — a benchmark whose
+  tasks cannot be passed without doing the work, because the success criterion
+  is an executable test suite. Read it when deciding how much of your own
+  grading can be made that unambiguous.
