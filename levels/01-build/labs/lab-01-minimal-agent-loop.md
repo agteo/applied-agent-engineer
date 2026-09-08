@@ -4,9 +4,20 @@
 
 Build the smallest useful agent loop: a model call that can either answer directly or call one tool and use the observation in a follow-up answer.
 
+## Run this in the browser
+
+Open the [Lab 1 browser workspace](#/levels/01-build/labs/lab-01/workspace) to edit and run your starter code without a local Python setup. The local command below remains available for comparison.
+
 ## Build
 
-Create a script that supports this flow:
+Start from the learner file:
+
+```bash
+cd examples/strongbench-expense-agent
+python3 checks/lab_01.py starters/lab_01_minimal_agent_loop.py
+```
+
+Complete the TODOs until the same command passes. Your script should support this flow:
 
 ```text
 User task
@@ -60,12 +71,20 @@ Submit:
 
 ## Checks
 
-The lab passes if:
+Run the deterministic grader:
+
+```bash
+cd examples/strongbench-expense-agent
+python3 checks/lab_01.py starters/lab_01_minimal_agent_loop.py
+```
+
+The grader checks that:
 
 - the loop stops correctly
 - the tool call is executed only when needed
 - the final answer uses the tool result when a tool was called
 - the trace records the model response, tool call, observation, and final answer
+- the calculator rejects unsafe expressions instead of evaluating arbitrary code
 
 ## Reference Solution
 
@@ -73,7 +92,8 @@ Write your own version first, then compare: [`solutions/lab_01_minimal_agent_loo
 
 ```bash
 cd examples/strongbench-expense-agent
-python solutions/lab_01_minimal_agent_loop.py
+python3 checks/lab_01.py solutions/lab_01_minimal_agent_loop.py
+python3 solutions/lab_01_minimal_agent_loop.py
 ```
 
 It is standalone by design: no imports from the harness, because Lab 1's point is that an agent loop is about forty lines and no framework. [How to compare](../../../examples/strongbench-expense-agent/solutions/README.md).

@@ -54,8 +54,10 @@ fixtures/
   employees.json    # 6 employees and their reporting lines
   tasks.json        # the 22 manual Level 1 tasks
 
+starters/           # learner starting files with TODOs
+checks/             # deterministic lab graders
 solutions/          # reference solution for each of the four Level 1 labs
-tests/              # 50 tests covering validation, tools, harness, and traces
+tests/              # tests covering validation, tools, harness, traces, and lab checks
 traces/             # generated trace bundle + one hand-annotated example
 docs/trace-schema.md
 run_agent.py        # CLI
