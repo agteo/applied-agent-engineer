@@ -27,5 +27,11 @@ jobs:
       - name: Build StrongBench finance environment bundle
         run: python3 -m environments.strongbench_finance
 
+      - name: Build code repair environment bundle
+        run: python3 -m environments.code_repair
+
+      - name: Validate both environment contracts
+        run: python3 -m environments.runner environments.code_repair --out /tmp/code-repair-contract --tasks 12
+
       - name: Fail if committed artifacts drifted from a fresh build
         run: git diff --exit-code -- environments

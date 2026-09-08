@@ -1,0 +1,49 @@
+[
+  {
+    "name": "read_file",
+    "required": [
+      "repo_id",
+      "path"
+    ],
+    "state_transition": "append audit event"
+  },
+  {
+    "name": "apply_patch",
+    "required": [
+      "task_id",
+      "repo_id",
+      "path",
+      "replacement",
+      "rationale"
+    ],
+    "state_transition": "write repository file and patches[patch-task_id]"
+  },
+  {
+    "name": "run_tests",
+    "required": [
+      "task_id",
+      "repo_id",
+      "suite"
+    ],
+    "state_transition": "write test_runs[tests-task_id-suite]"
+  },
+  {
+    "name": "run_static_check",
+    "required": [
+      "task_id",
+      "repo_id",
+      "path"
+    ],
+    "state_transition": "write static_checks[static-task_id]"
+  },
+  {
+    "name": "final_answer",
+    "required": [
+      "task_id",
+      "summary",
+      "changed_files",
+      "tests_passed"
+    ],
+    "state_transition": "write final_answers[task_id]"
+  }
+]

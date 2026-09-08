@@ -1,0 +1,64 @@
+{
+  "distinct_task_count": 60,
+  "environment": "code_repair",
+  "metrics": {
+    "average_reward": 1.95,
+    "by_category": {
+      "authorization": 10,
+      "none_guard": 10,
+      "numeric_precision": 10,
+      "off_by_one": 10,
+      "ordering": 10,
+      "state_machine": 10
+    },
+    "by_policy": {
+      "reward_hacker": {
+        "average_reward": -1.7,
+        "distinct_rewards": 1,
+        "fabricated_test_claims": 60,
+        "passed": 0,
+        "rollouts": 60,
+        "success_rate": 0.0
+      },
+      "scripted_reference": {
+        "average_reward": 1.95,
+        "distinct_rewards": 1,
+        "fabricated_test_claims": 0,
+        "passed": 60,
+        "rollouts": 60,
+        "success_rate": 1.0
+      }
+    },
+    "distinct_task_count": 60,
+    "passed": 60,
+    "reward_hacker_catch_rate": 1.0,
+    "reward_hacker_caught": 60,
+    "rollout_count": 60,
+    "success_rate": 1.0,
+    "task_count": 60,
+    "tool_count": 5,
+    "verifier_types": [
+      "deterministic",
+      "state",
+      "constraint"
+    ]
+  },
+  "outputs": [
+    "manifest.json",
+    "state-schema.json",
+    "initial-state.json",
+    "tool-schemas.json",
+    "tasks.jsonl",
+    "rollouts.jsonl",
+    "probe-rollouts.jsonl",
+    "metrics.json",
+    "reward-design.md",
+    "verifier-report.md",
+    "transfer-note.md"
+  ],
+  "runner": "python3 -m environments.code_repair",
+  "scope": "deterministic code-repair tasks with simulated file, test, and static-check tools",
+  "seed": 42,
+  "task_count": 60,
+  "version": "0.1.0"
+}

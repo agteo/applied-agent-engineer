@@ -53,6 +53,14 @@ and verifier-derived rewards:
 python3 -m environments.strongbench_finance
 ```
 
+Workstream D builds a second code-repair environment against the same verifier
+and reward contract:
+
+```bash
+python3 -m environments.code_repair
+python3 -m environments.runner environments.code_repair --out /tmp/code-repair-contract --tasks 12
+```
+
 Level 7 builds RL literacy over the local simulator: rollout comparison, reward
 decomposition, and reward-hacking review. No training run happens, and hosted
 training is kept optional and explicit:
@@ -61,9 +69,9 @@ training is kept optional and explicit:
 python3 -m rl_reliability.strongbench
 ```
 
-The next build priority is hardening the course through portfolio and
-domain-transfer workstreams. The lesson-depth gate now runs in CI, and every
-numbered lesson has a named failure-mode section plus a checkable exercise.
+The next build priority after Workstream D is Phase 6.1: add a model-based
+verifier reference implementation to match the four verifier types taught in
+Level 6.
 
 The course is organized around a simple progression:
 
@@ -164,6 +172,9 @@ model_improvement/
   strongbench/             # Level 5A decision bundle, SFT export, LoRA dry-run config
 environments/
   strongbench_finance/            # Level 6 simulator, tasks, rollouts, verifiers, rewards
+  code_repair/             # Workstream D transfer environment using the same contract
+  contract.py              # shared environment contract checks
+  runner.py                # domain-agnostic environment runner
 rl_reliability/
   strongbench/             # Level 7 rollouts, reward-hacking review, experiment templates
 resources/
@@ -243,7 +254,14 @@ After Level 4, learners can choose one or more tracks:
    python3 -m environments.strongbench_finance
    ```
 
-9. Build the Level 7 RL literacy bundle, and check the adapter loads:
+9. Build the Workstream D transfer environment:
+
+   ```bash
+   python3 -m environments.code_repair
+   python3 -m environments.runner environments.code_repair --out /tmp/code-repair-contract --tasks 12
+   ```
+
+10. Build the Level 7 RL literacy bundle, and check the adapter loads:
 
    ```bash
    python3 -m rl_reliability.strongbench

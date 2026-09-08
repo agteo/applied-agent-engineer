@@ -1,0 +1,43 @@
+{
+  "properties": {
+    "audit_log": {
+      "type": "array"
+    },
+    "environment": {
+      "const": "code_repair"
+    },
+    "final_answers": {
+      "type": "object"
+    },
+    "patches": {
+      "type": "object"
+    },
+    "repositories": {
+      "type": "object"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "seed": {
+      "type": "integer"
+    },
+    "static_checks": {
+      "type": "object"
+    },
+    "test_runs": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "environment",
+    "seed",
+    "repositories",
+    "patches",
+    "test_runs",
+    "static_checks",
+    "final_answers",
+    "audit_log"
+  ],
+  "type": "object"
+}

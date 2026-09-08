@@ -1,0 +1,72 @@
+{
+  "audit_log": [],
+  "environment": "code_repair",
+  "final_answers": {},
+  "patches": {},
+  "repositories": {
+    "repo-none-discount": {
+      "files": {
+        "checkout/discounts.py": "def normalize_discount(code):\n    return code.strip().upper()\n",
+        "tests/test_regression.py": "assert normalize_discount(' save10 ') == 'SAVE10'\nassert normalize_discount(None) == ''\n"
+      },
+      "hidden_tests": [
+        "assert normalize_discount(None) == ''"
+      ],
+      "name": "service-none-discount"
+    },
+    "repo-retry-budget": {
+      "files": {
+        "tests/test_regression.py": "assert should_retry(2, 3) is True\nassert should_retry(3, 3) is False\n",
+        "workers/retries.py": "def should_retry(attempts, max_attempts):\n    return attempts <= max_attempts\n"
+      },
+      "hidden_tests": [
+        "assert should_retry(3, 3) is False"
+      ],
+      "name": "service-retry-budget"
+    },
+    "repo-role-prefix": {
+      "files": {
+        "support/auth.py": "def can_close_ticket(user):\n    return 'admin' in user['roles']\n",
+        "tests/test_regression.py": "assert can_close_ticket({'roles': ['support_admin']}) is True\nassert can_close_ticket({'roles': ['billing_admin']}) is False\n"
+      },
+      "hidden_tests": [
+        "assert can_close_ticket({'roles': ['billing_admin']}) is False"
+      ],
+      "name": "service-role-prefix"
+    },
+    "repo-round-money": {
+      "files": {
+        "billing/money.py": "def dollars_to_cents(amount):\n    return int(amount * 100)\n",
+        "tests/test_regression.py": "assert dollars_to_cents(10.25) == 1025\nassert dollars_to_cents(10.235) == 1024\n"
+      },
+      "hidden_tests": [
+        "assert dollars_to_cents(10.235) == 1024"
+      ],
+      "name": "service-round-money"
+    },
+    "repo-stable-sort": {
+      "files": {
+        "queue/priorities.py": "def order_jobs(jobs):\n    return sorted(jobs, key=lambda job: job['created_at'])\n",
+        "tests/test_regression.py": "assert [j['id'] for j in order_jobs([{'id': 'a', 'priority': 1, 'created_at': 1}, {'id': 'b', 'priority': 3, 'created_at': 2}])] == ['b', 'a']\nassert [j['id'] for j in order_jobs([{'id': 'a', 'priority': 2, 'created_at': 2}, {'id': 'b', 'priority': 2, 'created_at': 1}])] == ['b', 'a']\n"
+      },
+      "hidden_tests": [
+        "assert [j['id'] for j in order_jobs([{'id': 'a', 'priority': 2, 'created_at': 2}, {'id': 'b', 'priority': 2, 'created_at': 1}])] == ['b', 'a']"
+      ],
+      "name": "service-stable-sort"
+    },
+    "repo-sum-last-item": {
+      "files": {
+        "billing/totals.py": "def total_cents(items):\n    return sum(item['cents'] for item in items[:-1])\n",
+        "tests/test_regression.py": "assert total_cents([{'cents': 100}, {'cents': 50}]) == 150\nassert total_cents([{'cents': 99}]) == 99\n"
+      },
+      "hidden_tests": [
+        "assert total_cents([{'cents': 99}]) == 99"
+      ],
+      "name": "service-sum-last-item"
+    }
+  },
+  "schema_version": "0.1.0",
+  "seed": 42,
+  "static_checks": {},
+  "test_runs": {}
+}
