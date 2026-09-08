@@ -26,7 +26,8 @@ environments/
 ```
 
 The first version has 120 deterministic expense tasks, six simulated tools,
-deterministic/state/constraint verifiers, reward components, and rollout logs.
+deterministic/state/constraint/model-based verifiers, reward components, and
+rollout logs.
 
 Build the Workstream D code-repair transfer environment:
 
@@ -53,9 +54,9 @@ environments/
 ```
 
 The code-repair environment has 60 deterministic repair tasks, five simulated
-tools, deterministic/state/constraint verifiers, reward components, rollout
-logs, and a reward-hacking probe that claims tests passed without recorded test
-evidence.
+tools, deterministic/state/constraint/model-based verifiers, reward components,
+rollout logs, and a reward-hacking probe that claims tests passed without
+recorded test evidence.
 
 Both environments implement the shared contract checked by
 [`contract.py`](contract.py). The domain-agnostic runner can build any module

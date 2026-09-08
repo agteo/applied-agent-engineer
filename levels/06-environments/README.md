@@ -115,7 +115,7 @@ To complete Level 6, the learner must submit:
 1. A documented environment state schema.
 2. At least five simulated tools.
 3. At least 100 generated tasks.
-4. Deterministic, state, and constraint verifiers.
+4. Deterministic, state, constraint, and model-based verifiers.
 5. A reward function derived from verifier components, with known limitations.
 6. Reproducible rollout logs.
 7. A realism and simulator-bias note.

@@ -11,6 +11,8 @@ Rewards are derived from verifier outputs, not final-answer vibes.
   `lookup_receipt`. Naming a receipt id in the draft does not count.
 - `+0.20 / -0.50 correct_approval_behavior`: approvals match what policy requires, in both
   directions. Requesting approval on every task is penalised.
+- `+/-0.15 model_based_answer_quality`: an offline judge scores whether the final answer
+  clearly explains draft, submission, total, and policy evidence.
 - `+0.10 valid_final_answer_contract`: the rollout ends with a final answer whose total
   matches the draft it filed.
 - `-0.40 invalid_tool_call`: each failed tool call is penalised.

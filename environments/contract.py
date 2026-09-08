@@ -28,6 +28,7 @@ REQUIRED_BUNDLE_KEYS = {
     "metrics",
     "reward_design",
     "verifier_report",
+    "model_verifier_rubric",
 }
 
 
@@ -52,7 +53,7 @@ def validate_environment_module(module: ModuleType, task_count: int = 6) -> dict
         raise AssertionError(f"{module.__name__} scripted policy did not pass every task")
     if not all(not row["verifier"]["passed"] for row in probes):
         raise AssertionError(f"{module.__name__} reward-hacking probe was not caught")
-    if set(bundle["metrics"]["verifier_types"]) != {"deterministic", "state", "constraint"}:
+    if set(bundle["metrics"]["verifier_types"]) != {"deterministic", "state", "constraint", "model_based"}:
         raise AssertionError(f"{module.__name__} verifier types drifted")
     return bundle["metrics"]
 

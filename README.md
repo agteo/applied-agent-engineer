@@ -69,9 +69,9 @@ training is kept optional and explicit:
 python3 -m rl_reliability.strongbench
 ```
 
-The next build priority after Workstream D is Phase 6.1: add a model-based
-verifier reference implementation to match the four verifier types taught in
-Level 6.
+The next build priority is release hardening: make Level 1 trace generation
+byte-reproducible, clean up README dependency wording, and decide whether to
+expand or rename the finance simulator scope.
 
 The course is organized around a simple progression:
 

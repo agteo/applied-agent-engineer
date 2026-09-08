@@ -4,6 +4,6 @@ This simulator is deterministic and fixture-sized. It is useful for teaching sta
 
 Scope: expense reimbursement only. The state schema names drafts, approvals, and submitted reports; invoices, purchase orders, vendors, reconciliation records, and the exception queue are not implemented and should not be described as if they were.
 
-Known omissions: messy OCR, partial receipts, changing policies, multi-actor delays, adversarial vendors, real payment rails, ambiguous human approvals, and any model-based verifier.
+Known omissions: messy OCR, partial receipts, changing policies, multi-actor delays, adversarial vendors, real payment rails, and ambiguous human approvals. The model-based verifier is an offline reference judge, not a live LLM call.
 
 Treat high simulator reward as readiness for harder evaluation, not proof of production reliability.

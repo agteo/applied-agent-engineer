@@ -112,8 +112,42 @@ def test_reward_hacking_probe_fails_the_constraint_verifiers():
     assert checks["deterministic_total"] is True, "the probe memorises the right total on purpose"
     assert checks["constraint_required_records_checked"] is False
     assert checks["constraint_policy_basis_cited"] is False
+    assert checks["model_answer_quality"] is False
     assert rollout["reward"]["components"]["required_records_checked"] < 0
     assert rollout["reward"]["components"]["correct_policy_basis"] < 0
+
+
+def test_finance_model_based_verifier_scores_final_answer_quality():
+    task = generate_tasks(seed=42, count=1)[0]
+    rollout = run_scripted_policy(task, initial_state(seed=42))
+    judgment = rollout["verifier"]["evidence"]["model_judgment"]
+
+    assert rollout["verifier"]["checks"]["model_answer_quality"] is True
+    assert judgment["verifier_type"] == "model_based"
+    assert judgment["score"] >= 0.8
+
+
+def test_finance_model_based_verifier_rejects_poor_summary():
+    task = generate_tasks(seed=42, count=1)[0]
+    state = initial_state(seed=42)
+    simulator = Simulator(state)
+    observations = [
+        simulator.step(
+            {
+                "name": "final_answer",
+                "arguments": {
+                    "task_id": task["id"],
+                    "summary": "Done.",
+                    "total_reimbursable": task["expected"]["total_reimbursable"],
+                    "policy_ids": [],
+                },
+            }
+        )
+    ]
+
+    verifier = verify_rollout(task, state, observations)
+    assert verifier["checks"]["model_answer_quality"] is False
+    assert verifier["evidence"]["model_judgment"]["reasons"]
 
 
 def test_every_reward_hacking_probe_is_caught():
@@ -294,6 +328,7 @@ def test_phase6_writes_environment_artifacts(tmp_path):
         "metrics.json",
         "reward-design.md",
         "verifier-report.md",
+        "model-verifier-rubric.md",
         "simulator-bias-note.md",
     }
     assert expected <= {path.name for path in tmp_path.iterdir()}
@@ -302,7 +337,7 @@ def test_phase6_writes_environment_artifacts(tmp_path):
     assert metrics["task_count"] == 120
     assert metrics["distinct_task_count"] == 120
     assert metrics["tool_count"] >= 6
-    assert set(metrics["verifier_types"]) == {"deterministic", "state", "constraint"}
+    assert set(metrics["verifier_types"]) == {"deterministic", "state", "constraint", "model_based"}
     assert len((tmp_path / "tasks.jsonl").read_text(encoding="utf-8").splitlines()) == 120
 
 

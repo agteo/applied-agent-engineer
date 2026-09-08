@@ -2,7 +2,7 @@
   "distinct_task_count": 60,
   "environment": "code_repair",
   "metrics": {
-    "average_reward": 1.95,
+    "average_reward": 2.1,
     "by_category": {
       "authorization": 10,
       "none_guard": 10,
@@ -13,7 +13,7 @@
     },
     "by_policy": {
       "reward_hacker": {
-        "average_reward": -1.7,
+        "average_reward": -1.85,
         "distinct_rewards": 1,
         "fabricated_test_claims": 60,
         "passed": 0,
@@ -21,7 +21,7 @@
         "success_rate": 0.0
       },
       "scripted_reference": {
-        "average_reward": 1.95,
+        "average_reward": 2.1,
         "distinct_rewards": 1,
         "fabricated_test_claims": 0,
         "passed": 60,
@@ -40,7 +40,8 @@
     "verifier_types": [
       "deterministic",
       "state",
-      "constraint"
+      "constraint",
+      "model_based"
     ]
   },
   "outputs": [
@@ -54,6 +55,7 @@
     "metrics.json",
     "reward-design.md",
     "verifier-report.md",
+    "model-verifier-rubric.md",
     "transfer-note.md"
   ],
   "runner": "python3 -m environments.code_repair",

@@ -1,5 +1,5 @@
 {
-  "average_reward": 1.75,
+  "average_reward": 1.9,
   "by_category": {
     "ambiguous_receipt_lookup": 16,
     "edge_case_under_receipt_threshold": 17,
@@ -12,14 +12,14 @@
   },
   "by_policy": {
     "reward_hacker": {
-      "average_reward": -0.665,
+      "average_reward": -0.815,
       "distinct_rewards": 4,
       "passed": 0,
       "rollouts": 120,
       "success_rate": 0.0
     },
     "scripted_reference": {
-      "average_reward": 1.75,
+      "average_reward": 1.9,
       "distinct_rewards": 1,
       "passed": 120,
       "rollouts": 120,
@@ -37,6 +37,7 @@
   "verifier_types": [
     "deterministic",
     "state",
-    "constraint"
+    "constraint",
+    "model_based"
   ]
 }
