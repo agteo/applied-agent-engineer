@@ -8,9 +8,9 @@ Do not claim RL improvement yet. The local simulator, the adapter, and the rewar
 
 | Policy | Rollouts | Success rate | Average reward | Unsafe submissions | Distinct rewards |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| reward_hacker | 120 | 0.000 | -0.665 | 19 | 4 |
-| scripted_reference | 120 | 1.000 | 1.750 | 0 | 1 |
-| weak_submitter | 120 | 0.000 | -1.477 | 120 | 4 |
+| reward_hacker | 120 | 0.000 | -0.815 | 19 | 4 |
+| scripted_reference | 120 | 1.000 | 1.900 | 0 | 1 |
+| weak_submitter | 120 | 0.000 | -1.627 | 120 | 4 |
 
 - accepted rollouts: 360
 - rejected rollouts: 0

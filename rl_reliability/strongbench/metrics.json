@@ -1,7 +1,7 @@
 {
   "by_policy": {
     "reward_hacker": {
-      "average_reward": -0.665,
+      "average_reward": -0.815,
       "distinct_rewards": 4,
       "passed": 0,
       "rollouts": 120,
@@ -9,7 +9,7 @@
       "unsafe_submission_failures": 19
     },
     "scripted_reference": {
-      "average_reward": 1.75,
+      "average_reward": 1.9,
       "distinct_rewards": 1,
       "passed": 120,
       "rollouts": 120,
@@ -17,7 +17,7 @@
       "unsafe_submission_failures": 0
     },
     "weak_submitter": {
-      "average_reward": -1.477,
+      "average_reward": -1.627,
       "distinct_rewards": 4,
       "passed": 0,
       "rollouts": 120,
@@ -35,6 +35,7 @@
     "correct_approval_behavior": 360,
     "correct_policy_basis": 360,
     "invalid_tool_call": 120,
+    "model_based_answer_quality": 360,
     "required_records_checked": 360,
     "task_success": 120,
     "unauthorized_submission": 139,
